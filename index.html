@@ -6,6 +6,7 @@
   <title>LEÑADO — Trabajo Práctico Integrador · Menú, Diseño y Ambientación</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <style>
     :root {
       --carbon:  #0d0d0d;
@@ -309,6 +310,17 @@
     .fb-tags { display:flex; gap:.8rem; flex-wrap:wrap; }
     .fb-tag { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; padding:.25rem .7rem; border:1px solid rgba(184,115,51,.18); color:var(--stone); }
 
+    /* ── PHOSPHOR ICONS ── */
+    i[class*="ph-"] { display:inline-block; line-height:1; vertical-align:middle; }
+    .id-card .icon i  { font-size:1.9rem; color:var(--copper); }
+    .pp .icon i       { font-size:1.9rem; color:var(--copper); }
+    .ei-card .ei-icon i { font-size:2.1rem; color:var(--copper); }
+    .mood-item .mi i  { font-size:2rem; color:var(--beige); }
+    .comp-logo-placeholder i { font-size:1.6rem; color:var(--copper); }
+    .drink-col h4 i   { font-size:1rem; margin-right:.45rem; vertical-align:-.1em; }
+    .star-icon        { color:var(--ember); font-size:.85em; margin-left:.15rem; vertical-align:middle; }
+    .mock-fire i      { font-size:2.8rem; color:var(--fire); }
+
     /* ── RESPONSIVE ── */
 
     /* 1024px — tablet landscape */
@@ -471,32 +483,32 @@
 
     <div class="identity-grid">
       <div class="id-card rv d1">
-        <div class="icon">🍽️</div>
+        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
         <h3>Tipo de restaurante</h3>
         <p><strong>Restaurante premium à la carte</strong> con foco en cocina a fuego vivo. Categoría: steakhouse contemporáneo con influencias BBQ y latinoamericanas. Capacidad estimada: 50-70 cubiertos.</p>
       </div>
       <div class="id-card rv d2">
-        <div class="icon">👥</div>
+        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
         <h3>Público objetivo</h3>
         <p><strong>25 a 55 años</strong>, nivel socioeconómico medio-alto. Profesionales, turistas gastronómicos y foodies apasionados. Valoran la experiencia, el origen de los ingredientes y la técnica visible.</p>
       </div>
       <div class="id-card rv d3">
-        <div class="icon">🔥</div>
+        <div class="icon"><i class="ph-thin ph-flame"></i></div>
         <h3>Estilo gastronómico</h3>
         <p><strong>Fusión</strong> de la parrilla argentina, el BBQ norteamericano y la cocina a fuego latinoamericana. Técnica única y unificadora: la leña como protagonista absoluta de cada preparación.</p>
       </div>
       <div class="id-card rv d1">
-        <div class="icon">💰</div>
+        <div class="icon"><i class="ph-thin ph-currency-dollar"></i></div>
         <h3>Nivel de precios</h3>
         <p><strong>Premium accesible.</strong> Ticket promedio estimado: $18.000–$28.000 ARS por persona con bebida. Posicionamiento por encima de la media local pero sin llegar al segmento de lujo.</p>
       </div>
       <div class="id-card rv d2">
-        <div class="icon">⭐</div>
+        <div class="icon"><i class="ph-thin ph-star"></i></div>
         <h3>Tipo de experiencia</h3>
         <p><strong>Inmersiva y relajada con momentos teatrales.</strong> El fuego visible, los tiempos de cocción lentos y el servicio consultivo crean una experiencia que dura más de lo previsto —y se disfruta por eso.</p>
       </div>
       <div class="id-card rv d3">
-        <div class="icon">🎨</div>
+        <div class="icon"><i class="ph-thin ph-palette"></i></div>
         <h3>Estilo visual del menú</h3>
         <p><strong>Moderno-artesanal premium.</strong> Oscuro, con acentos en cobre y fuego. No minimalista ni clásico: una estética de refugio de montaña contemporáneo donde el diseño acompaña sin competir con el plato.</p>
       </div>
@@ -614,7 +626,7 @@
     <div class="dishes-grid">
       <div class="dish dish-star rv d1" style="grid-column:1/-1">
         <div class="dish-info">
-          <h4>Brisket Ahumado · 12 Horas ⭐</h4>
+          <h4>Brisket Ahumado · 12 Horas <i class="ph-thin ph-star star-icon"></i></h4>
           <p>Pecho de res seleccionado, rub exclusivo de sal gruesa, pimienta negra, comino y ajo ahumado. Ahumado en quebracho blanco las primeras 8 horas, mezquite en las últimas 4. Rebanado al momento frente al comensal. Acompañado de salsa BBQ de la casa.</p>
         </div>
         <div class="dish-right"><span class="dish-tag">Plato estrella · Ahumado 12h</span></div>
@@ -683,7 +695,7 @@
     </div>
     <div class="drinks-grid">
       <div class="drink-col rv d1">
-        <h4>🍷 Vinos</h4>
+        <h4><i class="ph-thin ph-wine"></i> Vinos</h4>
         <ul>
           <li>Malbec Mendoza (copa / botella)</li>
           <li>Cabernet Sauvignon San Juan</li>
@@ -693,7 +705,7 @@
         </ul>
       </div>
       <div class="drink-col rv d2">
-        <h4>🍺 Cervezas y Coctelería</h4>
+        <h4><i class="ph-thin ph-champagne"></i> Cervezas y Coctelería</h4>
         <ul>
           <li>Selección artesanal local · Mar del Plata</li>
           <li>Negroni Ahumado — Gin, Campari, Vermouth, chips de cerezo</li>
@@ -703,7 +715,7 @@
         </ul>
       </div>
       <div class="drink-col rv d3">
-        <h4>🥤 Sin Alcohol</h4>
+        <h4><i class="ph-thin ph-drop"></i> Sin Alcohol</h4>
         <ul>
           <li>Agua mineral con gas / sin gas</li>
           <li>Limonada de jengibre y menta fresca</li>
@@ -713,7 +725,7 @@
         </ul>
       </div>
       <div class="drink-col rv d1" style="grid-column:1/-1;max-width:360px;">
-        <h4>🫧 Gasificadas</h4>
+        <h4><i class="ph-thin ph-sparkle"></i> Gasificadas</h4>
         <ul>
           <li>Coca-Cola · clásica o zero</li>
           <li>Sprite · lima-limón</li>
@@ -796,7 +808,7 @@
       <div class="rvl">
         <div class="menu-mockup">
           <div class="mock-cover">
-            <div class="fire">🔥</div>
+            <div class="mock-fire"><i class="ph-thin ph-flame"></i></div>
             <div class="brand">LEÑADO</div>
             <div class="line"></div>
             <div class="tagline">"Donde el fuego transforma cada experiencia."</div>
@@ -830,7 +842,7 @@
           </div>
           <div class="spec-row">
             <span class="spec-label">Organización</span>
-            <div class="spec-value"><strong>Entradas → Platos Principales → Postres → Bebidas.</strong> Una página por sección. Plato estrella destacado con indicador visual (⭐). Máximo 4 ítems por categoría.</div>
+            <div class="spec-value"><strong>Entradas → Platos Principales → Postres → Bebidas.</strong> Una página por sección. Plato estrella destacado con indicador visual (<i class="ph-thin ph-star" style="color:var(--ember);font-size:.9em;"></i>). Máximo 4 ítems por categoría.</div>
           </div>
           <div class="spec-row">
             <span class="spec-label">Tamaño y orientación</span>
@@ -968,22 +980,22 @@
 
     <div class="pitch-pillars">
       <div class="pp rv d1">
-        <div class="icon">🔥</div>
+        <div class="icon"><i class="ph-thin ph-flame"></i></div>
         <h4>Identidad</h4>
         <p>El fuego de leña no es decoración. Es la técnica, es la filosofía, es el diferencial que une cada decisión del proyecto.</p>
       </div>
       <div class="pp rv d2">
-        <div class="icon">🍽️</div>
+        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
         <h4>Concepto</h4>
         <p>Restaurante premium à la carte de cocina a fuego vivo. Fusión argentina, BBQ y latinoamericana bajo una sola técnica.</p>
       </div>
       <div class="pp rv d3">
-        <div class="icon">👥</div>
+        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
         <h4>Público</h4>
         <p>25-55 años, NSE medio-alto. Locales que buscan novedad con garantía, turistas que buscan autenticidad, foodies que buscan técnica.</p>
       </div>
       <div class="pp rv d4">
-        <div class="icon">🎨</div>
+        <div class="icon"><i class="ph-thin ph-palette"></i></div>
         <h4>Diseño</h4>
         <p>Cuero, madera, hierro. Oscuro y cálido. La carta, el espacio y la vajilla hablan el mismo idioma: autenticidad sin artificios.</p>
       </div>
@@ -1035,7 +1047,7 @@
       <!-- CARTA 1 -->
       <div class="comp-card rv d1">
         <div class="comp-card-header">
-          <div class="comp-logo-placeholder">🥩</div>
+          <div class="comp-logo-placeholder"><i class="ph-thin ph-fork-knife"></i></div>
           <div>
             <h3>Don Julio — Buenos Aires</h3>
             <p>Parrilla argentina de alta gama · Palermo · Distinción Michelin</p>
@@ -1073,7 +1085,7 @@
       <!-- CARTA 2 -->
       <div class="comp-card rv d2">
         <div class="comp-card-header">
-          <div class="comp-logo-placeholder">🔥</div>
+          <div class="comp-logo-placeholder"><i class="ph-thin ph-flame"></i></div>
           <div>
             <h3>Proper — Buenos Aires</h3>
             <p>Cocina a leña · Palermo · Referente BBQ porteño</p>
@@ -1151,46 +1163,46 @@
 
     <div class="exp-integral">
       <div class="ei-card rv d1">
-        <div class="ei-icon">👃</div>
+        <div class="ei-icon"><i class="ph-thin ph-wind"></i></div>
         <h3>Aromas</h3>
         <p>Madera encendida desde las 11am. El humo suave que llega a la calle antes de ver el local es la primera comunicación de marca. Sin aromatizadores artificiales.</p>
       </div>
       <div class="ei-card rv d2">
-        <div class="ei-icon">🎵</div>
+        <div class="ei-icon"><i class="ph-thin ph-music-notes"></i></div>
         <h3>Música</h3>
         <p>Jazz, blues y folk curado mensualmente. Volumen que permite la conversación. Sin playlists automáticas. La música ambienta, no protagoniza.</p>
       </div>
       <div class="ei-card rv d3">
-        <div class="ei-icon">💡</div>
+        <div class="ei-icon"><i class="ph-thin ph-lightbulb"></i></div>
         <h3>Iluminación</h3>
         <p>Luz ámbar 2400K. Spots en cada mesa. El fuego del horno como fuente de luz cálida natural. Velas de cera como complemento.</p>
       </div>
       <div class="ei-card rv d1">
-        <div class="ei-icon">🍽️</div>
+        <div class="ei-icon"><i class="ph-thin ph-fork-knife"></i></div>
         <h3>Vajilla</h3>
         <p>Tablas de madera para carnes, piedra negra para entradas, hierro fundido para guarniciones, cristal fino para vinos. Sin platos blancos lisos.</p>
       </div>
       <div class="ei-card rv d2">
-        <div class="ei-icon">🛤️</div>
+        <div class="ei-icon"><i class="ph-thin ph-path"></i></div>
         <h3>Recorrido del cliente</h3>
         <p>Aroma → fachada austera → horno visible al entrar → servicio bienvenida → carta en cuero → proceso narrado → plato en tabla → recomendación final → despedida cálida.</p>
       </div>
       <div class="ei-card rv d3">
-        <div class="ei-icon">👔</div>
+        <div class="ei-icon"><i class="ph-thin ph-t-shirt"></i></div>
         <h3>Uniformes</h3>
         <p>Delantales de cuero oscuro sobre camisa negra. Sin logos grandes. La indumentaria transmite el mismo mensaje que el espacio: artesanal, austero, con carácter.</p>
       </div>
     </div>
 
     <div class="moodboard">
-      <div class="mood-item rv d1"><div class="mi">🔥</div><span>Fuego vivo</span></div>
-      <div class="mood-item rv d2"><div class="mi">🪵</div><span>Leña de quebracho</span></div>
-      <div class="mood-item rv d3"><div class="mi">🥩</div><span>Cortes selectos</span></div>
-      <div class="mood-item rv d4"><div class="mi">🫙</div><span>Chimichurri artesanal</span></div>
-      <div class="mood-item rv d1"><div class="mi">🪨</div><span>Piedra y hierro</span></div>
-      <div class="mood-item rv d2"><div class="mi">🕯️</div><span>Luz cálida</span></div>
-      <div class="mood-item rv d3"><div class="mi">🎸</div><span>Jazz y blues</span></div>
-      <div class="mood-item rv d4"><div class="mi">🍷</div><span>Vino argentino</span></div>
+      <div class="mood-item rv d1"><div class="mi"><i class="ph-thin ph-flame"></i></div><span>Fuego vivo</span></div>
+      <div class="mood-item rv d2"><div class="mi"><i class="ph-thin ph-tree-evergreen"></i></div><span>Leña de quebracho</span></div>
+      <div class="mood-item rv d3"><div class="mi"><i class="ph-thin ph-knife"></i></div><span>Cortes selectos</span></div>
+      <div class="mood-item rv d4"><div class="mi"><i class="ph-thin ph-jar-label"></i></div><span>Chimichurri artesanal</span></div>
+      <div class="mood-item rv d1"><div class="mi"><i class="ph-thin ph-mountains"></i></div><span>Piedra y hierro</span></div>
+      <div class="mood-item rv d2"><div class="mi"><i class="ph-thin ph-candle"></i></div><span>Luz cálida</span></div>
+      <div class="mood-item rv d3"><div class="mi"><i class="ph-thin ph-guitar"></i></div><span>Jazz y blues</span></div>
+      <div class="mood-item rv d4"><div class="mi"><i class="ph-thin ph-wine"></i></div><span>Vino argentino</span></div>
     </div>
 
     <div class="qblock rv" style="margin-top:3rem;">
