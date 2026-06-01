@@ -321,6 +321,50 @@
     .star-icon        { color:var(--ember); font-size:.85em; margin-left:.15rem; vertical-align:middle; }
     .mock-fire i      { font-size:2.8rem; color:var(--fire); }
 
+
+    /* ── TAB SYSTEM ── */
+    .tab-bar {
+      position: sticky; top: 58px; z-index: 900;
+      background: rgba(10,8,4,.97); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,115,51,.15);
+      display: flex; overflow-x: auto; scrollbar-width: none;
+      padding: 0 2.5rem;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex-shrink: 0; padding: .95rem 1.5rem;
+      background: none; border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--stone);
+      font-family: 'Oswald', sans-serif; font-size: .72rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      cursor: pointer; white-space: nowrap;
+      transition: color .25s, border-color .25s;
+    }
+    .tab-btn:hover { color: var(--beige); }
+    .tab-btn.active { color: var(--copper); border-bottom-color: var(--copper); }
+    .tab-num { color: var(--fire); font-size: .6rem; margin-right: .3rem; opacity: .8; }
+
+    /* panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: tabIn .38s ease; }
+    @keyframes tabIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+    /* hero panel keeps its own bg */
+    #tab-inicio { background: radial-gradient(ellipse 70% 90% at 50% 100%, rgba(232,96,28,.3) 0%, transparent 65%), linear-gradient(160deg,#0d0d0d 0%,#1a1008 50%,#2a1205 100%); min-height: calc(100vh - 108px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+    /* tab-panel sections inherit their own BG — keep padding */
+    .tab-panel > section,
+    .tab-panel > div > section { scroll-margin-top: 108px; }
+
+    /* combine panels have slight separator */
+    .tab-panel .bg-dark + .bg-glow-bottom { border-top: 1px solid rgba(184,115,51,.08); }
+
+    @media(max-width:768px){
+      .tab-bar { padding: 0 1rem; top: 54px; }
+      .tab-btn { padding: .8rem 1.1rem; font-size: .65rem; letter-spacing:.16em; }
+    }
+
     /* ── RESPONSIVE ── */
 
     /* 1024px — tablet landscape */
@@ -434,7 +478,27 @@
 </nav>
 
 <!-- HERO -->
-<section id="hero">
+<body>
+
+<!-- NAV: logo only — tabs are the navigation -->
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="activateTab('inicio');return false;">LEÑADO</a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn" data-tab="inicio">Inicio</button>
+  <button class="tab-btn" data-tab="carta"><span class="tab-num">01</span>La Carta</button>
+  <button class="tab-btn" data-tab="menu"><span class="tab-num">02</span>El Menú</button>
+  <button class="tab-btn" data-tab="estrategia"><span class="tab-num">03–06</span>Estrategia</button>
+  <button class="tab-btn" data-tab="diseno"><span class="tab-num">04–05</span>Diseño & Ambiente</button>
+  <button class="tab-btn" data-tab="analisis">Análisis</button>
+</div>
+
+<!-- TAB: INICIO -->
+<div class="tab-panel" id="tab-inicio">
+<div class="hero-wrap">
   <div class="particles" id="pts"></div>
   <div class="hero-content">
     <p class="hero-institution">Materia: Menú, Diseño y Ambientación de Restaurantes · Docente: Silvina Galacho</p>
@@ -462,16 +526,12 @@
     </div>
     <a href="#act1" class="hero-cta">Explorar el trabajo ↓</a>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
+</div>
 
+</div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 1 — "La carta habla antes que el mozo"
-     ═══════════════════════════════════════════════════════════ -->
+<!-- TAB: LA CARTA -->
+<div class="tab-panel" id="tab-carta">
 <section id="act1" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -561,10 +621,10 @@
   </div>
 </section>
 
+</div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 2 — Confección del Menú Principal
-     ═══════════════════════════════════════════════════════════ -->
+<!-- TAB: EL MENÚ -->
+<div class="tab-panel" id="tab-menu">
 <section id="act2" class="bg-glow-top">
   <div class="container">
     <div class="rv">
@@ -737,10 +797,10 @@
   </div>
 </section>
 
+</div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 3 — Psicología del Menú
-     ═══════════════════════════════════════════════════════════ -->
+<!-- TAB: ESTRATEGIA (act3 + act6) -->
+<div class="tab-panel" id="tab-estrategia">
 <section id="act3" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -789,11 +849,75 @@
     </div>
   </div>
 </section>
+<section id="act6" class="bg-glow-bottom">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Actividad 6</span>Vendeme tu restaurante</p>
+      <h2 class="section-title">El <em>pitch</em> de Leñado</h2>
+      <div class="rule"></div>
+    </div>
 
+    <div class="pitch-hero rv">
+      <h2>"No abrimos un restaurante. Abrimos un fuego."</h2>
+      <p>Mar del Plata tiene cientos de opciones gastronómicas. Ninguna centra su propuesta entera en la cocina a leña como técnica, espectáculo y filosofía. Leñado llega a llenar ese espacio vacío con una propuesta sólida, diferenciada y con una identidad que no puede copiarse porque nace de una convicción, no de una moda.</p>
+    </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 4 — Diseño Visual de la Carta
-     ═══════════════════════════════════════════════════════════ -->
+    <div class="pitch-pillars">
+      <div class="pp rv d1">
+        <div class="icon"><i class="ph-thin ph-flame"></i></div>
+        <h4>Identidad</h4>
+        <p>El fuego de leña no es decoración. Es la técnica, es la filosofía, es el diferencial que une cada decisión del proyecto.</p>
+      </div>
+      <div class="pp rv d2">
+        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
+        <h4>Concepto</h4>
+        <p>Restaurante premium à la carte de cocina a fuego vivo. Fusión argentina, BBQ y latinoamericana bajo una sola técnica.</p>
+      </div>
+      <div class="pp rv d3">
+        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
+        <h4>Público</h4>
+        <p>25-55 años, NSE medio-alto. Locales que buscan novedad con garantía, turistas que buscan autenticidad, foodies que buscan técnica.</p>
+      </div>
+      <div class="pp rv d4">
+        <div class="icon"><i class="ph-thin ph-palette"></i></div>
+        <h4>Diseño</h4>
+        <p>Cuero, madera, hierro. Oscuro y cálido. La carta, el espacio y la vajilla hablan el mismo idioma: autenticidad sin artificios.</p>
+      </div>
+    </div>
+
+    <div class="pitch-diferencial">
+      <div class="pd-col rv d1">
+        <h3>Lo que tenemos que ninguno tiene</h3>
+        <ul>
+          <li>Cocina 100% a leña visible desde el salón</li>
+          <li>Brisket ahumado 12 horas — técnica única en Mar del Plata</li>
+          <li>Fusión de tres tradiciones bajo una sola técnica</li>
+          <li>Diseño de experiencia integral: carta, espacio, servicio y plato</li>
+          <li>Carta concisa con 4 platos por sección — foco absoluto</li>
+          <li>Equipo formado en cocina a fuego vivo y servicio consultivo</li>
+          <li>Identidad de marca coherente en cada punto de contacto</li>
+        </ul>
+      </div>
+      <div class="pd-col rv d2">
+        <h3>Por qué funciona en Mar del Plata</h3>
+        <ul>
+          <li>Más de 3 millones de turistas anuales con demanda gastronómica creciente</li>
+          <li>Cero competidores directos identificados en el segmento BBQ premium</li>
+          <li>Turista 2024: busca experiencia memorable, no solo precio</li>
+          <li>Comunidad local foodie en expansión sostenida</li>
+          <li>Estacionalidad parcial: turismo de todo el año en MdP</li>
+          <li>Alto potencial de viralización en redes por el componente visual del fuego</li>
+          <li>Alianzas posibles con productores ganaderos regionales</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- TAB: DISEÑO & AMBIENTE (act4 + act5) -->
+<div class="tab-panel" id="tab-diseno">
 <section id="act4" class="bg-carbon">
   <div class="container">
     <div class="rv">
@@ -893,11 +1017,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 5 — Relación entre Menú y Ambientación
-     ═══════════════════════════════════════════════════════════ -->
 <section id="act5" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -961,79 +1080,10 @@
   </div>
 </section>
 
+</div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD 6 — "Vendeme tu restaurante"
-     ═══════════════════════════════════════════════════════════ -->
-<section id="act6" class="bg-glow-bottom">
-  <div class="container">
-    <div class="rv">
-      <p class="section-eyebrow"><span class="act">Actividad 6</span>Vendeme tu restaurante</p>
-      <h2 class="section-title">El <em>pitch</em> de Leñado</h2>
-      <div class="rule"></div>
-    </div>
-
-    <div class="pitch-hero rv">
-      <h2>"No abrimos un restaurante. Abrimos un fuego."</h2>
-      <p>Mar del Plata tiene cientos de opciones gastronómicas. Ninguna centra su propuesta entera en la cocina a leña como técnica, espectáculo y filosofía. Leñado llega a llenar ese espacio vacío con una propuesta sólida, diferenciada y con una identidad que no puede copiarse porque nace de una convicción, no de una moda.</p>
-    </div>
-
-    <div class="pitch-pillars">
-      <div class="pp rv d1">
-        <div class="icon"><i class="ph-thin ph-flame"></i></div>
-        <h4>Identidad</h4>
-        <p>El fuego de leña no es decoración. Es la técnica, es la filosofía, es el diferencial que une cada decisión del proyecto.</p>
-      </div>
-      <div class="pp rv d2">
-        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
-        <h4>Concepto</h4>
-        <p>Restaurante premium à la carte de cocina a fuego vivo. Fusión argentina, BBQ y latinoamericana bajo una sola técnica.</p>
-      </div>
-      <div class="pp rv d3">
-        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
-        <h4>Público</h4>
-        <p>25-55 años, NSE medio-alto. Locales que buscan novedad con garantía, turistas que buscan autenticidad, foodies que buscan técnica.</p>
-      </div>
-      <div class="pp rv d4">
-        <div class="icon"><i class="ph-thin ph-palette"></i></div>
-        <h4>Diseño</h4>
-        <p>Cuero, madera, hierro. Oscuro y cálido. La carta, el espacio y la vajilla hablan el mismo idioma: autenticidad sin artificios.</p>
-      </div>
-    </div>
-
-    <div class="pitch-diferencial">
-      <div class="pd-col rv d1">
-        <h3>Lo que tenemos que ninguno tiene</h3>
-        <ul>
-          <li>Cocina 100% a leña visible desde el salón</li>
-          <li>Brisket ahumado 12 horas — técnica única en Mar del Plata</li>
-          <li>Fusión de tres tradiciones bajo una sola técnica</li>
-          <li>Diseño de experiencia integral: carta, espacio, servicio y plato</li>
-          <li>Carta concisa con 4 platos por sección — foco absoluto</li>
-          <li>Equipo formado en cocina a fuego vivo y servicio consultivo</li>
-          <li>Identidad de marca coherente en cada punto de contacto</li>
-        </ul>
-      </div>
-      <div class="pd-col rv d2">
-        <h3>Por qué funciona en Mar del Plata</h3>
-        <ul>
-          <li>Más de 3 millones de turistas anuales con demanda gastronómica creciente</li>
-          <li>Cero competidores directos identificados en el segmento BBQ premium</li>
-          <li>Turista 2024: busca experiencia memorable, no solo precio</li>
-          <li>Comunidad local foodie en expansión sostenida</li>
-          <li>Estacionalidad parcial: turismo de todo el año en MdP</li>
-          <li>Alto potencial de viralización en redes por el componente visual del fuego</li>
-          <li>Alianzas posibles con productores ganaderos regionales</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     ACTIVIDAD EXTRA — Análisis Comparativo de Cartas
-     ═══════════════════════════════════════════════════════════ -->
+<!-- TAB: ANÁLISIS (extra + experiencia) -->
+<div class="tab-panel" id="tab-analisis">
 <section id="extra" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -1147,11 +1197,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     EXPERIENCIA GASTRONÓMICA INTEGRAL
-     ═══════════════════════════════════════════════════════════ -->
 <section id="experiencia" class="bg-glow-top">
   <div class="container">
     <div class="rv">
@@ -1211,8 +1256,8 @@
   </div>
 </section>
 
+</div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="fb-brand">
@@ -1256,9 +1301,10 @@
 
 
 <script>
-  // particles
+  // Particles
   (function(){
     const c=document.getElementById('pts');
+    if(!c) return;
     const cols=['rgba(232,96,28,.65)','rgba(245,158,11,.5)','rgba(184,115,51,.45)'];
     for(let i=0;i<35;i++){
       const p=document.createElement('div');
@@ -1269,27 +1315,47 @@
     }
   })();
 
-  // nav scroll
+  // Nav scroll
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
 
-  // reveal
+  // Intersection observer for reveal animations
   const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
-  },{threshold:.1});
-  document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>io.observe(el));
+  },{threshold:.08});
 
-  // hamburger
+  function observePanel(panelId){
+    document.querySelectorAll('#'+panelId+' .rv, #'+panelId+' .rvl, #'+panelId+' .rvr').forEach(el=>io.observe(el));
+  }
+
+  // Tab system
+  const tabBtns   = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  function activateTab(id, push){
+    tabBtns.forEach(b=>b.classList.toggle('active', b.dataset.tab===id));
+    tabPanels.forEach(p=>p.classList.toggle('active', p.id==='tab-'+id));
+    window.scrollTo({top:0, behavior:'instant'});
+    setTimeout(()=>observePanel('tab-'+id), 60);
+    if(push !== false) history.replaceState(null,'','#'+id);
+  }
+
+  tabBtns.forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.tab)));
+
+  // Init
+  const hash = location.hash.replace('#','');
+  const validTabs = ['inicio','carta','menu','estrategia','diseno','analisis'];
+  activateTab(validTabs.includes(hash) ? hash : 'inicio', false);
+
+  // Hamburger (mobile) — now cycles through tabs
   const hbg=document.getElementById('hbg');
-  const nl=document.querySelector('.nav-links');
-  hbg.addEventListener('click',()=>{
-    const open=nl.style.display==='flex';
-    nl.style.display=open?'none':'flex';
-    if(!open){
-      Object.assign(nl.style,{position:'absolute',top:'100%',left:'0',right:'0',background:'rgba(13,13,13,.97)',flexDirection:'column',padding:'2rem',gap:'1.5rem',borderBottom:'1px solid rgba(184,115,51,.15)'});
-    }
-  });
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nl.style.display='none'));
+  const tabBar=document.querySelector('.tab-bar');
+  if(hbg && tabBar){
+    hbg.addEventListener('click',()=>{
+      tabBar.style.height = tabBar.style.height ? '' : 'auto';
+    });
+  }
 </script>
+
 </body>
 </html>
