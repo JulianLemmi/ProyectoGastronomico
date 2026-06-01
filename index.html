@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEÑADO — Donde el fuego transforma cada experiencia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --carbon:   #0d0d0d;
+      --dark:     #1a1108;
+      --brown:    #3b2007;
+      --stone:    #4a4540;
+      --copper:   #b87333;
+      --fire:     #e8601c;
+      --ember:    #f59e0b;
+      --beige:    #d4b896;
+      --cream:    #f5ede3;
+      --white:    #faf8f5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--carbon);
+      color: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,115,51,0.15);
+      transition: padding .3s;
+    }
+    nav.scrolled { padding: .8rem 4rem; }
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem; font-weight: 700;
+      letter-spacing: .25em;
+      color: var(--copper);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--fire); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--beige); font-size: .8rem; letter-spacing: .12em;
+      text-transform: uppercase; text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--copper); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--beige); transition: .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 100%, rgba(232,96,28,.35) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 30% 80%, rgba(184,115,51,.2) 0%, transparent 55%),
+        linear-gradient(to bottom, #0d0d0d 0%, #1a1108 40%, #2a1205 100%);
+      z-index: 0;
+    }
+    /* animated fire particles */
+    .particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+    .particle {
+      position: absolute; border-radius: 50%;
+      animation: rise linear infinite;
+      opacity: 0;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(1);   opacity: .7; }
+      100% { transform: translateY(-120vh) scale(.1); opacity: 0; }
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 2rem 1.5rem;
+      max-width: 900px;
+    }
+    .hero-pre {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem; letter-spacing: .35em;
+      color: var(--copper); text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .8s .4s forwards;
+    }
+    .hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(5rem, 18vw, 14rem);
+      font-weight: 700; line-height: .9;
+      letter-spacing: .05em;
+      color: var(--white);
+      text-shadow: 0 0 80px rgba(232,96,28,.4);
+      opacity: 0; animation: fadeUp .9s .6s forwards;
+    }
+    .hero-title .fire-letter { color: var(--fire); }
+    .hero-divider {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      margin: 1.8rem auto;
+      opacity: 0; animation: fadeUp .6s .9s forwards;
+    }
+    .hero-slogan {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      font-style: italic; font-weight: 400;
+      color: var(--beige); letter-spacing: .03em;
+      opacity: 0; animation: fadeUp .8s 1s forwards;
+    }
+    .hero-sub {
+      margin-top: .8rem;
+      font-size: .9rem; letter-spacing: .08em; color: var(--stone);
+      text-transform: uppercase;
+      opacity: 0; animation: fadeUp .6s 1.2s forwards;
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: inline-flex; align-items: center; gap: .7rem;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--copper); color: var(--copper);
+      font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+      text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 500;
+      transition: background .3s, color .3s;
+      opacity: 0; animation: fadeUp .6s 1.4s forwards;
+    }
+    .hero-cta:hover { background: var(--copper); color: var(--carbon); }
+    .hero-cta svg { transition: transform .3s; }
+    .hero-cta:hover svg { transform: translateY(3px); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      opacity: 0; animation: fadeIn 1s 2s forwards;
+    }
+    .hero-scroll span { font-size: .65rem; letter-spacing: .2em; color: var(--stone); text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--copper), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .3; transform: scaleY(1); }
+      50%      { opacity: 1;  transform: scaleY(1.2); }
+    }
+
+    @keyframes fadeUp  { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 7rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: .7rem; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--copper); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--white);
+    }
+    .section-title em { color: var(--fire); font-style: italic; }
+    .divider-line {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+      margin: 1.5rem 0;
+    }
+    .lead { font-size: 1.1rem; color: var(--beige); max-width: 650px; line-height: 1.9; }
+
+    /* reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { opacity:0; transform: translateX(-40px); transition: opacity .7s, transform .7s; }
+    .reveal-left.visible  { opacity:1; transform:none; }
+    .reveal-right { opacity:0; transform: translateX(40px); transition: opacity .7s, transform .7s; }
+    .reveal-right.visible { opacity:1; transform:none; }
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
+    .delay-4 { transition-delay: .4s; }
+    .delay-5 { transition-delay: .5s; }
+
+    /* ── CONCEPTO ── */
+    #concepto { background: var(--dark); }
+    .concepto-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; margin-top: 4rem;
+    }
+    .concepto-visual {
+      position: relative;
+    }
+    .fire-circle {
+      width: 100%; aspect-ratio: 1;
+      max-width: 440px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center,
+        rgba(232,96,28,.35) 0%,
+        rgba(184,115,51,.15) 40%,
+        rgba(26,17,8,.8) 80%,
+        transparent 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(184,115,51,.25);
+      position: relative;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100% { box-shadow: 0 0 60px rgba(232,96,28,.15); }
+      50%      { box-shadow: 0 0 120px rgba(232,96,28,.3); }
+    }
+    .fire-circle-inner {
+      width: 65%; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(ellipse at center,
+        rgba(232,96,28,.5), rgba(184,115,51,.2) 60%, transparent);
+      display: flex; align-items: center; justify-content: center;
+      animation: pulseGlow 2.5s ease-in-out infinite reverse;
+    }
+    .fire-icon { font-size: 5rem; }
+    .concepto-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .stat-card {
+      padding: 1.5rem;
+      border: 1px solid rgba(184,115,51,.2);
+      border-top: 2px solid var(--copper);
+      background: rgba(255,255,255,.03);
+    }
+    .stat-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--fire);
+    }
+    .stat-label { font-size: .75rem; letter-spacing: .1em; color: var(--beige); text-transform: uppercase; margin-top: .3rem; }
+    .concepto-text p { color: var(--beige); margin-bottom: 1.2rem; }
+    .highlight-box {
+      margin-top: 2rem; padding: 1.5rem;
+      border-left: 3px solid var(--fire);
+      background: rgba(232,96,28,.06);
+    }
+    .highlight-box p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-style: italic;
+      color: var(--cream); margin: 0;
+    }
+
+    /* ── MVV ── */
+    #mvv {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,115,51,.08) 0%, transparent 60%),
+        var(--carbon);
+    }
+    .mvv-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin-top: 4rem;
+    }
+    .mvv-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      position: relative; overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+    .mvv-card:hover { border-color: var(--copper); transform: translateY(-4px); }
+    .mvv-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--fire), var(--copper), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .mvv-card:hover::before { opacity: 1; }
+    .mvv-icon {
+      font-size: 2rem; margin-bottom: 1.2rem;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(184,115,51,.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mvv-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--copper); margin-bottom: 1rem;
+    }
+    .mvv-card p { color: var(--beige); font-size: .95rem; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin-top: 3rem;
+    }
+    .value-pill {
+      padding: .8rem 1.2rem;
+      border: 1px solid rgba(184,115,51,.2);
+      text-align: center; font-size: .8rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--beige);
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .value-pill:hover { background: var(--copper); color: var(--carbon); border-color: var(--copper); }
+    .value-pill span { display: block; font-size: 1.2rem; margin-bottom: .4rem; }
+
+    /* ── EXPERIENCIA ── */
+    #experiencia { background: var(--dark); }
+    .exp-timeline {
+      position: relative; margin-top: 4rem;
+      padding-left: 2rem;
+    }
+    .exp-timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--fire), var(--copper), transparent);
+    }
+    .exp-step {
+      position: relative; padding: 0 0 3.5rem 3rem;
+    }
+    .exp-step::before {
+      content: ''; position: absolute; left: -7px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--fire);
+      box-shadow: 0 0 16px rgba(232,96,28,.6);
+    }
+    .exp-step-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: .7rem; letter-spacing: .2em;
+      color: var(--copper); text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .exp-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--white);
+      margin-bottom: .7rem;
+    }
+    .exp-step p { color: var(--beige); max-width: 580px; }
+    .exp-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      align-items: start;
+    }
+    .sensory-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-top: 2rem;
+    }
+    .sensory-card {
+      padding: 1.5rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(184,115,51,.15);
+      text-align: center;
+    }
+    .sensory-card .icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .sensory-card h4 { font-family: 'Oswald', sans-serif; color: var(--copper); font-size: .9rem; letter-spacing: .1em; }
+    .sensory-card p { font-size: .8rem; color: var(--stone); margin-top: .4rem; }
+
+    /* ── AMBIENTACION ── */
+    #ambientacion { background: var(--carbon); }
+    .amb-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin-top: 4rem;
+    }
+    .amb-card {
+      padding: 2rem;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      transition: transform .3s, border-color .3s;
+    }
+    .amb-card:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .amb-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--copper); margin-bottom: 1.2rem;
+    }
+    .material-list { list-style: none; }
+    .material-list li {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.05);
+      font-size: .9rem; color: var(--beige);
+    }
+    .material-list li::before { content: '—'; color: var(--copper); font-size: .8rem; }
+    .color-swatches { display: flex; gap: .8rem; margin-top: 1rem; flex-wrap: wrap; }
+    .swatch {
+      width: 48px; height: 48px; border-radius: 4px;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 4px;
+    }
+    .swatch span { font-size: .55rem; color: rgba(255,255,255,.7); }
+    .sensation-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+    .tag {
+      padding: .4rem .9rem; border: 1px solid rgba(184,115,51,.3);
+      font-size: .75rem; letter-spacing: .1em; color: var(--beige);
+      text-transform: uppercase;
+    }
+
+    /* ── PROPUESTA GASTRONOMICA ── */
+    #propuesta {
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(184,115,51,.07) 0%, transparent 70%), var(--dark);
+    }
+    .propuesta-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin-top: 4rem;
+    }
+    .inf-card {
+      padding: 2.5rem 2rem; text-align: center;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      transition: transform .3s, border-color .3s;
+    }
+    .inf-card:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .inf-flag { font-size: 2.5rem; margin-bottom: 1rem; }
+    .inf-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--copper); margin-bottom: .8rem;
+    }
+    .inf-card p { font-size: .9rem; color: var(--beige); }
+    .dish-examples {
+      margin-top: 1.2rem; display: flex; flex-direction: column; gap: .4rem;
+    }
+    .dish-item {
+      font-size: .8rem; padding: .4rem .8rem;
+      background: rgba(184,115,51,.08);
+      color: var(--cream);
+      text-align: left;
+    }
+
+    /* ── MENU ── */
+    #menu { background: var(--carbon); }
+    .menu-tabs {
+      display: flex; gap: 0; margin-top: 3rem; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(184,115,51,.2);
+    }
+    .menu-tab {
+      padding: .8rem 1.8rem; cursor: pointer;
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--stone); border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .menu-tab.active, .menu-tab:hover { color: var(--copper); border-bottom-color: var(--copper); }
+    .menu-panel { display: none; margin-top: 2.5rem; }
+    .menu-panel.active { display: block; }
+    .menu-items-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+      background: rgba(184,115,51,.1);
+    }
+    .menu-item {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 1.2rem 1.5rem;
+      background: var(--carbon);
+      transition: background .2s;
+    }
+    .menu-item:hover { background: rgba(184,115,51,.06); }
+    .menu-item-info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--white);
+    }
+    .menu-item-info p { font-size: .8rem; color: var(--stone); margin-top: .2rem; }
+    .menu-item-badge {
+      font-size: .7rem; letter-spacing: .1em;
+      padding: .2rem .6rem;
+      background: rgba(232,96,28,.15);
+      color: var(--fire); white-space: nowrap;
+    }
+
+    /* ── PLATO ESTRELLA ── */
+    #plato-estrella {
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 100%, rgba(232,96,28,.2) 0%, transparent 60%),
+        var(--dark);
+    }
+    .estrella-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; margin-top: 4rem;
+    }
+    .estrella-visual {
+      position: relative;
+    }
+    .plate-display {
+      width: 100%; aspect-ratio: 1; max-width: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,96,28,.3);
+      background:
+        radial-gradient(ellipse at center,
+          rgba(232,96,28,.15) 0%,
+          rgba(184,115,51,.08) 50%,
+          transparent 80%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    .plate-display .big-icon { font-size: 5rem; }
+    .plate-title-overlay {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--copper);
+    }
+    .estrella-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
+      color: var(--white);
+    }
+    .estrella-desc { color: var(--beige); margin: 1.5rem 0; }
+    .estrella-features {
+      display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem;
+    }
+    .feature-row {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .feature-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--fire); margin-top: .6rem; flex-shrink: 0;
+    }
+    .feature-row p { color: var(--beige); font-size: .9rem; }
+
+    /* ── PUBLICO ── */
+    #publico {
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(184,115,51,.07) 0%, transparent 60%), var(--carbon);
+    }
+    .publico-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin-top: 4rem;
+    }
+    .perfil-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      transition: transform .3s, border-color .3s;
+    }
+    .perfil-card:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .perfil-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(184,115,51,.3), rgba(232,96,28,.2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1.2rem;
+    }
+    .perfil-card h3 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--copper); font-size: 1rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .perfil-age {
+      font-size: .75rem; color: var(--fire);
+      letter-spacing: .1em; margin-bottom: 1rem;
+    }
+    .perfil-card ul { list-style: none; }
+    .perfil-card ul li {
+      padding: .4rem 0; font-size: .85rem; color: var(--beige);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex; gap: .6rem;
+    }
+    .perfil-card ul li::before { content: '›'; color: var(--copper); }
+    .pub-data-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .data-box {
+      padding: 1.5rem; text-align: center;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+    }
+    .data-box .big-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem; font-weight: 700; color: var(--fire);
+    }
+    .data-box p { font-size: .75rem; letter-spacing: .1em; color: var(--beige); text-transform: uppercase; margin-top: .4rem; }
+
+    /* ── FODA ── */
+    #foda { background: var(--dark); }
+    .foda-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      margin-top: 4rem;
+      background: rgba(184,115,51,.1);
+    }
+    .foda-quad {
+      padding: 3rem;
+      background: var(--dark);
+    }
+    .foda-quad h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: .2em; text-transform: uppercase;
+      margin-bottom: 1.5rem; display: flex; align-items: center; gap: .8rem;
+    }
+    .foda-quad.fortalezas h3 { color: var(--fire); }
+    .foda-quad.oportunidades h3 { color: var(--ember); }
+    .foda-quad.debilidades h3 { color: #94a3b8; }
+    .foda-quad.amenazas h3 { color: #6b7280; }
+    .foda-badge {
+      font-size: .6rem; padding: .2rem .6rem;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .fortalezas .foda-badge { background: rgba(232,96,28,.15); color: var(--fire); }
+    .oportunidades .foda-badge { background: rgba(245,158,11,.15); color: var(--ember); }
+    .debilidades .foda-badge { background: rgba(148,163,184,.1); color: #94a3b8; }
+    .amenazas .foda-badge { background: rgba(107,114,128,.1); color: #6b7280; }
+    .foda-list { list-style: none; }
+    .foda-list li {
+      padding: .6rem 0; font-size: .9rem; color: var(--beige);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex; gap: .8rem; align-items: flex-start;
+    }
+    .foda-list li::before { flex-shrink:0; margin-top:.15rem; }
+    .fortalezas   .foda-list li::before { content: '◆'; color: var(--fire);   font-size: .5rem; }
+    .oportunidades .foda-list li::before { content: '◆'; color: var(--ember); font-size: .5rem; }
+    .debilidades  .foda-list li::before { content: '◆'; color: #94a3b8; font-size: .5rem; }
+    .amenazas     .foda-list li::before { content: '◆'; color: #6b7280; font-size: .5rem; }
+
+    /* ── DIFERENCIAL ── */
+    #diferencial {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(232,96,28,.1) 0%, transparent 60%),
+        var(--carbon);
+    }
+    .dif-compare {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem;
+      align-items: start; margin-top: 4rem;
+    }
+    .dif-col-no {
+      padding: 2.5rem;
+      border: 1px solid rgba(148,163,184,.15);
+      background: rgba(255,255,255,.02);
+    }
+    .dif-col-yes {
+      padding: 2.5rem;
+      border: 1px solid var(--fire);
+      background: rgba(232,96,28,.04);
+      position: relative;
+    }
+    .dif-col-yes::before {
+      content: 'LEÑADO ES';
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--fire); color: var(--carbon);
+      font-family: 'Oswald', sans-serif;
+      font-size: .7rem; letter-spacing: .2em; padding: .3rem 1rem;
+    }
+    .dif-col h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .dif-col-no h3 { color: #6b7280; }
+    .dif-col-yes h3 { color: var(--fire); }
+    .dif-list { list-style: none; }
+    .dif-list li {
+      padding: .7rem 0; font-size: .9rem; color: var(--beige);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex; gap: .8rem;
+    }
+    .dif-col-no  .dif-list li::before { content: '✗'; color: #6b7280; }
+    .dif-col-yes .dif-list li::before { content: '✓'; color: var(--fire); }
+    .vs-badge {
+      display: flex; align-items: center; justify-content: center;
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid rgba(184,115,51,.3);
+      font-family: 'Oswald', sans-serif; font-size: 1rem;
+      color: var(--copper); align-self: center;
+    }
+    .pillars-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .pillar {
+      padding: 2rem 1.5rem; text-align: center;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      transition: transform .3s, border-color .3s;
+    }
+    .pillar:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .pillar-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .pillar h4 {
+      font-family: 'Oswald', sans-serif; color: var(--copper);
+      font-size: .9rem; letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    .pillar p { font-size: .8rem; color: var(--stone); }
+
+    /* ── MARKETING ── */
+    #marketing { background: var(--dark); }
+    .mkt-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 4rem;
+    }
+    .mkt-block h3 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--copper); font-size: 1rem;
+      letter-spacing: .15em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid rgba(184,115,51,.2);
+    }
+    .mkt-item {
+      display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start;
+    }
+    .mkt-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem; color: var(--fire); flex-shrink: 0;
+      width: 24px; padding-top: .15rem;
+    }
+    .mkt-item-text h4 { color: var(--cream); font-size: .9rem; margin-bottom: .2rem; }
+    .mkt-item-text p { color: var(--stone); font-size: .82rem; }
+    .social-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-card {
+      padding: 1.2rem; text-align: center;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+    }
+    .social-card .icon { font-size: 1.5rem; margin-bottom: .5rem; }
+    .social-card h4 { font-size: .8rem; color: var(--copper); letter-spacing: .1em; text-transform: uppercase; }
+    .social-card p { font-size: .75rem; color: var(--stone); margin-top: .3rem; }
+
+    /* ── OPORTUNIDAD ── */
+    #oportunidad {
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(184,115,51,.08) 0%, transparent 70%),
+        var(--carbon);
+    }
+    .op-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin-top: 4rem;
+    }
+    .op-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(184,115,51,.15);
+      background: rgba(255,255,255,.02);
+      transition: transform .3s, border-color .3s;
+    }
+    .op-card:hover { transform: translateY(-4px); border-color: var(--copper); }
+    .op-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .op-card h3 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--copper); font-size: 1rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    .op-card p { color: var(--beige); font-size: .9rem; }
+    .op-stat {
+      margin-top: 1rem; padding: .8rem;
+      background: rgba(184,115,51,.08);
+      text-align: center;
+    }
+    .op-stat strong {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem; color: var(--fire); display: block;
+    }
+    .op-stat span { font-size: .72rem; color: var(--stone); letter-spacing: .1em; text-transform: uppercase; }
+    .op-manifesto {
+      margin-top: 4rem; padding: 3rem;
+      border: 1px solid rgba(232,96,28,.2);
+      background: rgba(232,96,28,.04);
+      text-align: center;
+    }
+    .op-manifesto h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 2rem); font-style: italic;
+      color: var(--white);
+    }
+    .op-manifesto p { color: var(--beige); margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--carbon);
+      border-top: 1px solid rgba(184,115,51,.15);
+      padding: 5rem 2rem 3rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+    }
+    .footer-brand h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem; letter-spacing: .2em; font-weight: 700;
+      color: var(--white);
+    }
+    .footer-brand h2 span { color: var(--fire); }
+    .footer-brand .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; color: var(--copper);
+      margin-top: .5rem; font-size: 1rem;
+    }
+    .footer-brand p {
+      color: var(--stone); font-size: .85rem;
+      margin-top: 1.5rem; max-width: 340px;
+    }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--copper); font-size: .8rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li {
+      padding: .4rem 0; font-size: .85rem; color: var(--stone);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .footer-bottom {
+      max-width: 1200px; margin: 4rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: .75rem; color: var(--stone); }
+    .footer-badges { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-badge {
+      font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+      padding: .3rem .8rem;
+      border: 1px solid rgba(184,115,51,.2);
+      color: var(--stone);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .concepto-grid, .estrella-inner, .mkt-grid { grid-template-columns: 1fr; }
+      .mvv-grid, .propuesta-grid, .amb-grid, .publico-grid { grid-template-columns: repeat(2, 1fr); }
+      .foda-grid, .dif-compare { grid-template-columns: 1fr 1fr; }
+      .dif-compare { grid-template-columns: 1fr; }
+      .vs-badge { display: none; }
+      .pillars-row, .pub-data-row { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav.scrolled { padding: .8rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 5rem 1.5rem; }
+      .mvv-grid, .propuesta-grid, .amb-grid, .publico-grid, .op-grid { grid-template-columns: 1fr; }
+      .foda-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-items-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .pillars-row, .pub-data-row { grid-template-columns: repeat(2, 1fr); }
+      .social-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .concepto-stats { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .pillars-row { grid-template-columns: 1fr; }
+      .pub-data-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">LEÑ<span>A</span>DO</a>
+  <ul class="nav-links">
+    <li><a href="#concepto">Concepto</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#foda">Análisis</a></li>
+    <li><a href="#oportunidad">Oportunidad</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <p class="hero-pre">Mar del Plata · Argentina · 2025</p>
+    <h1 class="hero-title">LEÑ<span class="fire-letter">A</span>DO</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-slogan">"Donde el fuego transforma cada experiencia."</p>
+    <p class="hero-sub">Restaurante de cocina a leña · Experiencia gastronómica premium</p>
+    <a href="#concepto" class="hero-cta">
+      Explorar el proyecto
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONCEPTO ═══════════════════════════════ -->
+<section id="concepto">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">01 · El Origen</p>
+      <h2 class="section-title">El concepto <em>Leñado</em></h2>
+      <div class="divider-line"></div>
+    </div>
+    <div class="concepto-grid">
+      <div class="concepto-text reveal-left">
+        <p>Leñado nace de una convicción profunda: <strong>el fuego es el primer lenguaje de la gastronomía.</strong> Antes de las cocinas modernas, antes de la tecnología, existía la leña, las brasas y el aroma inconfundible de lo que se cocina con paciencia y respeto.</p>
+        <p>El proyecto surge de la necesidad de recuperar esa conexión primitiva con el fuego y llevarla al plato con criterio contemporáneo. No es nostalgia, es evolución consciente. En un mundo saturado de propuestas genéricas, Leñado apuesta por lo esencial: la técnica del fuego vivo como protagonista absoluta.</p>
+        <p>Con sede en Mar del Plata, una ciudad con una cultura gastronómica en expansión y un flujo turístico que demanda experiencias auténticas, Leñado se posiciona como destino gastronómico, no como simple restaurante.</p>
+        <div class="highlight-box">
+          <p>"No venimos a servir comida. Venimos a crear el momento en que todo se detiene porque algo en el plato, en el aroma, en el ambiente, te recuerda por qué vale la pena estar aquí."</p>
+        </div>
+      </div>
+      <div class="concepto-visual reveal-right">
+        <div class="fire-circle">
+          <div class="fire-circle-inner">
+            <div class="fire-icon">🔥</div>
+          </div>
+        </div>
+        <div class="concepto-stats">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Cocina a leña</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Influencias culinarias</div>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-number">MdP</div>
+            <div class="stat-label">Mar del Plata</div>
+          </div>
+          <div class="stat-card reveal delay-4">
+            <div class="stat-number">2025</div>
+            <div class="stat-label">Año de apertura</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MVV ═══════════════════════════════ -->
+<section id="mvv">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">02 · Identidad</p>
+      <h2 class="section-title">Misión, Visión <em>& Valores</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">La identidad de Leñado no es una declaración corporativa. Es un compromiso con cada persona que cruza la puerta.</p>
+    </div>
+    <div class="mvv-grid">
+      <div class="mvv-card reveal delay-1">
+        <div class="mvv-icon">🎯</div>
+        <h3>Misión</h3>
+        <p>Ofrecer una experiencia gastronómica auténtica, centrada en la cocina a leña como técnica principal, donde cada plato refleje el respeto por los ingredientes, las tradiciones culinarias y la excelencia en el servicio. Buscamos que cada visita sea un momento memorable, cargado de sabores genuinos y una atmósfera que invite a desconectarse del ritmo cotidiano y reconectarse con lo esencial.</p>
+      </div>
+      <div class="mvv-card reveal delay-2">
+        <div class="mvv-icon">🌟</div>
+        <h3>Visión</h3>
+        <p>Convertirnos en el referente gastronómico de Mar del Plata en cocina a fuego vivo, reconocidos tanto por turistas como por locales como el destino de elección para quienes buscan una propuesta diferente, con carácter propio y un compromiso permanente con la calidad, la innovación responsable y la experiencia del cliente como centro de todas las decisiones.</p>
+      </div>
+      <div class="mvv-card reveal delay-3">
+        <div class="mvv-icon">💎</div>
+        <h3>Valores</h3>
+        <p>Cada decisión, desde la selección de proveedores hasta el diseño del plato, está guiada por principios que no se negocian. Son la columna vertebral que define quiénes somos y cómo nos relacionamos con nuestros clientes, el equipo y el entorno.</p>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-pill reveal delay-1"><span>🌿</span>Autenticidad</div>
+      <div class="value-pill reveal delay-2"><span>⚡</span>Calidad Sin Límites</div>
+      <div class="value-pill reveal delay-3"><span>🏛️</span>Tradición Viva</div>
+      <div class="value-pill reveal delay-4"><span>🤝</span>Hospitalidad Genuina</div>
+      <div class="value-pill reveal delay-5"><span>❤️</span>Pasión por el Fuego</div>
+      <div class="value-pill reveal delay-1"><span>🔬</span>Innovación Controlada</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EXPERIENCIA ═══════════════════════════════ -->
+<section id="experiencia">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">03 · El Ritual</p>
+      <h2 class="section-title">La experiencia <em>Leñado</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Desde el momento en que llegás hasta que te retirás, cada detalle está diseñado para construir un recuerdo imborrable.</p>
+    </div>
+    <div class="exp-grid" style="margin-top:3rem;">
+      <div class="exp-timeline">
+        <div class="exp-step reveal delay-1">
+          <div class="exp-step-number">Llegada</div>
+          <h3>El primer impacto</h3>
+          <p>El aroma llega antes que la vista. Desde la calle, el humo suave de la leña quemándose crea una anticipación inmediata. La fachada, austera y cálida, anuncia sin excesos lo que está por venir.</p>
+        </div>
+        <div class="exp-step reveal delay-2">
+          <div class="exp-step-number">Ingreso</div>
+          <h3>El corazón visible</h3>
+          <p>Al entrar, el horno a leña y la parrilla abierta dominan el espacio visual. El fuego vivo no está escondido en una cocina cerrada: es el protagonista del salón, el punto de atención constante que une a todos los comensales.</p>
+        </div>
+        <div class="exp-step reveal delay-3">
+          <div class="exp-step-number">La Mesa</div>
+          <h3>El ritual del servicio</h3>
+          <p>El equipo no presenta el menú, cuenta una historia. Cada plato tiene un origen, una técnica, un tiempo de cocción específico. El servicio es consultivo, cómplice, sin presión.</p>
+        </div>
+        <div class="exp-step reveal delay-4">
+          <div class="exp-step-number">El Plato</div>
+          <h3>La transformación</h3>
+          <p>Lo que llega a la mesa es el resultado de horas de trabajo con el fuego. Texturas imposibles de replicar con otra técnica. Costras perfectas, jugosidad interior, ahumado que no invade sino que acompaña.</p>
+        </div>
+        <div class="exp-step reveal delay-5">
+          <div class="exp-step-number">El Cierre</div>
+          <h3>La despedida que fideliza</h3>
+          <p>El último momento importa tanto como el primero. Una cortesía de la casa, el contacto visual genuino al retirarse, la certeza de que hay una historia que continúa.</p>
+        </div>
+      </div>
+      <div>
+        <div class="sensory-grid">
+          <div class="sensory-card reveal delay-1">
+            <div class="icon">👃</div>
+            <h4>Olfato</h4>
+            <p>Madera encendida, proteínas a la brasa, especias en la maduración</p>
+          </div>
+          <div class="sensory-card reveal delay-2">
+            <div class="icon">👁️</div>
+            <h4>Vista</h4>
+            <p>Fuego vivo, maderas cálidas, iluminación ámbar, platos con carácter</p>
+          </div>
+          <div class="sensory-card reveal delay-3">
+            <div class="icon">👂</div>
+            <h4>Oído</h4>
+            <p>El chisporroteo de la grasa, el crujir de la leña, la música ambiente</p>
+          </div>
+          <div class="sensory-card reveal delay-4">
+            <div class="icon">👅</div>
+            <h4>Gusto</h4>
+            <p>Profundidad de sabor única, notas ahumadas, cocción perfecta</p>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top:1.5rem;" class="reveal delay-3">
+          <p>"Leñado no es solo un restaurante. Es una experiencia sensorial completa que comienza en la calle y termina cuando el cliente decide que terminó."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ AMBIENTACION ═══════════════════════════════ -->
+<section id="ambientacion">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">04 · El Espacio</p>
+      <h2 class="section-title">Ambientación <em>& Diseño</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Cada material, cada textura, cada punto de luz fue elegido para comunicar lo mismo que el plato: autenticidad sin artificios, calidez sin exceso.</p>
+    </div>
+    <div class="amb-grid">
+      <div class="amb-card reveal delay-1">
+        <h3>Materiales</h3>
+        <ul class="material-list">
+          <li>Piedra vista en paredes principales</li>
+          <li>Hierro negro en estructura y detalles</li>
+          <li>Madera maciza en mesas y sillas</li>
+          <li>Cuero natural en tapizados</li>
+          <li>Hormigón pulido en pisos y barra</li>
+          <li>Ladrillo expuesto en zonas de horno</li>
+          <li>Vidrio bronce en divisiones</li>
+        </ul>
+      </div>
+      <div class="amb-card reveal delay-2">
+        <h3>Paleta Cromática</h3>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#0d0d0d; border:1px solid #333;">
+            <span style="color:#666;">Negro</span>
+          </div>
+          <div class="swatch" style="background:#3b2007;">
+            <span style="color:#8B5E3C;">Marrón</span>
+          </div>
+          <div class="swatch" style="background:#4a4540;">
+            <span style="color:#999;">Piedra</span>
+          </div>
+          <div class="swatch" style="background:#b87333;">
+            <span style="color:#7A4F22;">Cobre</span>
+          </div>
+          <div class="swatch" style="background:#e8601c;">
+            <span style="color:#A0400D;">Fuego</span>
+          </div>
+          <div class="swatch" style="background:#d4b896; border:1px solid #C9A882;">
+            <span style="color:#9B7E66;">Beige</span>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--stone);margin-top:1rem;">Una paleta que evoca el fuego, la tierra y los materiales nobles. Ningún color está ahí por azar.</p>
+      </div>
+      <div class="amb-card reveal delay-3">
+        <h3>Sensaciones</h3>
+        <div class="sensation-tags">
+          <span class="tag">Refugio</span>
+          <span class="tag">Hogar</span>
+          <span class="tag">Confianza</span>
+          <span class="tag">Exclusividad accesible</span>
+          <span class="tag">Calidez</span>
+          <span class="tag">Autenticidad</span>
+          <span class="tag">Profundidad</span>
+          <span class="tag">Sobriedad</span>
+        </div>
+        <p style="font-size:.85rem;color:var(--beige);margin-top:1.5rem;">La ambientación no compite con el plato. Lo anticipa, lo acompaña y lo potencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROPUESTA ═══════════════════════════════ -->
+<section id="propuesta">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">05 · Cocina</p>
+      <h2 class="section-title">Propuesta <em>Gastronómica</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">La carta de Leñado es el resultado de un diálogo entre tres tradiciones culinarias que comparten el fuego como lenguaje común.</p>
+    </div>
+    <div class="propuesta-grid">
+      <div class="inf-card reveal delay-1">
+        <div class="inf-flag">🇦🇷</div>
+        <h3>Influencia Argentina</h3>
+        <p>La parrilla argentina es mucho más que una técnica: es cultura, identidad y ritual social. Leñado toma esa base y la eleva con criterio contemporáneo.</p>
+        <div class="dish-examples">
+          <div class="dish-item">Asado de tira a la leña</div>
+          <div class="dish-item">Vacío con chimichurri de la casa</div>
+          <div class="dish-item">Entraña a las brasas</div>
+          <div class="dish-item">Molleja con reducción de vino</div>
+          <div class="dish-item">Provoleta al horno de leña</div>
+        </div>
+      </div>
+      <div class="inf-card reveal delay-2">
+        <div class="inf-flag">🇺🇸</div>
+        <h3>Influencia BBQ Norteamericano</h3>
+        <p>La técnica del low & slow, el ahumado prolongado y los rubs de especias aportan una dimensión de sabor que amplía el universo de Leñado.</p>
+        <div class="dish-examples">
+          <div class="dish-item">Brisket ahumado 12 horas</div>
+          <div class="dish-item">Pulled pork con slaw artesanal</div>
+          <div class="dish-item">Ribs glaseadas al bourbon</div>
+          <div class="dish-item">Smash burger de bife chorizo</div>
+          <div class="dish-item">Wings braseadas con salsa roja</div>
+        </div>
+      </div>
+      <div class="inf-card reveal delay-3">
+        <div class="inf-flag">🌎</div>
+        <h3>Influencia Latinoamericana</h3>
+        <p>El continente tiene una riqueza gastronómica enorme centrada en el fuego. Leñado incorpora técnicas y sabores de México, Perú, Brasil y Chile.</p>
+        <div class="dish-examples">
+          <div class="dish-item">Cochinita pibil al horno de leña</div>
+          <div class="dish-item">Anticuchos peruanos</div>
+          <div class="dish-item">Picanha a la brasa estilo carioca</div>
+          <div class="dish-item">Tacos de brisket</div>
+          <div class="dish-item">Costillar al palo estilo chileno</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MENÚ ═══════════════════════════════ -->
+<section id="menu">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">06 · La Carta</p>
+      <h2 class="section-title">Menú <em>Preliminar</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Una carta construida alrededor del fuego. Cada sección refleja un momento diferente de la cocina a leña.</p>
+    </div>
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-panel="entradas">Entradas</button>
+      <button class="menu-tab" data-panel="principales">Principales</button>
+      <button class="menu-tab" data-panel="guarniciones">Guarniciones</button>
+      <button class="menu-tab" data-panel="postres">Postres</button>
+      <button class="menu-tab" data-panel="bebidas">Bebidas</button>
+    </div>
+
+    <div class="menu-panel active" id="panel-entradas">
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Provoleta al Horno de Leña</h4>
+            <p>Queso provolone fundido, cebolla caramelizada, orégano fresco</p>
+          </div>
+          <span class="menu-item-badge">Leña</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Tabla de Embutidos Artesanales</h4>
+            <p>Selección de chorizos, morcillas y salames de elaboración propia</p>
+          </div>
+          <span class="menu-item-badge">Artesanal</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Mollejas Braseadas</h4>
+            <p>Mollejas de corazón, limón asado, mostaza Dijon, brotes</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Anticuchos de Corazón</h4>
+            <p>Corazón de res marinado, salsa huancaína, sarza criolla</p>
+          </div>
+          <span class="menu-item-badge">Leña</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Pan de la Casa Tostado</h4>
+            <p>Pan de masa madre al horno de leña, manteca de ajo negro, escamas de sal</p>
+          </div>
+          <span class="menu-item-badge">Horno</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Chorizo Criollo con Chimichurri</h4>
+            <p>Chorizo artesanal, chimichurri de la casa, pan brioche tostado</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-principales">
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Brisket Ahumado 12 Horas</h4>
+            <p>Pecho de res con rub de especias, ahumado en leña de quebracho, salsa BBQ casera</p>
+          </div>
+          <span class="menu-item-badge">★ Estrella</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Asado de Tira a la Leña</h4>
+            <p>Tira de costilla, cocción lenta 3 horas, chimichurri rojo</p>
+          </div>
+          <span class="menu-item-badge">Leña</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Ribs Glaseadas al Bourbon</h4>
+            <p>Costillas de cerdo, glaseado bourbon-miel, pickled coleslaw</p>
+          </div>
+          <span class="menu-item-badge">Ahumado</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Entraña al Fuego Vivo</h4>
+            <p>Entraña fina, fuego directo, sal parrillera, limón, chimichurri verde</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Pulled Pork en Pan de Maíz</h4>
+            <p>Cerdo desmechado ahumado 8 horas, coleslaw artesanal, pan de maíz tostado</p>
+          </div>
+          <span class="menu-item-badge">Slow</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Picanha a la Brasa</h4>
+            <p>Tapa de cuadril con capa de grasa, sal gruesa, arroz con farofa</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-guarniciones">
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Papas Rústicas al Horno</h4>
+            <p>Papas andinas, grasa de pato, romero, ajo confitado</p>
+          </div>
+          <span class="menu-item-badge">Horno</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Mandioca Frita con Alioli</h4>
+            <p>Mandioca crispy, alioli ahumado, ciboulette</p>
+          </div>
+          <span class="menu-item-badge">Frita</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Choclo Ahumado con Manteca</h4>
+            <p>Choclo entero ahumado, manteca de hierbas, sal ahumada</p>
+          </div>
+          <span class="menu-item-badge">Leña</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Ensalada de Tomate Asado</h4>
+            <p>Tomates cherry asados, burrata, albahaca, aceite de oliva extra virgen</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Puré de Batata Caramelizada</h4>
+            <p>Batata asada, manteca de leña, nuez moscada, miel de caña</p>
+          </div>
+          <span class="menu-item-badge">Horno</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Vegetales de Temporada a la Brasa</h4>
+            <p>Selección según estación, aceite de oliva, hierbas frescas</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-postres">
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Banana Brûlée al Horno de Leña</h4>
+            <p>Banana asada, caramelo de leña, helado de crema, granola artesanal</p>
+          </div>
+          <span class="menu-item-badge">Horno</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Brownie con Dulce de Leche</h4>
+            <p>Brownie caliente, dulce de leche artesanal, helado de vainilla</p>
+          </div>
+          <span class="menu-item-badge">Horno</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Panqueques al Fuego</h4>
+            <p>Panqueques a la plancha de hierro, frutas rojas maceradas, crema</p>
+          </div>
+          <span class="menu-item-badge">Brasa</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Tabla de Quesos Artesanales</h4>
+            <p>Selección de quesos locales, miel de flores, nueces, frutos secos</p>
+          </div>
+          <span class="menu-item-badge">Artesanal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-bebidas">
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Malbec Seleccionado</h4>
+            <p>Vinos de Mendoza y San Juan, por copa o botella</p>
+          </div>
+          <span class="menu-item-badge">Vino</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Craft Beer Local</h4>
+            <p>Selección de cervezas artesanales de Mar del Plata</p>
+          </div>
+          <span class="menu-item-badge">Artesanal</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Negroni Ahumado</h4>
+            <p>Gin, vermouth rosso, Campari, ahumado con madera de cerezo</p>
+          </div>
+          <span class="menu-item-badge">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Smoke & Whisky</h4>
+            <p>Whisky bourbon, agua mineral, esencia de roble ahumado</p>
+          </div>
+          <span class="menu-item-badge">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Agua Fresca de Temporada</h4>
+            <p>Frutas de estación, hierbas frescas, sin azúcar añadida</p>
+          </div>
+          <span class="menu-item-badge">Casa</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4>Fernet con Coca</h4>
+            <p>Fernet Branca, Coca-Cola, hielo artesanal</p>
+          </div>
+          <span class="menu-item-badge">Clásico</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PLATO ESTRELLA ═══════════════════════════════ -->
+<section id="plato-estrella">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">07 · La Firma</p>
+      <h2 class="section-title">El Plato <em>Estrella</em></h2>
+      <div class="divider-line"></div>
+    </div>
+    <div class="estrella-inner">
+      <div class="estrella-visual reveal-left">
+        <div class="plate-display">
+          <div class="big-icon">🥩</div>
+          <div class="plate-title-overlay">Brisket 12 Horas</div>
+        </div>
+      </div>
+      <div class="estrella-text reveal-right">
+        <p class="section-label">Plato insignia de la casa</p>
+        <h2>Brisket Ahumado<br />de 12 Horas</h2>
+        <div class="divider-line"></div>
+        <p class="estrella-desc">El brisket es la prueba más exigente de un cocinero de fuego. Requiere paciencia, técnica, intuición y un conocimiento profundo de la madera, el calor y el tiempo. No hay atajos. No puede apresurarse. Es el plato que mejor representa la filosofía de Leñado.</p>
+        <div class="estrella-features">
+          <div class="feature-row">
+            <div class="feature-dot"></div>
+            <p><strong>El corte:</strong> Pecho de res seleccionado, con la capa de grasa intacta para que actúe como barrera protectora durante las horas de cocción.</p>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"></div>
+            <p><strong>El rub:</strong> Mezcla exclusiva de la casa, base de sal y pimienta negra gruesa, con notas de comino, ajo ahumado y pimentón dulce.</p>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"></div>
+            <p><strong>La madera:</strong> Quebracho blanco para las primeras horas, mezquite en la etapa media. Cada madera aporta una capa diferente de aroma.</p>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"></div>
+            <p><strong>El resultado:</strong> Corteza oscura y crujiente, interior jugoso que se deshilacha con la sola presión del tenedor. El smoke ring, la señal de honor del pitmaster, siempre presente.</p>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot"></div>
+            <p><strong>La presentación:</strong> Rebanado al momento frente al comensal, sobre tabla de madera maciza, con salsa BBQ casera servida aparte.</p>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top:2rem;">
+          <p>"No es un plato que simplemente se come. Es un plato que se experimenta. El tiempo que lleva prepararlo se siente en cada mordida."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PÚBLICO ═══════════════════════════════ -->
+<section id="publico">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">08 · La Audiencia</p>
+      <h2 class="section-title">Público <em>Objetivo</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Leñado no es para todos, y eso es exactamente lo que lo hace valioso. Está diseñado para quienes entienden que una comida puede ser mucho más que una comida.</p>
+    </div>
+    <div class="publico-grid">
+      <div class="perfil-card reveal delay-1">
+        <div class="perfil-avatar">👨‍💼</div>
+        <h3>El Conocedor Local</h3>
+        <div class="perfil-age">35–55 años · Residente MdP</div>
+        <ul>
+          <li>Profesional o emprendedor consolidado</li>
+          <li>Alta valoración por la gastronomía local</li>
+          <li>Frecuenta restaurantes premium de la ciudad</li>
+          <li>Busca novedad con garantía de calidad</li>
+          <li>Referente de recomendaciones en su círculo</li>
+          <li>Ticket promedio alto, visita frecuente</li>
+        </ul>
+      </div>
+      <div class="perfil-card reveal delay-2">
+        <div class="perfil-avatar">🌍</div>
+        <h3>El Turista Gastronómico</h3>
+        <div class="perfil-age">28–50 años · Visitante temporal</div>
+        <ul>
+          <li>Viaja priorizando experiencias gastronómicas</li>
+          <li>Investiga destinos en redes y plataformas</li>
+          <li>Comparte experiencias en tiempo real</li>
+          <li>Disposición a pagar por lo diferencial</li>
+          <li>Buenos Aires, CABA, ciudades del interior</li>
+          <li>Alto potencial de recomendación orgánica</li>
+        </ul>
+      </div>
+      <div class="perfil-card reveal delay-3">
+        <div class="perfil-avatar">🔥</div>
+        <h3>El Foodie Apasionado</h3>
+        <div class="perfil-age">20–40 años · Cualquier origen</div>
+        <ul>
+          <li>Fanático de la cultura BBQ y la cocina a fuego</li>
+          <li>Conocimiento técnico de cortes y técnicas</li>
+          <li>Activo en comunidades gastronómicas online</li>
+          <li>Embajador natural de marcas auténticas</li>
+          <li>Experimenta y compara propuestas</li>
+          <li>Primera visita puede convertirse en ritual</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pub-data-row">
+      <div class="data-box reveal delay-1">
+        <div class="big-number">20–55</div>
+        <p>Rango etario principal</p>
+      </div>
+      <div class="data-box reveal delay-2">
+        <div class="big-number">NSE</div>
+        <p>Nivel socioeconómico medio-alto</p>
+      </div>
+      <div class="data-box reveal delay-3">
+        <div class="big-number">85%</div>
+        <p>Recurrentes potenciales año 1</p>
+      </div>
+      <div class="data-box reveal delay-4">
+        <div class="big-number">3M+</div>
+        <p>Turistas anuales Mar del Plata</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FODA ═══════════════════════════════ -->
+<section id="foda">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">09 · Análisis Estratégico</p>
+      <h2 class="section-title">Análisis <em>FODA</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Un análisis honesto del proyecto, que sirve de base para las decisiones estratégicas y el plan de desarrollo.</p>
+    </div>
+    <div class="foda-grid">
+      <div class="foda-quad fortalezas reveal delay-1">
+        <h3>
+          <span>💪</span> Fortalezas
+          <span class="foda-badge">Interno · Positivo</span>
+        </h3>
+        <ul class="foda-list">
+          <li>Concepto diferenciado en el mercado local</li>
+          <li>Técnica especializada en cocina a leña</li>
+          <li>Identidad de marca clara y coherente</li>
+          <li>Propuesta gastronómica diversa y atractiva</li>
+          <li>Diseño de experiencia integral (ambiente + servicio + plato)</li>
+          <li>Targeting preciso hacia perfiles de alto valor</li>
+          <li>Potencial de contenido visual muy alto</li>
+          <li>Fusión de tres tradiciones culinarias sólidas</li>
+        </ul>
+      </div>
+      <div class="foda-quad oportunidades reveal delay-2">
+        <h3>
+          <span>🚀</span> Oportunidades
+          <span class="foda-badge">Externo · Positivo</span>
+        </h3>
+        <ul class="foda-list">
+          <li>Mercado gastronómico de MdP en expansión</li>
+          <li>Alto flujo turístico nacional e internacional</li>
+          <li>Tendencia creciente hacia experiencias premium</li>
+          <li>Auge del contenido gastronómico en redes</li>
+          <li>Escasa oferta de cocina BBQ y a leña de calidad</li>
+          <li>Posibilidad de expansión a franquicias futuras</li>
+          <li>Temporada alta extendida en el destino</li>
+          <li>Alianzas con productores locales y regionales</li>
+        </ul>
+      </div>
+      <div class="foda-quad debilidades reveal delay-3">
+        <h3>
+          <span>⚠️</span> Debilidades
+          <span class="foda-badge">Interno · Negativo</span>
+        </h3>
+        <ul class="foda-list">
+          <li>Alta inversión inicial en equipamiento especializado</li>
+          <li>Necesidad de personal capacitado en cocina a leña</li>
+          <li>Tiempos de cocción que limitan la rotación de mesas</li>
+          <li>Dependencia de insumos específicos (maderas, cortes)</li>
+          <li>Curva de aprendizaje del equipo en etapa inicial</li>
+          <li>Estacionalidad marcada del destino turístico</li>
+          <li>Proyecto nuevo sin historial ni reputación establecida</li>
+        </ul>
+      </div>
+      <div class="foda-quad amenazas reveal delay-4">
+        <h3>
+          <span>🛡️</span> Amenazas
+          <span class="foda-badge">Externo · Negativo</span>
+        </h3>
+        <ul class="foda-list">
+          <li>Competencia de restaurantes establecidos y con reputación</li>
+          <li>Volatilidad económica y variación en costos de insumos</li>
+          <li>Posibles restricciones en el uso de fuego en locales cerrados</li>
+          <li>Tendencias veganas y vegetarianas que excluyen parte del menú</li>
+          <li>Riesgo de imitadores una vez validado el concepto</li>
+          <li>Dependencia del turismo como variable externa</li>
+          <li>Inflación en costos laborales y de alquiler</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ DIFERENCIAL ═══════════════════════════════ -->
+<section id="diferencial">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">10 · Posicionamiento</p>
+      <h2 class="section-title">El diferencial <em>competitivo</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Leñado no compite dentro de una categoría existente. Leñado define su propia categoría.</p>
+    </div>
+    <div class="dif-compare">
+      <div class="dif-col dif-col-no reveal-left">
+        <h3>Leñado no es:</h3>
+        <ul class="dif-list">
+          <li>Una parrilla tradicional de barrio</li>
+          <li>Una hamburguesería</li>
+          <li>Un restaurante genérico de cocina variada</li>
+          <li>Una propuesta de precio bajo</li>
+          <li>Un local donde el cocinero está escondido</li>
+          <li>Un concepto replicado de otra parte</li>
+          <li>Un lugar donde se prioriza la cantidad</li>
+          <li>Un espacio sin identidad ni carácter</li>
+        </ul>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="dif-col dif-col-yes reveal-right">
+        <h3>&nbsp;</h3>
+        <ul class="dif-list">
+          <li>Una experiencia gastronómica centrada en el fuego</li>
+          <li>Un destino donde la técnica es el espectáculo</li>
+          <li>Un concepto con identidad única e irrepetible</li>
+          <li>Una propuesta de valor premium y accesible</li>
+          <li>Un espacio donde el fuego es el protagonista visible</li>
+          <li>Una fusión original de tradiciones culinarias</li>
+          <li>Un lugar donde se prioriza la calidad absoluta</li>
+          <li>Una marca con propósito, historia y carácter</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pillars-row">
+      <div class="pillar reveal delay-1">
+        <div class="pillar-icon">🔥</div>
+        <h4>Fuego Vivo</h4>
+        <p>El único restaurante de la ciudad donde el fuego es técnica, espectáculo y filosofía simultáneamente</p>
+      </div>
+      <div class="pillar reveal delay-2">
+        <div class="pillar-icon">🌍</div>
+        <h4>Fusión Auténtica</h4>
+        <p>Argentina, BBQ americano y Latinoamérica unidos bajo la técnica del fuego, sin perder identidad propia</p>
+      </div>
+      <div class="pillar reveal delay-3">
+        <div class="pillar-icon">⭐</div>
+        <h4>Experiencia Total</h4>
+        <p>No vendemos platos. Construimos recuerdos desde el primer aroma hasta la despedida</p>
+      </div>
+      <div class="pillar reveal delay-4">
+        <div class="pillar-icon">🏆</div>
+        <h4>Calidad Sin Atajos</h4>
+        <p>Procesos lentos, ingredientes seleccionados, técnica honesta. Sin aceleradores artificiales</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ MARKETING ═══════════════════════════════ -->
+<section id="marketing">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">11 · Estrategia</p>
+      <h2 class="section-title">Marketing <em>& Posicionamiento</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">La comunicación de Leñado no vende, seduce. No interrumpe, invita. No grita, susurra con convicción.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="mkt-block reveal-left">
+        <h3>Estrategia de Marca</h3>
+        <div class="mkt-item">
+          <div class="mkt-num">01</div>
+          <div class="mkt-item-text">
+            <h4>Identidad Visual Consistente</h4>
+            <p>Paleta oscura, tipografía con carácter, fotografía de alta calidad con iluminación ámbar. Cada pieza visual comunica fuego, calidez y autenticidad.</p>
+          </div>
+        </div>
+        <div class="mkt-item">
+          <div class="mkt-num">02</div>
+          <div class="mkt-item-text">
+            <h4>Storytelling del Proceso</h4>
+            <p>Mostrar el behind-the-scenes de la cocina: el fuego encendido antes del amanecer, la preparación del brisket, la selección de la madera. El proceso es el contenido.</p>
+          </div>
+        </div>
+        <div class="mkt-item">
+          <div class="mkt-num">03</div>
+          <div class="mkt-item-text">
+            <h4>Comunidad Antes que Alcance</h4>
+            <p>Priorizar engagement real sobre número de seguidores. Crear una comunidad de apasionados que sean embajadores orgánicos de la marca.</p>
+          </div>
+        </div>
+        <div class="mkt-item">
+          <div class="mkt-num">04</div>
+          <div class="mkt-item-text">
+            <h4>Colaboraciones Estratégicas</h4>
+            <p>Alianzas con productores locales, pitmasters reconocidos, influencers gastronómicos y medios especializados para construir credibilidad desde el día uno.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mkt-block reveal-right">
+        <h3>Presencia Digital</h3>
+        <div class="social-grid">
+          <div class="social-card">
+            <div class="icon">📸</div>
+            <h4>Instagram</h4>
+            <p>Feed curado, Reels del proceso de cocción, Stories de detrás de escena</p>
+          </div>
+          <div class="social-card">
+            <div class="icon">🎬</div>
+            <h4>TikTok</h4>
+            <p>Videos ASMR de cortes, técnicas de fuego, timelapse del brisket</p>
+          </div>
+          <div class="social-card">
+            <div class="icon">⭐</div>
+            <h4>Google</h4>
+            <p>Perfil optimizado, gestión activa de reseñas, fotos profesionales</p>
+          </div>
+          <div class="social-card">
+            <div class="icon">🍽️</div>
+            <h4>TheFork</h4>
+            <p>Reservas online, gestión de opiniones, posicionamiento local</p>
+          </div>
+          <div class="social-card">
+            <div class="icon">🎥</div>
+            <h4>YouTube</h4>
+            <p>Mini documentales de los procesos de cocción y filosofía del fuego</p>
+          </div>
+          <div class="social-card">
+            <div class="icon">💬</div>
+            <h4>WhatsApp</h4>
+            <p>Canal de reservas directas, comunicación personalizada con clientes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ OPORTUNIDAD ═══════════════════════════════ -->
+<section id="oportunidad">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">12 · El Mercado</p>
+      <h2 class="section-title">Oportunidad <em>de Negocio</em></h2>
+      <div class="divider-line"></div>
+      <p class="lead">Mar del Plata no solo es el destino turístico más visitado de Argentina. Es una ciudad con una cultura gastronómica que busca activamente propuestas que estén a la altura de sus aspiraciones.</p>
+    </div>
+    <div class="op-grid">
+      <div class="op-card reveal delay-1">
+        <div class="op-icon">🏖️</div>
+        <h3>Potencial Turístico</h3>
+        <p>Mar del Plata recibe más de 3 millones de turistas anuales, con una concentración alta en temporada estival y una creciente demanda fuera de temporada. El turista actual no busca solo la playa: busca experiencias gastronómicas memorables.</p>
+        <div class="op-stat">
+          <strong>3M+</strong>
+          <span>Turistas por año</span>
+        </div>
+      </div>
+      <div class="op-card reveal delay-2">
+        <div class="op-icon">📈</div>
+        <h3>Demanda Gastronómica</h3>
+        <p>El mercado gastronómico premium de Mar del Plata está en expansión sostenida. La demanda de propuestas con identidad propia, técnica visible y experiencias diferenciadas crece año a año, superando a la oferta disponible.</p>
+        <div class="op-stat">
+          <strong>↑18%</strong>
+          <span>Crecimiento del segmento premium</span>
+        </div>
+      </div>
+      <div class="op-card reveal delay-3">
+        <div class="op-icon">🎯</div>
+        <h3>Brecha Competitiva</h3>
+        <p>No existe en Mar del Plata un restaurante que combine la experiencia del fuego vivo, la fusión de tradiciones BBQ con la identidad argentina y latinoamericana, con un nivel de diseño y servicio premium. Esa brecha es exactamente donde Leñado se instala.</p>
+        <div class="op-stat">
+          <strong>0</strong>
+          <span>Competidores directos identificados</span>
+        </div>
+      </div>
+    </div>
+    <div class="op-manifesto reveal">
+      <h3>"El momento de abrir es ahora. El espacio está vacío, el mercado está listo y la propuesta está definida."</h3>
+      <p>Leñado llega a Mar del Plata para instalarse como referente. No para competir en el segmento existente, sino para crear uno nuevo y liderarlo desde el primer día.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>LEÑ<span>A</span>DO</h2>
+      <p class="tagline">"Donde el fuego transforma cada experiencia."</p>
+      <p>Proyecto gastronómico premium ubicado en Mar del Plata, Argentina. Una experiencia centrada en la cocina a leña, el respeto por los ingredientes y el servicio como arte.</p>
+      <p style="margin-top:1rem; font-size:.8rem; color:var(--stone);">Mar del Plata · Buenos Aires · Argentina · 2025</p>
+    </div>
+    <div class="footer-col">
+      <h4>El Proyecto</h4>
+      <ul>
+        <li>Concepto</li>
+        <li>Misión & Visión</li>
+        <li>Experiencia</li>
+        <li>Ambientación</li>
+        <li>Propuesta Gastronómica</li>
+        <li>Plato Estrella</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Análisis</h4>
+      <ul>
+        <li>Público Objetivo</li>
+        <li>Análisis FODA</li>
+        <li>Diferencial Competitivo</li>
+        <li>Marketing</li>
+        <li>Oportunidad de Negocio</li>
+        <li>Menú Preliminar</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Leñado — Proyecto Gastronómico. Mar del Plata, Argentina.</p>
+    <div class="footer-badges">
+      <span class="footer-badge">Cocina a Leña</span>
+      <span class="footer-badge">Premium</span>
+      <span class="footer-badge">Mar del Plata</span>
+      <span class="footer-badge">Experiencia Gastronómica</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+  // Particles generator
+  (function(){
+    const container = document.getElementById('particles');
+    const colors = ['rgba(232,96,28,.7)','rgba(245,158,11,.6)','rgba(184,115,51,.5)','rgba(255,200,100,.4)'];
+    for(let i=0;i<40;i++){
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = 2 + Math.random() * 6;
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random()*100}%;
+        bottom:${Math.random()*30}%;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        animation-duration:${4+Math.random()*8}s;
+        animation-delay:${Math.random()*6}s;
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Menu tabs
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const panel = tab.dataset.panel;
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + panel).classList.add('active');
+    });
+  });
+
+  // Hamburger menu (mobile)
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '100%';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'rgba(13,13,13,.98)';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.padding = '2rem';
+    navLinks.style.gap = '1.5rem';
+    navLinks.style.borderBottom = '1px solid rgba(184,115,51,.2)';
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => { navLinks.style.display = 'none'; });
+  });
+</script>
+</body>
+</html>
