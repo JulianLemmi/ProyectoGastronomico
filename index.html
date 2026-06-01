@@ -340,9 +340,25 @@
     .data-strip-item { padding:1.4rem 1.6rem; background:var(--dark); text-align:center; }
     .data-strip-item .ds-label { font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); margin-bottom:.35rem; }
     .data-strip-item .ds-value { font-family:'Oswald',sans-serif; font-size:1rem; color:var(--copper); letter-spacing:.06em; }
-    @media(max-width:1024px){ .overview-intro { grid-template-columns:1fr; gap:2.5rem; } }
-    @media(max-width:768px){ .data-strip { grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:480px){ .data-strip { grid-template-columns:1fr 1fr; } }
+    @media(max-width:1024px){
+      .overview-intro { grid-template-columns:1fr; gap:2.5rem; }
+    }
+    @media(max-width:768px){
+      .data-strip { grid-template-columns:repeat(2,1fr); }
+      .mvv-card-mini { padding:1.2rem 1.4rem; }
+      .mvv-card-mini p { font-size:.83rem; }
+      .ov-text p { font-size:.88rem; }
+      .ov-text .highlight { font-size:.95rem; }
+      .values-strip { gap:.45rem; }
+      .val-chip { font-size:.66rem; padding:.3rem .75rem; }
+    }
+    @media(max-width:480px){
+      .data-strip { grid-template-columns:1fr 1fr; }
+      .overview-intro { gap:2rem; margin-top:2rem; }
+      .data-strip { margin-top:2.5rem; }
+      .data-strip-item { padding:1rem 1.2rem; }
+      .data-strip-item .ds-value { font-size:.88rem; }
+    }
 
     /* ── TAB SYSTEM ── */
     .tab-bar {
@@ -372,8 +388,15 @@
     .tab-panel.active { display: block; animation: tabIn .38s ease; }
     @keyframes tabIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
 
-    /* hero panel keeps its own bg */
-    #tab-inicio { background: radial-gradient(ellipse 70% 90% at 50% 100%, rgba(232,96,28,.3) 0%, transparent 65%), linear-gradient(160deg,#0d0d0d 0%,#1a1008 50%,#2a1205 100%); min-height: calc(100vh - 108px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    /* hero panel – plain wrapper; layout lives in .hero-wrap */
+    #tab-inicio { background: var(--carbon); }
+    .hero-wrap {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background: radial-gradient(ellipse 70% 90% at 50% 100%, rgba(232,96,28,.3) 0%, transparent 65%),
+                  linear-gradient(160deg,#0d0d0d 0%,#1a1008 50%,#2a1205 100%);
+    }
 
     /* tab-panel sections inherit their own BG — keep padding */
     .tab-panel > section,
@@ -382,10 +405,9 @@
     /* combine panels have slight separator */
     .tab-panel .bg-dark + .bg-glow-bottom { border-top: 1px solid rgba(184,115,51,.08); }
 
-    @media(max-width:768px){
-      .tab-bar { padding: 0 1rem; top: 54px; }
-      .tab-btn { padding: .8rem 1.1rem; font-size: .65rem; letter-spacing:.16em; }
-    }
+    /* .tab-label helper */
+    .tab-label { display:inline; }
+    @media(max-width:480px){ .tab-label { display:none; } }
 
     /* ── RESPONSIVE ── */
 
@@ -415,7 +437,7 @@
       nav.scrolled { padding:.6rem 1.4rem; }
       .nav-links { display:none; }
       .hamburger { display:flex; }
-      section { padding:4rem 1.2rem; }
+      section { padding:3.8rem 1.2rem; }
 
       /* grids → 1 col */
       .identity-grid,
@@ -436,50 +458,96 @@
       .vajilla-grid { grid-template-columns:repeat(2,1fr); }
 
       /* dish card: apila contenido y badge */
-      .dish { flex-direction:column; gap:.7rem; padding:1.2rem 1.2rem; }
+      .dish { flex-direction:column; gap:.7rem; padding:1.2rem; }
       .dish-right { align-items:flex-start; flex-direction:row; flex-wrap:wrap; }
 
       /* padding reducido en cards */
-      .id-card { padding:1.4rem; }
-      .qa-item { padding:1.3rem 1.4rem; }
-      .psi-item { padding:1.3rem 1.4rem; }
-      .amb-block { padding:1.4rem; }
-      .pd-col { padding:1.4rem; }
-      .drink-col { padding:1.2rem; }
+      .id-card { padding:1.3rem; }
+      .qa-item { padding:1.2rem 1.3rem; }
+      .psi-item { padding:1.2rem 1.3rem; }
+      .amb-block { padding:1.3rem; }
+      .pd-col { padding:1.3rem; }
+      .drink-col { padding:1.1rem; }
+      .pp { padding:1.4rem 1.2rem; }
+      .ei-card { padding:1.5rem 1.2rem; }
+      .comp-body { padding:1.2rem; }
+      .conclusion-col { padding:1.2rem; }
 
-      /* hero meta: 2 × 2 */
+      /* section title + text */
+      .section-title { font-size:clamp(1.5rem,6vw,2.2rem); }
+      .lead { font-size:.9rem; }
+      .qa-a { font-size:.85rem; }
+      .psi-item p { font-size:.83rem; }
+      .id-card p { font-size:.83rem; }
+
+      /* hero */
+      .hero-title { font-size:clamp(4rem,18vw,8rem); }
       .hero-meta { display:grid; grid-template-columns:1fr 1fr; gap:1rem 2rem; }
+      .hero-cta { padding:.8rem 1.8rem; font-size:.68rem; }
 
       /* menú header */
-      .menu-header-strip { grid-template-columns:1fr; }
+      .menu-header-strip { grid-template-columns:1fr; gap:1rem; }
       .menu-type-badge { justify-self:start; }
 
       /* pitch hero */
-      .pitch-hero { padding:2.5rem 1.5rem; }
+      .pitch-hero { padding:2.5rem 1.4rem; }
+      .pitch-hero h2 { font-size:1.4rem; }
 
       /* footer */
       .footer-bottom { flex-direction:column; align-items:flex-start; }
+      .fb-brand h2 { font-size:1.8rem; }
 
       /* gasificadas: sin span forzado */
       .drink-col[style*="grid-column"] { grid-column:auto; max-width:100%; }
+
+      /* tab bar */
+      .tab-bar { padding:0 .6rem; top:52px; }
+      .tab-btn { padding:.75rem .9rem; font-size:.62rem; letter-spacing:.14em; }
+      .tab-num { font-size:.55rem; }
     }
 
     /* 480px — mobile pequeño */
     @media(max-width:480px){
-      section { padding:3.5rem 1rem; }
-      .hero-institution { font-size:.58rem; letter-spacing:.2em; }
-      .hero-subject { font-size:.65rem; }
-      .hero-meta { gap:.8rem 1.2rem; }
-      .hero-cta { padding:.8rem 1.6rem; font-size:.65rem; }
+      section { padding:3rem .9rem; }
+      .hero-institution { font-size:.56rem; letter-spacing:.18em; }
+      .hero-subject { font-size:.62rem; }
+      .hero-meta { gap:.7rem 1rem; }
+      .hero-slogan { font-size:.9rem; }
 
       .pitch-pillars { grid-template-columns:1fr; }
       .exp-integral { grid-template-columns:1fr; }
       .vajilla-grid { grid-template-columns:1fr; }
 
-      .id-card, .qa-item, .psi-item, .amb-block { padding:1.1rem; }
-      .pitch-hero { padding:2rem 1rem; }
+      .id-card, .qa-item, .psi-item, .amb-block { padding:1rem; }
+      .pp { padding:1.2rem 1rem; }
+      .ei-card { padding:1.2rem 1rem; }
+      .pitch-hero { padding:1.8rem .9rem; }
       .comp-card-header { flex-direction:column; align-items:flex-start; }
-      .footer-grid { gap:2.5rem; }
+      .footer-grid { gap:2rem; }
+
+      /* tabs: just show number + short text */
+      .tab-btn { padding:.7rem .75rem; font-size:.58rem; letter-spacing:.1em; }
+      .tab-num { font-size:.52rem; }
+
+      /* section headers */
+      .section-title { font-size:clamp(1.4rem,7vw,2rem); }
+      .section-eyebrow { font-size:.6rem; letter-spacing:.3em; }
+      .rule { margin:.9rem 0; }
+
+      /* cards text */
+      .qa-a, .id-card p, .psi-item p { font-size:.82rem; }
+      .drink-col ul li { font-size:.78rem; }
+      .dish-info h4 { font-size:.92rem; }
+      .dish-info p { font-size:.76rem; }
+      .amb-block p { font-size:.82rem; }
+      .pp p { font-size:.76rem; }
+
+      /* menu */
+      .menu-header-strip { padding:1.3rem; }
+      .menu-concept p { font-size:.82rem; }
+
+      /* hero cta as full-width on tiny screens */
+      .hero-cta { width:100%; justify-content:center; }
     }
   </style>
 </head>
@@ -492,11 +560,11 @@
 
 <div class="tab-bar">
   <button class="tab-btn" data-tab="inicio">Inicio</button>
-  <button class="tab-btn" data-tab="identidad"><span class="tab-num">01</span>La Carta</button>
-  <button class="tab-btn" data-tab="menu"><span class="tab-num">02</span>El Menú</button>
-  <button class="tab-btn" data-tab="analisis"><span class="tab-num">03 + Extra</span>Análisis</button>
-  <button class="tab-btn" data-tab="diseno"><span class="tab-num">04 + 05</span>Diseño & Ambiente</button>
-  <button class="tab-btn" data-tab="proyecto"><span class="tab-num">06</span>El Proyecto</button>
+  <button class="tab-btn" data-tab="identidad"><span class="tab-num">01</span><span class="tab-label">La Carta</span></button>
+  <button class="tab-btn" data-tab="menu"><span class="tab-num">02</span><span class="tab-label">El Menú</span></button>
+  <button class="tab-btn" data-tab="analisis"><span class="tab-num">03</span><span class="tab-label">Análisis</span></button>
+  <button class="tab-btn" data-tab="diseno"><span class="tab-num">04–05</span><span class="tab-label">Diseño</span></button>
+  <button class="tab-btn" data-tab="proyecto"><span class="tab-num">06</span><span class="tab-label">Proyecto</span></button>
 </div>
 
 <!-- ══ TAB: INICIO ══ -->
@@ -527,7 +595,7 @@
         <div class="value">2026</div>
       </div>
     </div>
-    <a href="#act1" class="hero-cta">Explorar el trabajo ↓</a>
+    <button class="hero-cta" onclick="activateTab('identidad')">Explorar el trabajo <i class="ph-thin ph-arrow-down"></i></button>
   </div>
 </div>
 
