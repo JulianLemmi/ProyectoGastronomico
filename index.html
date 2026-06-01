@@ -38,7 +38,6 @@
     }
     nav.scrolled { padding: .7rem 3.5rem; }
     .nav-logo { font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:.25em; color:var(--copper); text-decoration:none; }
-    .nav-logo span { color:var(--fire); }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { color:var(--beige); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--copper); }
@@ -162,6 +161,9 @@
     .drink-col ul { list-style:none; }
     .drink-col ul li { padding:.35rem 0; font-size:.83rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:.5rem; }
     .drink-col ul li::before { content:'—'; color:var(--fire); font-size:.7rem; flex-shrink:0; margin-top:.1rem; }
+    .drink-col-featured { background:rgba(184,115,51,.04); border-color:rgba(184,115,51,.2); }
+    .drink-col-featured ul { display:flex; flex-wrap:wrap; gap:0; }
+    .drink-col-featured ul li { flex:1 1 180px; border-bottom:1px solid rgba(255,255,255,.04); }
 
     /* ─────────────────────────────────────────────
        ACTIVIDAD 3 — Psicología del Menú
@@ -299,7 +301,6 @@
     footer { background:var(--carbon); border-top:1px solid rgba(184,115,51,.12); padding:5rem 2rem 3rem; }
     .footer-grid { max-width:1160px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:4rem; }
     .fb-brand h2 { font-family:'Oswald',sans-serif; font-size:2.4rem; font-weight:700; letter-spacing:.2em; color:var(--white); }
-    .fb-brand h2 span { color:var(--fire); }
     .fb-brand .tl { font-family:'Playfair Display',serif; font-style:italic; color:var(--copper); font-size:.95rem; margin-top:.4rem; }
     .fb-brand p { color:var(--stone); font-size:.82rem; margin-top:1.2rem; max-width:320px; }
     .fc h4 { font-family:'Oswald',sans-serif; color:var(--copper); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; margin-bottom:1rem; }
@@ -912,7 +913,7 @@
           <li>Té frío de hierbas locales</li>
         </ul>
       </div>
-      <div class="drink-col rv d1" style="grid-column:1/-1;max-width:360px;">
+      <div class="drink-col drink-col-featured rv d1" style="grid-column:1/-1;">
         <h4><i class="ph-thin ph-sparkle"></i> Gasificadas</h4>
         <ul>
           <li>Coca-Cola · clásica o zero</li>
