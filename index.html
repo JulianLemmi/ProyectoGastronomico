@@ -550,6 +550,81 @@
       /* hero cta as full-width on tiny screens */
       .hero-cta { width:100%; justify-content:center; }
     }
+
+    /* ─────────────────────────────────────────────
+       TP DISEÑO FUNCIONAL — Plano del restaurante
+       ───────────────────────────────────────────── */
+    .plano-wrap { width:100%; overflow-x:auto; margin-top:3rem; padding:1.2rem; border:1px solid rgba(184,115,51,.12); background:rgba(255,255,255,.015); }
+    .plano-legend { display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(184,115,51,.08); }
+    .pleg-item { display:flex; align-items:center; gap:.5rem; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); }
+    .pleg-box { width:12px; height:12px; flex-shrink:0; border:1px solid rgba(255,255,255,.2); }
+
+    .dist-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+    .dist-card { padding:1.6rem 1.8rem; border:1px solid rgba(184,115,51,.15); background:rgba(255,255,255,.02); }
+    .dist-card h3 { font-family:'Oswald',sans-serif; font-size:.76rem; letter-spacing:.18em; text-transform:uppercase; color:var(--copper); margin-bottom:.9rem; display:flex; align-items:center; gap:.55rem; }
+    .dist-stat { font-family:'Oswald',sans-serif; font-size:2rem; color:var(--copper); line-height:1; margin-bottom:.2rem; }
+    .dist-sub { font-size:.63rem; letter-spacing:.13em; text-transform:uppercase; color:var(--stone); margin-bottom:.8rem; }
+    .dist-card p { font-size:.83rem; color:var(--beige); line-height:1.7; }
+    .dist-card ul { list-style:none; margin-top:.6rem; }
+    .dist-card ul li { padding:.28rem 0; font-size:.81rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:.5rem; align-items:baseline; }
+    .dist-card ul li::before { content:'›'; color:var(--copper); flex-shrink:0; }
+    .dist-table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.8rem; }
+    .dist-table th { font-family:'Oswald',sans-serif; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); padding:.6rem .8rem; text-align:left; border-bottom:1px solid rgba(184,115,51,.2); }
+    .dist-table td { padding:.6rem .8rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); }
+    .dist-table tr:last-child td { font-weight:500; color:var(--cream); border-bottom:none; border-top:1px solid rgba(184,115,51,.15); }
+
+    .rot-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:rgba(184,115,51,.08); margin-top:3rem; }
+    .rot-item { padding:1.6rem 2rem; background:var(--dark); }
+    .rot-item h3 { font-family:'Oswald',sans-serif; font-size:.76rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); margin-bottom:.6rem; display:flex; align-items:center; gap:.5rem; }
+    .rot-item p { font-size:.86rem; color:var(--beige); line-height:1.8; }
+    .rot-item strong { color:var(--cream); }
+    .rot-big { font-family:'Oswald',sans-serif; font-size:1.6rem; color:var(--fire); display:block; margin-bottom:.2rem; }
+    .rot-highlight { background:rgba(232,96,28,.06) !important; }
+    .rot-highlight h3 { color:var(--fire) !important; }
+
+    .flujo-wrap { margin-top:3rem; }
+    .flujo-thead { display:grid; grid-template-columns:130px 1fr; gap:1px; background:rgba(184,115,51,.12); margin-bottom:1px; }
+    .flujo-thead div { font-family:'Oswald',sans-serif; font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--copper); padding:.7rem 1rem; background:var(--dark); }
+    .flujo-row { display:grid; grid-template-columns:130px 1fr; gap:1px; background:rgba(184,115,51,.06); margin-bottom:1px; }
+    .flujo-actor-cell { padding:.9rem 1rem; background:var(--dark); display:flex; align-items:center; gap:.5rem; }
+    .flujo-actor { font-family:'Oswald',sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+    .f-cli { color:#60a5fa; } .f-per { color:var(--copper); }
+    .f-mp  { color:#86efac; } .f-pt  { color:var(--fire); } .f-res { color:#9ca3af; }
+    .flujo-steps-cell { padding:.9rem 1rem; background:var(--carbon); display:flex; flex-wrap:wrap; align-items:center; gap:.35rem; }
+    .fstep { padding:.2rem .6rem; font-size:.74rem; color:var(--cream); border:1px solid rgba(184,115,51,.18); background:rgba(255,255,255,.02); white-space:nowrap; }
+    .farr { color:var(--copper); font-size:.75rem; flex-shrink:0; }
+    .falert { padding:.2rem .6rem; font-size:.72rem; color:#fca5a5; border:1px solid rgba(252,165,165,.2); background:rgba(252,165,165,.05); white-space:nowrap; }
+    .flujo-conflicts { margin-top:2rem; padding:1.4rem 1.6rem; border:1px solid rgba(252,165,165,.2); background:rgba(252,165,165,.04); }
+    .flujo-conflicts h4 { font-family:'Oswald',sans-serif; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:#fca5a5; margin-bottom:.8rem; }
+    .flujo-conflicts ul { list-style:none; }
+    .flujo-conflicts ul li { font-size:.83rem; color:var(--beige); padding:.3rem 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:.6rem; }
+    .flujo-conflicts ul li::before { content:'⚠'; color:#fca5a5; font-size:.7rem; flex-shrink:0; margin-top:.1rem; }
+
+    .cap-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(184,115,51,.1); margin-top:3rem; }
+    .cap-item { padding:1.6rem; background:var(--dark); text-align:center; }
+    .cap-num { font-family:'Oswald',sans-serif; font-size:2.4rem; font-weight:700; color:var(--copper); line-height:1; }
+    .cap-unit { font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--stone); margin:.35rem 0 .5rem; }
+    .cap-desc { font-size:.78rem; color:var(--beige); }
+    .criticos-list { display:flex; flex-direction:column; gap:1px; margin-top:3rem; background:rgba(184,115,51,.08); }
+    .crit-item { display:grid; grid-template-columns:48px 1fr; gap:1px; background:rgba(184,115,51,.08); }
+    .crit-num { background:var(--dark); display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; color:var(--fire); font-size:1.2rem; font-weight:700; }
+    .crit-body { background:var(--carbon); padding:1.2rem 1.5rem; }
+    .crit-body h4 { font-family:'Oswald',sans-serif; font-size:.76rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); margin-bottom:.5rem; }
+    .crit-body p { font-size:.84rem; color:var(--beige); }
+
+    @media(max-width:1024px){ .dist-grid { grid-template-columns:repeat(2,1fr); } .cap-strip { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px){
+      .dist-grid,.rot-grid { grid-template-columns:1fr; }
+      .cap-strip { grid-template-columns:repeat(2,1fr); }
+      .flujo-row,.flujo-thead { grid-template-columns:90px 1fr; }
+      .flujo-actor { font-size:.62rem; }
+      .plano-wrap { padding:.6rem; }
+    }
+    @media(max-width:480px){
+      .cap-strip { grid-template-columns:1fr 1fr; }
+      .flujo-row,.flujo-thead { grid-template-columns:75px 1fr; }
+      .fstep { font-size:.67rem; padding:.18rem .45rem; }
+    }
   </style>
 </head>
 <body>
@@ -566,6 +641,7 @@
   <button class="tab-btn" data-tab="analisis"><span class="tab-num">03</span><span class="tab-label">Análisis</span></button>
   <button class="tab-btn" data-tab="diseno"><span class="tab-num">04–05</span><span class="tab-label">Diseño</span></button>
   <button class="tab-btn" data-tab="proyecto"><span class="tab-num">06</span><span class="tab-label">Proyecto</span></button>
+  <button class="tab-btn" data-tab="plano"><span class="tab-num">TP</span><span class="tab-label">Plano</span></button>
 </div>
 
 <!-- ══ TAB: INICIO ══ -->
@@ -1383,6 +1459,438 @@
 </section>
 </div>
 
+<!-- ══ TAB: PLANO & DISEÑO FUNCIONAL ══ -->
+<div class="tab-panel" id="tab-plano">
+
+<!-- 1. PLANO PRELIMINAR -->
+<section id="plano-sec" class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">TP Diseño Funcional</span>Planificación espacial y operativa</p>
+      <h2 class="section-title">Plano <em>del restaurante</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Plano preliminar a grandes rasgos del establecimiento Leñado. Incluye todos los sectores requeridos: acceso, salón, cocina, depósito, sanitarios, barra y recepción.</p>
+    </div>
+
+    <div class="plano-wrap rv">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 510" style="font-family:'Oswald',sans-serif;display:block;width:100%;max-width:760px;margin:0 auto;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#b87333"/>
+    </marker>
+    <marker id="arr-r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#e8601c"/>
+    </marker>
+  </defs>
+
+  <!-- ── BUILDING BACKGROUND ── -->
+  <rect x="10" y="10" width="740" height="490" fill="#141008" stroke="#b87333" stroke-width="2.5"/>
+
+  <!-- ── ROOMS ── -->
+  <!-- BARRA -->
+  <rect x="10" y="10" width="118" height="310" fill="#1c1410" stroke="#b87333" stroke-width="1.5"/>
+  <!-- SALÓN COMEDOR -->
+  <rect x="128" y="10" width="432" height="310" fill="#1a1008" stroke="#b87333" stroke-width="1.5"/>
+  <!-- COCINA -->
+  <rect x="560" y="10" width="190" height="230" fill="#0d0d0d" stroke="#b87333" stroke-width="1.5"/>
+  <!-- DEPÓSITO -->
+  <rect x="560" y="240" width="190" height="90" fill="#0d0d0d" stroke="#b87333" stroke-width="1.5"/>
+  <!-- CORREDOR SERVICIO (exterior) -->
+  <rect x="560" y="330" width="190" height="170" fill="#111009" stroke="#b87333" stroke-width="1.5"/>
+  <!-- RECEPCIÓN/ESPERA -->
+  <rect x="10" y="320" width="195" height="180" fill="#1a1008" stroke="#b87333" stroke-width="1.5"/>
+  <!-- BAÑO DAMAS -->
+  <rect x="205" y="320" width="145" height="180" fill="#0f0f0d" stroke="#b87333" stroke-width="1.5"/>
+  <!-- BAÑO CABALL. -->
+  <rect x="350" y="320" width="150" height="180" fill="#0f0f0d" stroke="#b87333" stroke-width="1.5"/>
+  <!-- CORREDOR INTERNO -->
+  <rect x="500" y="320" width="60" height="180" fill="#141008" stroke="#b87333" stroke-width="1.5"/>
+
+  <!-- ── PASE (service pass opening) ── -->
+  <!-- Gap in wall between cocina x=560 and salón at y=170-210 -->
+  <rect x="557" y="175" width="7" height="40" fill="#1a1008"/>
+  <text x="543" y="168" font-size="7.5" fill="#e8601c" letter-spacing="0.5" text-anchor="middle">PASE</text>
+  <line x1="545" y1="172" x2="557" y2="180" stroke="#e8601c" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+  <!-- ── ENTRANCE DOOR ── -->
+  <!-- Gap in bottom wall at x=75-135 y=500 -->
+  <rect x="75" y="497" width="70" height="7" fill="#141008"/>
+  <path d="M75,500 Q110,465 145,500" fill="none" stroke="#b87333" stroke-width="1" stroke-dasharray="4,2"/>
+  <!-- Entrance arrow from street -->
+  <line x1="110" y1="520" x2="110" y2="506" stroke="#e8601c" stroke-width="2" marker-end="url(#arr-r)"/>
+  <text x="110" y="540" text-anchor="middle" font-size="9" fill="#e8601c" letter-spacing="1.5" font-weight="400">ACCESO PRINCIPAL</text>
+
+  <!-- ── BACK SERVICE ENTRANCE ── -->
+  <rect x="743" y="340" width="7" height="55" fill="#141008"/>
+  <path d="M750,340 Q720,367 750,395" fill="none" stroke="#b87333" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="758" y="365" font-size="8" fill="#6b6560" letter-spacing="1" transform="rotate(90,758,365)">SERVICIO</text>
+
+  <!-- ── INTERNAL CORRIDOR DOOR (from salón to bathrooms) ── -->
+  <rect x="295" y="317" width="60" height="7" fill="#1a1008"/>
+  <path d="M295,320 Q325,300 355,320" fill="none" stroke="#b87333" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ── SERVICE CORRIDOR DOOR (from corredor to kitchen) ── -->
+  <rect x="557" y="325" width="7" height="40" fill="#141008"/>
+  <path d="M557,325 Q545,345 557,365" fill="none" stroke="#b87333" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ── TABLES + CHAIRS ── -->
+  <circle cx="190" cy="55" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="190" cy="109" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="163" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="217" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="172" y="64" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="270" cy="55" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="270" cy="109" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="243" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="297" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="252" y="64" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="350" cy="55" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="350" cy="109" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="323" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="377" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="332" y="64" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="430" cy="55" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="430" cy="109" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="403" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="457" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="412" y="64" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="510" cy="55" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="510" cy="109" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="483" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="537" cy="82" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="492" y="64" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="190" cy="145" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="190" cy="199" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="163" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="217" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="172" y="154" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="270" cy="145" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="270" cy="199" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="243" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="297" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="252" y="154" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="350" cy="145" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="350" cy="199" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="323" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="377" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="332" y="154" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="430" cy="145" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="430" cy="199" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="403" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="457" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="412" y="154" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="510" cy="145" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="510" cy="199" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="483" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="537" cy="172" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="492" y="154" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="210" cy="228" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="210" cy="282" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="183" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="237" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="192" y="237" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="300" cy="228" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="300" cy="282" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="273" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="327" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="282" y="237" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="390" cy="228" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="390" cy="282" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="363" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="417" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="372" y="237" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+  <circle cx="480" cy="228" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="480" cy="282" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="453" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><circle cx="507" cy="255" r="8" fill="#1c1408" stroke="#4a4540" stroke-width="0.8"/><rect x="462" y="237" width="36" height="36" rx="2" fill="#3b2007" fill-opacity="0.7" stroke="#b87333" stroke-width="1.2"/>
+
+  <!-- ── BAR COUNTER ── -->
+  <rect x="22" y="40" width="20" height="250" rx="3" fill="#3b2007" fill-opacity="0.5" stroke="#b87333" stroke-width="1.2"/>
+  <rect x="46" y="40" width="8" height="250" rx="1" fill="#b87333" fill-opacity="0.15"/>
+  <!-- 5 bar stools -->
+  <circle cx="70" cy="85" r="10" fill="#1c1408" stroke="#6b6560" stroke-width="0.8"/>
+  <circle cx="70" cy="130" r="10" fill="#1c1408" stroke="#6b6560" stroke-width="0.8"/>
+  <circle cx="70" cy="175" r="10" fill="#1c1408" stroke="#6b6560" stroke-width="0.8"/>
+  <circle cx="70" cy="220" r="10" fill="#1c1408" stroke="#6b6560" stroke-width="0.8"/>
+  <circle cx="70" cy="265" r="10" fill="#1c1408" stroke="#6b6560" stroke-width="0.8"/>
+
+  <!-- ── HORNO A LEÑA (kitchen feature) ── -->
+  <ellipse cx="640" cy="100" rx="38" ry="28" fill="#2a1205" stroke="#e8601c" stroke-width="1.5"/>
+  <ellipse cx="640" cy="100" rx="22" ry="16" fill="#3b1408" fill-opacity="0.7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="640" y="104" text-anchor="middle" font-size="7.5" fill="#f59e0b" letter-spacing="0.5">HORNO</text>
+
+  <!-- ── KITCHEN WORK AREAS ── -->
+  <rect x="568" y="140" width="170" height="40" rx="2" fill="#1a1008" stroke="#4a4540" stroke-width="0.8"/>
+  <text x="653" y="164" text-anchor="middle" font-size="7.5" fill="#6b6560" letter-spacing="1">MESADAS</text>
+  <rect x="568" y="185" width="80" height="35" rx="2" fill="#1a1008" stroke="#4a4540" stroke-width="0.8"/>
+  <text x="608" y="206" text-anchor="middle" font-size="7" fill="#6b6560" letter-spacing="0.8">PREP.</text>
+
+  <!-- ── CIRCULATION MAIN PATHS (dashed) ── -->
+  <!-- Clients: entrance → reception → dining -->
+  <line x1="110" y1="500" x2="110" y2="380" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="6,3" opacity="0.5"/>
+  <line x1="110" y1="380" x2="200" y2="370" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="6,3" opacity="0.5" marker-end="url(#arr)"/>
+  <!-- Service: kitchen → pass → dining -->
+  <line x1="560" y1="195" x2="540" y2="195" stroke="#e8601c" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6"/>
+  <line x1="540" y1="195" x2="520" y2="195" stroke="#e8601c" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" marker-end="url(#arr-r)"/>
+
+  <!-- ── ROOM LABELS ── -->
+  <!-- SALÓN COMEDOR -->
+  <text x="344" y="158" text-anchor="middle" font-size="15" fill="#d4b896" letter-spacing="3" font-weight="500" opacity="0.6">SALÓN COMEDOR</text>
+  <text x="344" y="177" text-anchor="middle" font-size="10" fill="#6b6560" letter-spacing="2">14 mesas · 56 cubiertos</text>
+
+  <!-- BARRA -->
+  <text x="69" y="168" text-anchor="middle" font-size="11" fill="#d4b896" letter-spacing="2" font-weight="500" transform="rotate(-90,69,168)" opacity="0.8">BARRA</text>
+  <text x="69" y="190" text-anchor="middle" font-size="9" fill="#6b6560" letter-spacing="1.5" transform="rotate(-90,69,190)">5 asientos</text>
+
+  <!-- COCINA -->
+  <text x="655" y="58" text-anchor="middle" font-size="12" fill="#d4b896" letter-spacing="2.5" font-weight="500">COCINA</text>
+  <text x="655" y="73" text-anchor="middle" font-size="9" fill="#6b6560" letter-spacing="1.5">Fuego a leña</text>
+
+  <!-- DEPÓSITO -->
+  <text x="655" y="289" text-anchor="middle" font-size="11" fill="#d4b896" letter-spacing="2" font-weight="500">DEPÓSITO</text>
+  <text x="655" y="304" text-anchor="middle" font-size="9" fill="#6b6560" letter-spacing="1">Almacenamiento</text>
+
+  <!-- CORREDOR SERVICIO -->
+  <text x="655" y="406" text-anchor="middle" font-size="10" fill="#6b6560" letter-spacing="1.5" font-weight="400">CORREDOR</text>
+  <text x="655" y="422" text-anchor="middle" font-size="10" fill="#6b6560" letter-spacing="1.5">SERVICIO</text>
+
+  <!-- RECEPCIÓN -->
+  <text x="107" y="400" text-anchor="middle" font-size="11" fill="#d4b896" letter-spacing="2" font-weight="500">RECEPCIÓN</text>
+  <text x="107" y="415" text-anchor="middle" font-size="9" fill="#6b6560" letter-spacing="1">Sector espera</text>
+
+  <!-- BAÑO DAMAS -->
+  <text x="278" y="400" text-anchor="middle" font-size="10.5" fill="#d4b896" letter-spacing="1.5" font-weight="500">B. DAMAS</text>
+
+  <!-- BAÑO CABALL. -->
+  <text x="425" y="400" text-anchor="middle" font-size="10.5" fill="#d4b896" letter-spacing="1.5" font-weight="500">B. CABALL.</text>
+
+  <!-- CORREDOR INTERNO -->
+  <text x="530" y="408" text-anchor="middle" font-size="8.5" fill="#6b6560" letter-spacing="1" transform="rotate(-90,530,408)">CORR.</text>
+
+  <!-- ── DIMENSION NOTES ── -->
+  <!-- Width indicator top -->
+  <line x1="10" y1="6" x2="750" y2="6" stroke="#4a4540" stroke-width="0.8"/>
+  <line x1="10" y1="3" x2="10" y2="9" stroke="#4a4540" stroke-width="0.8"/>
+  <line x1="750" y1="3" x2="750" y2="9" stroke="#4a4540" stroke-width="0.8"/>
+  <text x="380" y="5" text-anchor="middle" font-size="8" fill="#4a4540" letter-spacing="1">≈ 25 m</text>
+  <!-- Height indicator left -->
+  <line x1="5" y1="10" x2="5" y2="500" stroke="#4a4540" stroke-width="0.8"/>
+  <line x1="2" y1="10" x2="8" y2="10" stroke="#4a4540" stroke-width="0.8"/>
+  <line x1="2" y1="500" x2="8" y2="500" stroke="#4a4540" stroke-width="0.8"/>
+  <text x="4" y="260" text-anchor="middle" font-size="8" fill="#4a4540" letter-spacing="1" transform="rotate(-90,4,260)">≈ 17 m</text>
+
+  <!-- ── SCALE NOTE ── -->
+  <text x="680" y="505" text-anchor="end" font-size="8" fill="#4a4540" letter-spacing="1">ESC. APROX. 1:100</text>
+
+  <!-- ── NORTH INDICATOR ── -->
+  <text x="720" y="500" font-size="10" fill="#b87333" text-anchor="middle" font-weight="700">N</text>
+  <line x1="720" y1="490" x2="720" y2="480" stroke="#b87333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="716" y1="490" x2="724" y2="490" stroke="#b87333" stroke-width="0.8"/>
+</svg>
+      <div class="plano-legend">
+        <div class="pleg-item"><div class="pleg-box" style="background:#1c1410;"></div>Barra</div>
+        <div class="pleg-item"><div class="pleg-box" style="background:#1a1008;"></div>Salón comedor</div>
+        <div class="pleg-item"><div class="pleg-box" style="background:#0d0d0d;"></div>Cocina / Depósito</div>
+        <div class="pleg-item"><div class="pleg-box" style="background:#1a1008;"></div>Recepción / Espera</div>
+        <div class="pleg-item"><div class="pleg-box" style="background:#0f0f0d;"></div>Sanitarios</div>
+        <div class="pleg-item"><div class="pleg-box" style="background:#3b2007;"></div>Mesa (4 cubiertos)</div>
+        <div class="pleg-item" style="gap:.7rem;"><span style="color:#60a5fa;font-size:.9em;">– –</span>Circulación clientes</div>
+        <div class="pleg-item" style="gap:.7rem;"><span style="color:#e8601c;font-size:.9em;">– –</span>Circulación servicio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DISTRIBUCIÓN DE ESPACIOS -->
+<section id="dist-sec" class="bg-carbon">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Punto 2</span>Distribución de espacios</p>
+      <h2 class="section-title">Distribución y <em>capacidad</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="dist-grid">
+      <div class="dist-card rv d1">
+        <h3><i class="ph-thin ph-layout"></i> Mesas y cubiertos</h3>
+        <div class="dist-stat">56</div>
+        <div class="dist-sub">Cubiertos totales</div>
+        <table class="dist-table">
+          <tr><th>Tipo de mesa</th><th>Cantidad</th><th>Cubiertos</th></tr>
+          <tr><td>Mesa 4 personas</td><td>14</td><td>56</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>14</strong></td><td><strong>56</strong></td></tr>
+        </table>
+      </div>
+      <div class="dist-card rv d2">
+        <h3><i class="ph-thin ph-map-pin"></i> Sectores principales</h3>
+        <ul>
+          <li>Salón comedor — sector central y principal</li>
+          <li>Barra — lateral izquierda, acceso desde salón</li>
+          <li>Cocina — sector posterior derecho (back of house)</li>
+          <li>Depósito — adyacente a cocina, acceso de servicio</li>
+          <li>Recepción/espera — frente al acceso principal</li>
+          <li>Sanitarios — corredor intermedio, separados de cocina</li>
+          <li>Corredor servicio — conecta cocina con exterior</li>
+        </ul>
+      </div>
+      <div class="dist-card rv d3">
+        <h3><i class="ph-thin ph-path"></i> Circulaciones principales</h3>
+        <ul>
+          <li><strong>Pasillo central:</strong> eje longitudinal, 120 cm de ancho mínimo</li>
+          <li><strong>Entre mesas:</strong> 90 cm mínimo en pasillos secundarios</li>
+          <li><strong>Corredor de servicio:</strong> paralelo a pared cocina-salón</li>
+          <li><strong>Acceso a sanitarios:</strong> sin cruzar cocina ni depósito</li>
+          <li><strong>Circulación de emergencia:</strong> dos salidas — acceso principal y corredor servicio</li>
+        </ul>
+        <div class="qblock rv" style="margin-top:1.2rem;">
+          <p style="font-size:.8rem;">La distribución prioriza la separación entre zonas de clientes y back of house. La cocina se ubica al fondo para minimizar ruidos, olores y conflictos de circulación. Las mesas en grupos de 14 maximizan cubiertos dentro del aforo reglamentario.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ROTACIÓN DE MESAS -->
+<section id="rot-sec" class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Punto 3</span>Rotación de mesas</p>
+      <h2 class="section-title">Rotación y <em>rentabilidad</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="rot-grid">
+      <div class="rot-item rv d1">
+        <h3><i class="ph-thin ph-clock"></i> Tiempo de permanencia estimado</h3>
+        <span class="rot-big">95 – 110 min</span>
+        <p>Leñado es un restaurante premium à la carte de cocina lenta. El tiempo de permanencia incluye <strong>espera activa</strong> (bienvenida + carta), <strong>primer plato</strong>, <strong>plato principal</strong> (con cocción visible), <strong>postre opcional</strong> y <strong>café / digestivo</strong>. El formato invita a quedarse: esto es intencional y parte del concepto.</p>
+      </div>
+      <div class="rot-item rv d2">
+        <h3><i class="ph-thin ph-arrows-clockwise"></i> Rotaciones por servicio</h3>
+        <span class="rot-big">1,5 — 2× por turno</span>
+        <p>
+          <strong>Almuerzo (12:30 – 15:30):</strong> 3 horas / 100 min = <strong>aprox. 1,5 rotaciones</strong>.<br/>
+          <strong>Cena (20:00 – 23:30):</strong> 3,5 horas / 100 min = <strong>aprox. 2 rotaciones</strong>.<br/>
+          El primer turno de cena se toma sobre reserva; el segundo ingresa a partir de las 22:00.
+        </p>
+      </div>
+      <div class="rot-item rot-highlight rv d3">
+        <h3><i class="ph-thin ph-users-three"></i> Comensales estimados por servicio completo</h3>
+        <span class="rot-big">168 por día</span>
+        <p>
+          <strong>Almuerzo:</strong> 56 cubiertos × 1,5 rot. = <strong>84 comensales</strong>.<br/>
+          <strong>Cena:</strong> 56 cubiertos × 2 rot. = <strong>112 comensales</strong>.<br/>
+          Total estimado en jornada completa: <strong>168 comensales</strong> (promedio; varía por estacionalidad).
+        </p>
+      </div>
+      <div class="rot-item rv d4">
+        <h3><i class="ph-thin ph-chart-line-up"></i> Relación plazas, rotación y rentabilidad</h3>
+        <p>Con 56 cubiertos y ticket promedio de <strong>$23.000 ARS</strong> (mitad de rango $18k–$28k), una jornada completa de 168 comensales genera una facturación bruta estimada de <strong>$3.864.000 ARS</strong>. La clave no está en maximizar rotaciones sino en <strong>maximizar el ticket por cobertura</strong>: bebidas, postres y maridajes elevan el promedio. La rotación baja (vs. fast casual) es compensada por el margen superior del segmento premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FLUJOGRAMA OPERATIVO -->
+<section id="flujo-sec" class="bg-carbon">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Punto 4</span>Flujograma operativo</p>
+      <h2 class="section-title">Recorridos <em>operativos</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Esquema de los cinco flujos principales del restaurante e identificación de posibles cruces o conflictos operativos.</p>
+    </div>
+
+    <div class="flujo-wrap rv">
+      <div class="flujo-thead">
+        <div>Actor</div>
+        <div>Recorrido</div>
+      </div>
+
+      <div class="flujo-row">
+        <div class="flujo-actor-cell"><i class="ph-thin ph-user f-cli" style="font-size:1.1rem;"></i><span class="flujo-actor f-cli">Cliente</span></div>
+        <div class="flujo-steps-cell">
+          <span class="fstep">Calle / Acceso</span><span class="farr">›</span>
+          <span class="fstep">Recepción / espera</span><span class="farr">›</span>
+          <span class="fstep">Mesa asignada</span><span class="farr">›</span>
+          <span class="fstep">Barra (opcional)</span><span class="farr">›</span>
+          <span class="fstep">Orden + servicio</span><span class="farr">›</span>
+          <span class="fstep">Sanitarios</span><span class="farr">›</span>
+          <span class="fstep">Pago + salida</span>
+        </div>
+      </div>
+
+      <div class="flujo-row">
+        <div class="flujo-actor-cell"><i class="ph-thin ph-briefcase f-per" style="font-size:1.1rem;"></i><span class="flujo-actor f-per">Personal de servicio</span></div>
+        <div class="flujo-steps-cell">
+          <span class="fstep">Vestuario / Ingreso</span><span class="farr">›</span>
+          <span class="fstep">Corredor servicio</span><span class="farr">›</span>
+          <span class="fstep">Pase (cocina)</span><span class="farr">›</span>
+          <span class="fstep">Salón / Mesas</span><span class="farr">›</span>
+          <span class="falert">⟳ va y vuelve cocina ↔ salón</span>
+          <span class="farr">›</span>
+          <span class="fstep">Lavado / Cierre</span>
+        </div>
+      </div>
+
+      <div class="flujo-row">
+        <div class="flujo-actor-cell"><i class="ph-thin ph-truck f-mp" style="font-size:1.1rem;"></i><span class="flujo-actor f-mp">Materias primas</span></div>
+        <div class="flujo-steps-cell">
+          <span class="fstep">Proveedor / Delivery</span><span class="farr">›</span>
+          <span class="fstep">Puerta servicio (lateral)</span><span class="farr">›</span>
+          <span class="fstep">Depósito / Cámara</span><span class="farr">›</span>
+          <span class="fstep">Cocina (prep.)</span><span class="farr">›</span>
+          <span class="fstep">Mise en place</span>
+        </div>
+      </div>
+
+      <div class="flujo-row">
+        <div class="flujo-actor-cell"><i class="ph-thin ph-bowl-food f-pt" style="font-size:1.1rem;"></i><span class="flujo-actor f-pt">Platos terminados</span></div>
+        <div class="flujo-steps-cell">
+          <span class="fstep">Cocina / Horno</span><span class="farr">›</span>
+          <span class="fstep">Emplatado</span><span class="farr">›</span>
+          <span class="fstep">Pase (ventana)</span><span class="farr">›</span>
+          <span class="fstep">Mozo recoge</span><span class="farr">›</span>
+          <span class="fstep">Mesa del cliente</span>
+        </div>
+      </div>
+
+      <div class="flujo-row">
+        <div class="flujo-actor-cell"><i class="ph-thin ph-trash f-res" style="font-size:1.1rem;"></i><span class="flujo-actor f-res">Residuos</span></div>
+        <div class="flujo-steps-cell">
+          <span class="fstep">Mesa (vajilla sucia)</span><span class="farr">›</span>
+          <span class="fstep">Mozo retira</span><span class="farr">›</span>
+          <span class="falert">⚠ NO cruza cocina</span>
+          <span class="farr">›</span>
+          <span class="fstep">Corredor interno</span><span class="farr">›</span>
+          <span class="fstep">Área lavado</span><span class="farr">›</span>
+          <span class="fstep">Contenedor exterior</span>
+        </div>
+      </div>
+
+      <div class="flujo-conflicts rv">
+        <h4><i class="ph-thin ph-warning" style="font-size:1rem;margin-right:.4rem;"></i> Posibles cruces y conflictos operativos</h4>
+        <ul>
+          <li><strong>Corredor servicio ↔ Corredor clientes (barra):</strong> Riesgo de cruce en hora pico. Solución: horarios diferenciados de abastecimiento (solo antes de apertura), señalización interna.</li>
+          <li><strong>Pase cocina → Platos ↔ Mozo con vajilla sucia (retorno):</strong> Flujo limpio y sucio en misma zona del pase. Solución: dos ventanillas diferenciadas (salida de platos / retorno vajilla).</li>
+          <li><strong>Acceso de proveedores (materias primas) ↔ Salida de residuos:</strong> Posible cruce en corredor de servicio lateral. Solución: horarios de recepción de mercadería exclusivamente antes de la apertura (11:00–12:00).</li>
+          <li><strong>Personal de servicio en salón ↔ Clientes circulando hacia sanitarios:</strong> Pasillo compartido entre sector corredor interno y salón. Solución: señalización clara y separación visual por nivel de piso o diferencia de iluminación.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ANÁLISIS DE CAPACIDAD OPERATIVA -->
+<section id="cap-sec" class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Punto 5</span>Análisis de capacidad operativa</p>
+      <h2 class="section-title">Capacidad <em>operativa</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="cap-strip rv">
+      <div class="cap-item">
+        <div class="cap-num">56</div>
+        <div class="cap-unit">Cubiertos simultáneos</div>
+        <div class="cap-desc">Capacidad máxima del salón en un servicio completo</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">4–5</div>
+        <div class="cap-unit">Mozos por servicio</div>
+        <div class="cap-desc">1 mozo cada 12–14 cubiertos (estándar premium)</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">168</div>
+        <div class="cap-unit">Comensales / jornada</div>
+        <div class="cap-desc">Almuerzo + cena con rotaciones estimadas</div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-num">2+</div>
+        <div class="cap-unit">Cocineros en línea</div>
+        <div class="cap-desc">Jefe de cocina + 2–3 ayudantes en servicio pico</div>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:3.5rem;">
+      <h3 style="font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.5rem;">Sectores críticos para el funcionamiento</h3>
+      <p style="font-size:.85rem;color:var(--stone);margin-bottom:1.5rem;">Los tres puntos de mayor presión operativa identificados en el diseño del establecimiento</p>
+    </div>
+
+    <div class="criticos-list rv">
+      <div class="crit-item">
+        <div class="crit-num">01</div>
+        <div class="crit-body">
+          <h4><i class="ph-thin ph-arrow-square-out" style="margin-right:.4rem;"></i>Pase (ventana cocina–salón)</h4>
+          <p>Es el cuello de botella principal del servicio. Toda la comida preparada en cocina cruza por este punto hacia el salón, y toda la vajilla sucia vuelve por el mismo sector. Un mal diseño del pase genera demoras en la entrega de platos, confusión entre pedidos y cruce de flujos limpios/sucios. Se resuelven con dos ventanillas diferenciadas, sistema de comandas por pantalla o ticket, y un protocolo claro de salida y retorno de vajilla.</p>
+        </div>
+      </div>
+      <div class="crit-item">
+        <div class="crit-num">02</div>
+        <div class="crit-body">
+          <h4><i class="ph-thin ph-flame" style="margin-right:.4rem;"></i>Cocina — horno a leña y línea caliente</h4>
+          <p>El horno a leña requiere preparación previa de al menos 60–90 minutos antes del servicio (encendido, alcance de temperatura). Es la infraestructura más costosa y el centro operativo del restaurante. La posición del horno dentro de la cocina determina los flujos internos: debe estar visible desde el pase y accesible desde la línea de emplatado. La cocina opera con tiempos de producción largos (brisket: 12h) que requieren planificación diaria sin margen de error.</p>
+        </div>
+      </div>
+      <div class="crit-item">
+        <div class="crit-num">03</div>
+        <div class="crit-body">
+          <h4><i class="ph-thin ph-users" style="margin-right:.4rem;"></i>Recepción / Gestión de espera</h4>
+          <p>Con 56 cubiertos y un restaurante premium de alta demanda, la gestión de la lista de espera y la comunicación de tiempos es crítica para la experiencia del cliente. Una recepción mal dimensionada o mal gestionada genera frustración antes de que el cliente se siente. Se requiere: zona de espera con asientos (min. 10 personas), sistema de reservas activo, personal asignado exclusivamente a la recepción durante servicio pico, y protocolo para informar tiempos reales sin comprometer la calidad del ritmo de servicio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
 <footer>
   <div class="footer-grid">
     <div class="fb-brand">
@@ -1400,6 +1908,7 @@
         <li>Act. 5 — Menú y ambientación</li>
         <li>Act. 6 — Pitch del proyecto</li>
         <li>Extra — Análisis comparativo</li>
+        <li>TP — Plano del restaurante</li>
       </ul>
     </div>
     <div class="fc">
@@ -1462,7 +1971,7 @@
 
   tabBtns.forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.tab)));
 
-  const valid=['inicio','identidad','menu','analisis','diseno','proyecto'];
+  const valid=['inicio','identidad','menu','analisis','diseno','proyecto','plano'];
   const hash=location.hash.replace('#','');
   activateTab(valid.includes(hash)?hash:'inicio',false);
 </script>
