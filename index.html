@@ -202,10 +202,12 @@
     .color-row { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.4rem; }
     .swatch { width:36px; height:36px; border-radius:3px; border:1px solid rgba(255,255,255,.08); display:flex; align-items:flex-end; justify-content:center; padding-bottom:2px; }
     .swatch span { font-size:.45rem; color:rgba(255,255,255,.5); line-height:1; }
-    .typo-demo { margin-top:.5rem; }
-    .typo-demo .t1 { font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--white); }
-    .typo-demo .t2 { font-family:'Playfair Display',serif; font-style:italic; font-size:.88rem; color:var(--beige); }
-    .typo-demo .t3 { font-family:'Inter',sans-serif; font-size:.75rem; color:var(--stone); }
+    .typo-demo { margin-top:.8rem; display:flex; flex-direction:column; gap:1.2rem; }
+    .typo-block { padding:1rem 1.2rem; border-left:2px solid rgba(184,115,51,.25); background:rgba(255,255,255,.02); }
+    .typo-role { font-family:'Inter',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); margin-bottom:.4rem; }
+    .typo-demo .t1 .typo-sample { font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:.1em; color:var(--white); text-transform:uppercase; }
+    .typo-demo .t2 .typo-sample { font-family:'Playfair Display',serif; font-size:1.15rem; font-style:italic; color:var(--beige); }
+    .typo-demo .t3 .typo-sample { font-family:'Inter',sans-serif; font-size:.82rem; font-weight:300; color:var(--stone); line-height:1.6; }
 
     /* ─────────────────────────────────────────────
        ACTIVIDAD 5 — Menú y Ambientación
@@ -332,7 +334,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">LEÑ<span>A</span>DO</a>
+  <a href="#hero" class="nav-logo">LEÑADO</a>
   <ul class="nav-links">
     <li><a href="#act1">La Carta</a></li>
     <li><a href="#act2">Menú</a></li>
@@ -350,7 +352,7 @@
   <div class="hero-content">
     <p class="hero-institution">Materia: Menú, Diseño y Ambientación de Restaurantes · Docente: Silvina Galacho</p>
     <p class="hero-subject">Trabajo Práctico Integrador — Diseño y Formato de Menú</p>
-    <h1 class="hero-title">LEÑ<span class="fl">A</span>DO</h1>
+    <h1 class="hero-title">LEÑADO</h1>
     <div class="hero-divider"></div>
     <p class="hero-slogan">"Donde el fuego transforma cada experiencia."</p>
     <div class="hero-meta">
@@ -446,8 +448,8 @@
       <div class="qa-item rv d1">
         <div class="qa-q"><span class="qa-num">4</span>¿Qué colores representan mejor la identidad?</div>
         <p class="qa-a">
-          <strong>Primarios:</strong> Negro carbón (#0d0d0d), marrón oscuro (#3b2007), gris piedra (#4a4540).<br/>
-          <strong>Secundarios:</strong> Cobre (#b87333), naranja fuego (#e8601c), beige cálido (#d4b896).<br/>
+          <strong>Primarios:</strong> Negro carbón, marrón oscuro, gris piedra.<br/>
+          <strong>Secundarios:</strong> Cobre, naranja fuego, beige cálido.<br/>
           Paleta que evoca el fuego, los materiales nobles y la oscuridad cálida de una brasa encendida.
         </p>
       </div>
@@ -720,7 +722,7 @@
         <div class="menu-mockup">
           <div class="mock-cover">
             <div class="fire">🔥</div>
-            <div class="brand">LEÑ<span>A</span>DO</div>
+            <div class="brand">LEÑADO</div>
             <div class="line"></div>
             <div class="tagline">"Donde el fuego transforma cada experiencia."</div>
           </div>
@@ -784,9 +786,18 @@
             <span class="spec-label">Tipografías</span>
             <div>
               <div class="typo-demo">
-                <div class="t1">OSWALD — Secciones y nombre del restaurante</div>
-                <div class="t2">Playfair Display — Nombres de platos y citas</div>
-                <div class="t3">Inter Light — Descripciones y detalles técnicos</div>
+                <div class="typo-block t1">
+                  <div class="typo-role">Oswald · Titulares y secciones</div>
+                  <div class="typo-sample">LEÑADO · ENTRADAS · PRINCIPALES</div>
+                </div>
+                <div class="typo-block t2">
+                  <div class="typo-role">Playfair Display · Nombres de platos y citas</div>
+                  <div class="typo-sample">Brisket Ahumado de Doce Horas</div>
+                </div>
+                <div class="typo-block t3">
+                  <div class="typo-role">Inter Light · Descripciones e ingredientes</div>
+                  <div class="typo-sample">Pecho de res, rub de especias, ahumado en quebracho blanco doce horas. Rebanado al momento.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -1118,7 +1129,7 @@
 <footer>
   <div class="footer-grid">
     <div class="fb-brand">
-      <h2>LEÑ<span>A</span>DO</h2>
+      <h2>LEÑADO</h2>
       <p class="tl">"Donde el fuego transforma cada experiencia."</p>
       <p>Trabajo Práctico Integrador — Diseño y Formato de Menú.<br/>Materia: Menú, diseño y ambientación de restaurantes.<br/>Docente: Silvina Galacho.</p>
     </div>
