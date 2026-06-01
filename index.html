@@ -322,6 +322,28 @@
     .mock-fire i      { font-size:2.8rem; color:var(--fire); }
 
 
+
+    /* ── INICIO OVERVIEW ── */
+    .overview-intro { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-top:3rem; }
+    .ov-text p { color:var(--beige); margin-bottom:1rem; font-size:.95rem; }
+    .ov-text .highlight { font-family:'Playfair Display',serif; font-style:italic; font-size:1.05rem; color:var(--cream); border-left:3px solid var(--fire); padding-left:1.2rem; margin:1.5rem 0; }
+    .mvv-mini { display:flex; flex-direction:column; gap:1.2rem; }
+    .mvv-card-mini { padding:1.6rem 1.8rem; border:1px solid rgba(184,115,51,.15); background:rgba(255,255,255,.02); transition:border-color .3s; }
+    .mvv-card-mini:hover { border-color:rgba(184,115,51,.35); }
+    .mvv-card-mini h3 { font-family:'Oswald',sans-serif; font-size:.78rem; letter-spacing:.2em; text-transform:uppercase; color:var(--copper); margin-bottom:.6rem; display:flex; align-items:center; gap:.6rem; }
+    .mvv-card-mini h3 i { font-size:1rem; }
+    .mvv-card-mini p { font-size:.85rem; color:var(--beige); line-height:1.75; }
+    .values-strip { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem; }
+    .val-chip { font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; padding:.35rem .9rem; border:1px solid rgba(184,115,51,.2); color:var(--stone); transition:background .2s,color .2s,border-color .2s; }
+    .val-chip:hover { background:var(--copper); color:var(--carbon); border-color:var(--copper); }
+    .data-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(184,115,51,.1); margin-top:4rem; }
+    .data-strip-item { padding:1.4rem 1.6rem; background:var(--dark); text-align:center; }
+    .data-strip-item .ds-label { font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); margin-bottom:.35rem; }
+    .data-strip-item .ds-value { font-family:'Oswald',sans-serif; font-size:1rem; color:var(--copper); letter-spacing:.06em; }
+    @media(max-width:1024px){ .overview-intro { grid-template-columns:1fr; gap:2.5rem; } }
+    @media(max-width:768px){ .data-strip { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:480px){ .data-strip { grid-template-columns:1fr 1fr; } }
+
     /* ── TAB SYSTEM ── */
     .tab-bar {
       position: sticky; top: 58px; z-index: 900;
@@ -463,40 +485,21 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">LEÑADO</a>
-  <ul class="nav-links">
-    <li><a href="#act1">La Carta</a></li>
-    <li><a href="#act2">Menú</a></li>
-    <li><a href="#act3">Psicología</a></li>
-    <li><a href="#act4">Diseño</a></li>
-    <li><a href="#act5">Ambientación</a></li>
-    <li><a href="#act6">Proyecto</a></li>
-  </ul>
-  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
-</nav>
-
-<!-- HERO -->
-<body>
-
-<!-- NAV: logo only — tabs are the navigation -->
 <nav id="nav">
   <a href="#" class="nav-logo" onclick="activateTab('inicio');return false;">LEÑADO</a>
   <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- TAB BAR -->
 <div class="tab-bar">
   <button class="tab-btn" data-tab="inicio">Inicio</button>
-  <button class="tab-btn" data-tab="carta"><span class="tab-num">01</span>La Carta</button>
+  <button class="tab-btn" data-tab="identidad"><span class="tab-num">01</span>La Carta</button>
   <button class="tab-btn" data-tab="menu"><span class="tab-num">02</span>El Menú</button>
-  <button class="tab-btn" data-tab="estrategia"><span class="tab-num">03–06</span>Estrategia</button>
-  <button class="tab-btn" data-tab="diseno"><span class="tab-num">04–05</span>Diseño & Ambiente</button>
-  <button class="tab-btn" data-tab="analisis">Análisis</button>
+  <button class="tab-btn" data-tab="analisis"><span class="tab-num">03 + Extra</span>Análisis</button>
+  <button class="tab-btn" data-tab="diseno"><span class="tab-num">04 + 05</span>Diseño & Ambiente</button>
+  <button class="tab-btn" data-tab="proyecto"><span class="tab-num">06</span>El Proyecto</button>
 </div>
 
-<!-- TAB: INICIO -->
+<!-- ══ TAB: INICIO ══ -->
 <div class="tab-panel" id="tab-inicio">
 <div class="hero-wrap">
   <div class="particles" id="pts"></div>
@@ -528,10 +531,68 @@
   </div>
 </div>
 
+<section class="bg-dark" style="padding:5.5rem 2rem 6rem;">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow">El Proyecto</p>
+      <h2 class="section-title">¿Qué es <em>Leñado</em>?</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="overview-intro">
+      <div class="ov-text rv d1">
+        <p>Leñado es un restaurante premium de cocina a fuego vivo ubicado en Mar del Plata. La propuesta surge de una convicción: <strong>el fuego de leña es el primer y más honesto lenguaje de la gastronomía.</strong></p>
+        <p>El proyecto fusiona tres tradiciones culinarias —la parrilla argentina, el BBQ norteamericano y la cocina latinoamericana— bajo una sola técnica que las unifica: la leña como fuente de calor, sabor y espectáculo.</p>
+        <p>No es una parrilla tradicional, no es una hamburguesería, no es un restaurante genérico. Leñado es una experiencia gastronómica centrada en el fuego, con identidad propia, diseño coherente y un compromiso absoluto con la calidad de cada plato.</p>
+        <p class="highlight">"No venimos a servir comida. Venimos a crear el momento en que todo se detiene porque algo en el plato, en el aroma, en el ambiente, te recuerda por qué vale la pena estar aquí."</p>
+        <div class="values-strip">
+          <span class="val-chip">Autenticidad</span>
+          <span class="val-chip">Calidad</span>
+          <span class="val-chip">Tradición</span>
+          <span class="val-chip">Hospitalidad</span>
+          <span class="val-chip">Pasión</span>
+          <span class="val-chip">Innovación controlada</span>
+        </div>
+      </div>
+      <div class="mvv-mini rv d2">
+        <div class="mvv-card-mini">
+          <h3><i class="ph-thin ph-target"></i> Misión</h3>
+          <p>Ofrecer una experiencia gastronómica auténtica centrada en la cocina a leña, donde cada plato refleje el respeto por los ingredientes, las tradiciones culinarias y la excelencia en el servicio. Buscamos que cada visita sea un momento memorable que invite a reconectarse con lo esencial.</p>
+        </div>
+        <div class="mvv-card-mini">
+          <h3><i class="ph-thin ph-eye"></i> Visión</h3>
+          <p>Convertirnos en el referente gastronómico de Mar del Plata en cocina a fuego vivo, reconocidos por turistas y locales como el destino de elección para quienes buscan una propuesta con carácter propio y un compromiso permanente con la calidad.</p>
+        </div>
+        <div class="mvv-card-mini">
+          <h3><i class="ph-thin ph-diamond"></i> Valores</h3>
+          <p>Autenticidad en cada decisión, calidad sin límites, tradición viva, hospitalidad genuina, pasión por el fuego e innovación controlada. Son la columna vertebral que define quiénes somos y cómo nos relacionamos con clientes, equipo y entorno.</p>
+        </div>
+      </div>
+    </div>
+    <div class="data-strip rv">
+      <div class="data-strip-item">
+        <div class="ds-label">Tipo de local</div>
+        <div class="ds-value">Restaurante Premium</div>
+      </div>
+      <div class="data-strip-item">
+        <div class="ds-label">Técnica central</div>
+        <div class="ds-value">Cocina a Leña</div>
+      </div>
+      <div class="data-strip-item">
+        <div class="ds-label">Ubicación</div>
+        <div class="ds-value">Mar del Plata</div>
+      </div>
+      <div class="data-strip-item">
+        <div class="ds-label">Tipo de menú</div>
+        <div class="ds-value">À la Carte · 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>
 
-<!-- TAB: LA CARTA -->
-<div class="tab-panel" id="tab-carta">
+<!-- ══ TAB: IDENTIDAD DE LA CARTA (Actividad 1) ══ -->
+<div class="tab-panel" id="tab-identidad">
 <section id="act1" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -620,10 +681,9 @@
     </div>
   </div>
 </section>
-
 </div>
 
-<!-- TAB: EL MENÚ -->
+<!-- ══ TAB: EL MENÚ (Actividad 2) ══ -->
 <div class="tab-panel" id="tab-menu">
 <section id="act2" class="bg-glow-top">
   <div class="container">
@@ -796,11 +856,10 @@
     </div>
   </div>
 </section>
-
 </div>
 
-<!-- TAB: ESTRATEGIA (act3 + act6) -->
-<div class="tab-panel" id="tab-estrategia">
+<!-- ══ TAB: ANÁLISIS (Actividad 3 + Actividad Extra) ══ -->
+<div class="tab-panel" id="tab-analisis">
 <section id="act3" class="bg-dark">
   <div class="container">
     <div class="rv">
@@ -849,74 +908,122 @@
     </div>
   </div>
 </section>
-<section id="act6" class="bg-glow-bottom">
+<section id="extra" class="bg-dark">
   <div class="container">
     <div class="rv">
-      <p class="section-eyebrow"><span class="act">Actividad 6</span>Vendeme tu restaurante</p>
-      <h2 class="section-title">El <em>pitch</em> de Leñado</h2>
+      <p class="section-eyebrow"><span class="act">Actividad Extra</span>Análisis comparativo</p>
+      <h2 class="section-title">Análisis de <em>cartas reales</em></h2>
       <div class="rule"></div>
+      <p class="lead">Análisis de dos restaurantes reconocidos para identificar buenas prácticas, errores y elementos aplicables al diseño de la carta de Leñado.</p>
     </div>
 
-    <div class="pitch-hero rv">
-      <h2>"No abrimos un restaurante. Abrimos un fuego."</h2>
-      <p>Mar del Plata tiene cientos de opciones gastronómicas. Ninguna centra su propuesta entera en la cocina a leña como técnica, espectáculo y filosofía. Leñado llega a llenar ese espacio vacío con una propuesta sólida, diferenciada y con una identidad que no puede copiarse porque nace de una convicción, no de una moda.</p>
+    <div class="comp-grid">
+      <!-- CARTA 1 -->
+      <div class="comp-card rv d1">
+        <div class="comp-card-header">
+          <div class="comp-logo-placeholder"><i class="ph-thin ph-fork-knife"></i></div>
+          <div>
+            <h3>Don Julio — Buenos Aires</h3>
+            <p>Parrilla argentina de alta gama · Palermo · Distinción Michelin</p>
+          </div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-section">
+            <h4>✔ Diseño visual</h4>
+            <p>Carta sobria, tipografía serif clásica, sin fotos. Papel de calidad en tono crema, organización clara por cortes. Diseño que no compite con el producto.</p>
+            <div class="comp-tags">
+              <span class="comp-tag">Sin fotos</span>
+              <span class="comp-tag">Papel premium</span>
+              <span class="comp-tag">Organización clara</span>
+            </div>
+          </div>
+          <div class="comp-section">
+            <h4>✔ Identidad</h4>
+            <p>La carta representa fielmente el concepto premium argentino. Transmite seriedad, tradición y confianza desde el primer vistazo. Diseño coherente con el espacio.</p>
+          </div>
+          <div class="comp-section">
+            <h4>✔ Estrategia comercial</h4>
+            <p>Precios discretos. Cortes ordenados por tipo, no por precio. Sin destacados artificiales: la reputación del restaurante hace el trabajo. Carta breve, profunda.</p>
+          </div>
+          <div class="comp-section">
+            <h4>Aspectos positivos y a tomar</h4>
+            <p class="comp-positivo">La brevedad como herramienta de confianza. La ausencia de fotos como decisión de calidad. El papel como primer objeto de experiencia.</p>
+          </div>
+          <div class="comp-section">
+            <h4>Aspectos negativos o a evitar</h4>
+            <p class="comp-negativo">Carta excesivamente tradicional para el concepto de Leñado. No hay storytelling del proceso. Las descripciones son demasiado escuetas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTA 2 -->
+      <div class="comp-card rv d2">
+        <div class="comp-card-header">
+          <div class="comp-logo-placeholder"><i class="ph-thin ph-flame"></i></div>
+          <div>
+            <h3>Proper — Buenos Aires</h3>
+            <p>Cocina a leña · Palermo · Referente BBQ porteño</p>
+          </div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-section">
+            <h4>✔ Diseño visual</h4>
+            <p>Diseño moderno-industrial, paleta oscura, tipografía bold sans-serif. Uso de papel kraft. Estética coherente con el concepto de fuego y brasa. Sin fotos.</p>
+            <div class="comp-tags">
+              <span class="comp-tag">Papel kraft</span>
+              <span class="comp-tag">Paleta oscura</span>
+              <span class="comp-tag">Industrial</span>
+            </div>
+          </div>
+          <div class="comp-section">
+            <h4>✔ Identidad</h4>
+            <p>Alta coherencia entre la carta, el espacio y la propuesta gastronómica. El diseño de la carta anticipa la experiencia: el cliente ya sabe que va a estar frente a algo diferente.</p>
+          </div>
+          <div class="comp-section">
+            <h4>✔ Estrategia comercial</h4>
+            <p>Platos destacados con marcadores visuales claros. Carta corta con alta rotación. Descripciones técnicas que generan curiosidad y justifican el precio.</p>
+          </div>
+          <div class="comp-section">
+            <h4>Aspectos positivos y a tomar</h4>
+            <p class="comp-positivo">El uso del papel kraft como material: económico, artesanal y coherente. La brevedad en la carta. Las descripciones con tecnicismos que educan al cliente.</p>
+          </div>
+          <div class="comp-section">
+            <h4>Aspectos negativos o a evitar</h4>
+            <p class="comp-negativo">Algunas secciones resultan confusas en la organización. Precio demasiado prominente en algunos ítems, lo que puede inhibir el pedido.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="pitch-pillars">
-      <div class="pp rv d1">
-        <div class="icon"><i class="ph-thin ph-flame"></i></div>
-        <h4>Identidad</h4>
-        <p>El fuego de leña no es decoración. Es la técnica, es la filosofía, es el diferencial que une cada decisión del proyecto.</p>
-      </div>
-      <div class="pp rv d2">
-        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
-        <h4>Concepto</h4>
-        <p>Restaurante premium à la carte de cocina a fuego vivo. Fusión argentina, BBQ y latinoamericana bajo una sola técnica.</p>
-      </div>
-      <div class="pp rv d3">
-        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
-        <h4>Público</h4>
-        <p>25-55 años, NSE medio-alto. Locales que buscan novedad con garantía, turistas que buscan autenticidad, foodies que buscan técnica.</p>
-      </div>
-      <div class="pp rv d4">
-        <div class="icon"><i class="ph-thin ph-palette"></i></div>
-        <h4>Diseño</h4>
-        <p>Cuero, madera, hierro. Oscuro y cálido. La carta, el espacio y la vajilla hablan el mismo idioma: autenticidad sin artificios.</p>
-      </div>
-    </div>
-
-    <div class="pitch-diferencial">
-      <div class="pd-col rv d1">
-        <h3>Lo que tenemos que ninguno tiene</h3>
+    <div class="conclusions">
+      <div class="conclusion-col toma rv d1">
+        <h4>Lo que tomamos de referencia para Leñado</h4>
         <ul>
-          <li>Cocina 100% a leña visible desde el salón</li>
-          <li>Brisket ahumado 12 horas — técnica única en Mar del Plata</li>
-          <li>Fusión de tres tradiciones bajo una sola técnica</li>
-          <li>Diseño de experiencia integral: carta, espacio, servicio y plato</li>
-          <li>Carta concisa con 4 platos por sección — foco absoluto</li>
-          <li>Equipo formado en cocina a fuego vivo y servicio consultivo</li>
-          <li>Identidad de marca coherente en cada punto de contacto</li>
+          <li>Carta sin fotografías en ninguno de los dos casos</li>
+          <li>Material de calidad (cuero, kraft, papel grueso) como primer objeto</li>
+          <li>Brevedad: máximo 4 ítems por categoría</li>
+          <li>Descripciones técnicas que educan y seducen al mismo tiempo</li>
+          <li>Diseño coherente con el concepto del restaurante</li>
+          <li>Precios discretos, nunca como elemento principal</li>
         </ul>
       </div>
-      <div class="pd-col rv d2">
-        <h3>Por qué funciona en Mar del Plata</h3>
+      <div class="conclusion-col notoma rv d2">
+        <h4>Lo que NO usaríamos en Leñado</h4>
         <ul>
-          <li>Más de 3 millones de turistas anuales con demanda gastronómica creciente</li>
-          <li>Cero competidores directos identificados en el segmento BBQ premium</li>
-          <li>Turista 2024: busca experiencia memorable, no solo precio</li>
-          <li>Comunidad local foodie en expansión sostenida</li>
-          <li>Estacionalidad parcial: turismo de todo el año en MdP</li>
-          <li>Alto potencial de viralización en redes por el componente visual del fuego</li>
-          <li>Alianzas posibles con productores ganaderos regionales</li>
+          <li>Fotos de los platos: empobrecen la expectativa</li>
+          <li>Plastificados y laminados brillantes: cheap premium</li>
+          <li>Cartas con más de 30 ítems: generan parálisis</li>
+          <li>Precios excesivamente destacados visualmente</li>
+          <li>Fondos blancos con tipografía negra: sin identidad</li>
+          <li>Secciones sin diferenciación visual clara</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-
 </div>
 
-<!-- TAB: DISEÑO & AMBIENTE (act4 + act5) -->
+<!-- ══ TAB: DISEÑO & AMBIENTE (Actividad 4 + Actividad 5) ══ -->
 <div class="tab-panel" id="tab-diseno">
 <section id="act4" class="bg-carbon">
   <div class="container">
@@ -1079,119 +1186,69 @@
     </div>
   </div>
 </section>
-
 </div>
 
-<!-- TAB: ANÁLISIS (extra + experiencia) -->
-<div class="tab-panel" id="tab-analisis">
-<section id="extra" class="bg-dark">
+<!-- ══ TAB: EL PROYECTO (Actividad 6 + Experiencia Integral) ══ -->
+<div class="tab-panel" id="tab-proyecto">
+<section id="act6" class="bg-glow-bottom">
   <div class="container">
     <div class="rv">
-      <p class="section-eyebrow"><span class="act">Actividad Extra</span>Análisis comparativo</p>
-      <h2 class="section-title">Análisis de <em>cartas reales</em></h2>
+      <p class="section-eyebrow"><span class="act">Actividad 6</span>Vendeme tu restaurante</p>
+      <h2 class="section-title">El <em>pitch</em> de Leñado</h2>
       <div class="rule"></div>
-      <p class="lead">Análisis de dos restaurantes reconocidos para identificar buenas prácticas, errores y elementos aplicables al diseño de la carta de Leñado.</p>
     </div>
 
-    <div class="comp-grid">
-      <!-- CARTA 1 -->
-      <div class="comp-card rv d1">
-        <div class="comp-card-header">
-          <div class="comp-logo-placeholder"><i class="ph-thin ph-fork-knife"></i></div>
-          <div>
-            <h3>Don Julio — Buenos Aires</h3>
-            <p>Parrilla argentina de alta gama · Palermo · Distinción Michelin</p>
-          </div>
-        </div>
-        <div class="comp-body">
-          <div class="comp-section">
-            <h4>✔ Diseño visual</h4>
-            <p>Carta sobria, tipografía serif clásica, sin fotos. Papel de calidad en tono crema, organización clara por cortes. Diseño que no compite con el producto.</p>
-            <div class="comp-tags">
-              <span class="comp-tag">Sin fotos</span>
-              <span class="comp-tag">Papel premium</span>
-              <span class="comp-tag">Organización clara</span>
-            </div>
-          </div>
-          <div class="comp-section">
-            <h4>✔ Identidad</h4>
-            <p>La carta representa fielmente el concepto premium argentino. Transmite seriedad, tradición y confianza desde el primer vistazo. Diseño coherente con el espacio.</p>
-          </div>
-          <div class="comp-section">
-            <h4>✔ Estrategia comercial</h4>
-            <p>Precios discretos. Cortes ordenados por tipo, no por precio. Sin destacados artificiales: la reputación del restaurante hace el trabajo. Carta breve, profunda.</p>
-          </div>
-          <div class="comp-section">
-            <h4>Aspectos positivos y a tomar</h4>
-            <p class="comp-positivo">La brevedad como herramienta de confianza. La ausencia de fotos como decisión de calidad. El papel como primer objeto de experiencia.</p>
-          </div>
-          <div class="comp-section">
-            <h4>Aspectos negativos o a evitar</h4>
-            <p class="comp-negativo">Carta excesivamente tradicional para el concepto de Leñado. No hay storytelling del proceso. Las descripciones son demasiado escuetas.</p>
-          </div>
-        </div>
-      </div>
+    <div class="pitch-hero rv">
+      <h2>"No abrimos un restaurante. Abrimos un fuego."</h2>
+      <p>Mar del Plata tiene cientos de opciones gastronómicas. Ninguna centra su propuesta entera en la cocina a leña como técnica, espectáculo y filosofía. Leñado llega a llenar ese espacio vacío con una propuesta sólida, diferenciada y con una identidad que no puede copiarse porque nace de una convicción, no de una moda.</p>
+    </div>
 
-      <!-- CARTA 2 -->
-      <div class="comp-card rv d2">
-        <div class="comp-card-header">
-          <div class="comp-logo-placeholder"><i class="ph-thin ph-flame"></i></div>
-          <div>
-            <h3>Proper — Buenos Aires</h3>
-            <p>Cocina a leña · Palermo · Referente BBQ porteño</p>
-          </div>
-        </div>
-        <div class="comp-body">
-          <div class="comp-section">
-            <h4>✔ Diseño visual</h4>
-            <p>Diseño moderno-industrial, paleta oscura, tipografía bold sans-serif. Uso de papel kraft. Estética coherente con el concepto de fuego y brasa. Sin fotos.</p>
-            <div class="comp-tags">
-              <span class="comp-tag">Papel kraft</span>
-              <span class="comp-tag">Paleta oscura</span>
-              <span class="comp-tag">Industrial</span>
-            </div>
-          </div>
-          <div class="comp-section">
-            <h4>✔ Identidad</h4>
-            <p>Alta coherencia entre la carta, el espacio y la propuesta gastronómica. El diseño de la carta anticipa la experiencia: el cliente ya sabe que va a estar frente a algo diferente.</p>
-          </div>
-          <div class="comp-section">
-            <h4>✔ Estrategia comercial</h4>
-            <p>Platos destacados con marcadores visuales claros. Carta corta con alta rotación. Descripciones técnicas que generan curiosidad y justifican el precio.</p>
-          </div>
-          <div class="comp-section">
-            <h4>Aspectos positivos y a tomar</h4>
-            <p class="comp-positivo">El uso del papel kraft como material: económico, artesanal y coherente. La brevedad en la carta. Las descripciones con tecnicismos que educan al cliente.</p>
-          </div>
-          <div class="comp-section">
-            <h4>Aspectos negativos o a evitar</h4>
-            <p class="comp-negativo">Algunas secciones resultan confusas en la organización. Precio demasiado prominente en algunos ítems, lo que puede inhibir el pedido.</p>
-          </div>
-        </div>
+    <div class="pitch-pillars">
+      <div class="pp rv d1">
+        <div class="icon"><i class="ph-thin ph-flame"></i></div>
+        <h4>Identidad</h4>
+        <p>El fuego de leña no es decoración. Es la técnica, es la filosofía, es el diferencial que une cada decisión del proyecto.</p>
+      </div>
+      <div class="pp rv d2">
+        <div class="icon"><i class="ph-thin ph-fork-knife"></i></div>
+        <h4>Concepto</h4>
+        <p>Restaurante premium à la carte de cocina a fuego vivo. Fusión argentina, BBQ y latinoamericana bajo una sola técnica.</p>
+      </div>
+      <div class="pp rv d3">
+        <div class="icon"><i class="ph-thin ph-users-three"></i></div>
+        <h4>Público</h4>
+        <p>25-55 años, NSE medio-alto. Locales que buscan novedad con garantía, turistas que buscan autenticidad, foodies que buscan técnica.</p>
+      </div>
+      <div class="pp rv d4">
+        <div class="icon"><i class="ph-thin ph-palette"></i></div>
+        <h4>Diseño</h4>
+        <p>Cuero, madera, hierro. Oscuro y cálido. La carta, el espacio y la vajilla hablan el mismo idioma: autenticidad sin artificios.</p>
       </div>
     </div>
 
-    <div class="conclusions">
-      <div class="conclusion-col toma rv d1">
-        <h4>Lo que tomamos de referencia para Leñado</h4>
+    <div class="pitch-diferencial">
+      <div class="pd-col rv d1">
+        <h3>Lo que tenemos que ninguno tiene</h3>
         <ul>
-          <li>Carta sin fotografías en ninguno de los dos casos</li>
-          <li>Material de calidad (cuero, kraft, papel grueso) como primer objeto</li>
-          <li>Brevedad: máximo 4 ítems por categoría</li>
-          <li>Descripciones técnicas que educan y seducen al mismo tiempo</li>
-          <li>Diseño coherente con el concepto del restaurante</li>
-          <li>Precios discretos, nunca como elemento principal</li>
+          <li>Cocina 100% a leña visible desde el salón</li>
+          <li>Brisket ahumado 12 horas — técnica única en Mar del Plata</li>
+          <li>Fusión de tres tradiciones bajo una sola técnica</li>
+          <li>Diseño de experiencia integral: carta, espacio, servicio y plato</li>
+          <li>Carta concisa con 4 platos por sección — foco absoluto</li>
+          <li>Equipo formado en cocina a fuego vivo y servicio consultivo</li>
+          <li>Identidad de marca coherente en cada punto de contacto</li>
         </ul>
       </div>
-      <div class="conclusion-col notoma rv d2">
-        <h4>Lo que NO usaríamos en Leñado</h4>
+      <div class="pd-col rv d2">
+        <h3>Por qué funciona en Mar del Plata</h3>
         <ul>
-          <li>Fotos de los platos: empobrecen la expectativa</li>
-          <li>Plastificados y laminados brillantes: cheap premium</li>
-          <li>Cartas con más de 30 ítems: generan parálisis</li>
-          <li>Precios excesivamente destacados visualmente</li>
-          <li>Fondos blancos con tipografía negra: sin identidad</li>
-          <li>Secciones sin diferenciación visual clara</li>
+          <li>Más de 3 millones de turistas anuales con demanda gastronómica creciente</li>
+          <li>Cero competidores directos identificados en el segmento BBQ premium</li>
+          <li>Turista 2024: busca experiencia memorable, no solo precio</li>
+          <li>Comunidad local foodie en expansión sostenida</li>
+          <li>Estacionalidad parcial: turismo de todo el año en MdP</li>
+          <li>Alto potencial de viralización en redes por el componente visual del fuego</li>
+          <li>Alianzas posibles con productores ganaderos regionales</li>
         </ul>
       </div>
     </div>
@@ -1255,7 +1312,6 @@
     </div>
   </div>
 </section>
-
 </div>
 
 <footer>
@@ -1299,12 +1355,10 @@
   </div>
 </footer>
 
-
 <script>
-  // Particles
   (function(){
     const c=document.getElementById('pts');
-    if(!c) return;
+    if(!c)return;
     const cols=['rgba(232,96,28,.65)','rgba(245,158,11,.5)','rgba(184,115,51,.45)'];
     for(let i=0;i<35;i++){
       const p=document.createElement('div');
@@ -1315,47 +1369,33 @@
     }
   })();
 
-  // Nav scroll
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
 
-  // Intersection observer for reveal animations
   const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
   },{threshold:.08});
 
-  function observePanel(panelId){
-    document.querySelectorAll('#'+panelId+' .rv, #'+panelId+' .rvl, #'+panelId+' .rvr').forEach(el=>io.observe(el));
+  function observePanel(id){
+    document.querySelectorAll('#'+id+' .rv,#'+id+' .rvl,#'+id+' .rvr').forEach(el=>io.observe(el));
   }
 
-  // Tab system
-  const tabBtns   = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  const tabBtns=document.querySelectorAll('.tab-btn');
+  const tabPanels=document.querySelectorAll('.tab-panel');
 
-  function activateTab(id, push){
-    tabBtns.forEach(b=>b.classList.toggle('active', b.dataset.tab===id));
-    tabPanels.forEach(p=>p.classList.toggle('active', p.id==='tab-'+id));
-    window.scrollTo({top:0, behavior:'instant'});
-    setTimeout(()=>observePanel('tab-'+id), 60);
-    if(push !== false) history.replaceState(null,'','#'+id);
+  function activateTab(id,push){
+    tabBtns.forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+    tabPanels.forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));
+    window.scrollTo({top:0,behavior:'instant'});
+    setTimeout(()=>observePanel('tab-'+id),60);
+    if(push!==false) history.replaceState(null,'','#'+id);
   }
 
   tabBtns.forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.tab)));
 
-  // Init
-  const hash = location.hash.replace('#','');
-  const validTabs = ['inicio','carta','menu','estrategia','diseno','analisis'];
-  activateTab(validTabs.includes(hash) ? hash : 'inicio', false);
-
-  // Hamburger (mobile) — now cycles through tabs
-  const hbg=document.getElementById('hbg');
-  const tabBar=document.querySelector('.tab-bar');
-  if(hbg && tabBar){
-    hbg.addEventListener('click',()=>{
-      tabBar.style.height = tabBar.style.height ? '' : 'auto';
-    });
-  }
+  const valid=['inicio','identidad','menu','analisis','diseno','proyecto'];
+  const hash=location.hash.replace('#','');
+  activateTab(valid.includes(hash)?hash:'inicio',false);
 </script>
-
 </body>
 </html>
