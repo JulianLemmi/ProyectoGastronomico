@@ -37,12 +37,8 @@
       transition: padding .3s;
     }
     nav.scrolled { padding: .7rem 3.5rem; }
-    .nav-logo { font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:.25em; color:var(--copper); text-decoration:none; }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { color:var(--beige); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; transition:color .2s; }
-    .nav-links a:hover { color:var(--copper); }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    .hamburger span { width:24px; height:2px; background:var(--beige); }
+    .nav-logo { font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; letter-spacing:.25em; color:var(--copper); text-decoration:none; line-height:1; }
+    .nav-tagline { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--stone); }
 
     /* ── HERO ── */
     #hero {
@@ -368,7 +364,9 @@
       border-bottom: 1px solid rgba(184,115,51,.15);
       display: flex; overflow-x: auto; scrollbar-width: none;
       padding: 0 2.5rem;
+      transition: top .3s;
     }
+    nav.scrolled + .tab-bar { top: 46px; }
     .tab-bar::-webkit-scrollbar { display: none; }
     .tab-btn {
       flex-shrink: 0; padding: .95rem 1.5rem;
@@ -408,7 +406,6 @@
 
     /* .tab-label helper */
     .tab-label { display:inline; }
-    @media(max-width:480px){ .tab-label { display:none; } }
 
     /* ── RESPONSIVE ── */
 
@@ -436,8 +433,7 @@
     @media(max-width:768px){
       nav { padding:.9rem 1.4rem; }
       nav.scrolled { padding:.6rem 1.4rem; }
-      .nav-links { display:none; }
-      .hamburger { display:flex; }
+      .nav-tagline { display:none; }
       section { padding:3.8rem 1.2rem; }
 
       /* grids → 1 col */
@@ -503,6 +499,7 @@
 
       /* tab bar */
       .tab-bar { padding:0 .6rem; top:52px; }
+      nav.scrolled + .tab-bar { top:43px; }
       .tab-btn { padding:.75rem .9rem; font-size:.62rem; letter-spacing:.14em; }
       .tab-num { font-size:.55rem; }
     }
@@ -526,9 +523,9 @@
       .comp-card-header { flex-direction:column; align-items:flex-start; }
       .footer-grid { gap:2rem; }
 
-      /* tabs: just show number + short text */
-      .tab-btn { padding:.7rem .75rem; font-size:.58rem; letter-spacing:.1em; }
-      .tab-num { font-size:.52rem; }
+      /* tabs: compactos pero con etiqueta legible (la barra scrollea) */
+      .tab-btn { padding:.7rem .65rem; font-size:.58rem; letter-spacing:.08em; }
+      .tab-num { font-size:.52rem; margin-right:.2rem; }
 
       /* section headers */
       .section-title { font-size:clamp(1.4rem,7vw,2rem); }
@@ -555,6 +552,8 @@
        TP DISEÑO FUNCIONAL — Plano del restaurante
        ───────────────────────────────────────────── */
     .plano-wrap { width:100%; overflow-x:auto; margin-top:3rem; padding:1.2rem; border:1px solid rgba(184,115,51,.12); background:rgba(255,255,255,.015); }
+    .plano-scrollhint { display:none; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--copper); margin-bottom:.6rem; }
+    @media(max-width:940px){ .plano-scrollhint { display:flex; align-items:center; gap:.4rem; } }
     .plano-legend { display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(184,115,51,.08); }
     .pleg-item { display:flex; align-items:center; gap:.5rem; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); }
     .pleg-box { width:12px; height:12px; flex-shrink:0; border:1px solid rgba(255,255,255,.2); }
@@ -631,7 +630,7 @@
 
 <nav id="nav">
   <a href="#" class="nav-logo" onclick="activateTab('inicio');return false;">LEÑADO</a>
-  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+  <span class="nav-tagline">Proyecto Gastronómico · Mar del Plata</span>
 </nav>
 
 <div class="tab-bar">
@@ -863,10 +862,10 @@
       </div>
       <div class="dish rv d2">
         <div class="dish-info">
-          <h4>Mollejas Braseadas</h4>
-          <p>Mollejas de corazón, cocción en brasas directas, limón asado en la parrilla, mostaza artesanal de grano entero, brotes de temporada</p>
+          <h4>Mollejas a la Brasa</h4>
+          <p>Mollejas de corazón, cocción a la brasa hasta dorar y crocantear, limón asado en la parrilla, mostaza anciana de grano entero, brotes de temporada</p>
         </div>
-        <div class="dish-right"><span class="dish-tag">Brasa directa</span></div>
+        <div class="dish-right"><span class="dish-tag">Brasa · Mostaza anciana</span></div>
       </div>
       <div class="dish rv d3">
         <div class="dish-info">
@@ -916,6 +915,48 @@
           <p>Entraña fina sobre fuego directo de leña, sellado intenso a alta temperatura, sal parrillera, limón asado en la brasa, chimichurri verde con ajo asado</p>
         </div>
         <div class="dish-right"><span class="dish-tag">Fuego vivo</span></div>
+      </div>
+      <div class="dish rv d4">
+        <div class="dish-info">
+          <h4>Pesca del Día a las Brasas</h4>
+          <p>Pescado entero del puerto de Mar del Plata, abierto a la espalda, brasa suave de leña, limón quemado, aceite de hierbas frescas — según llegada del día</p>
+        </div>
+        <div class="dish-right"><span class="dish-tag">Puerto local · Brasa</span></div>
+      </div>
+    </div>
+
+    <!-- GUARNICIONES / SIDES -->
+    <div class="rv">
+      <div class="menu-section-title">Guarniciones — del mismo fuego</div>
+    </div>
+    <div class="dishes-grid">
+      <div class="dish rv d1">
+        <div class="dish-info">
+          <h4>Papas Rotas en Grasa de Brisket</h4>
+          <p>Papas hervidas, aplastadas y doradas en la grasa del brisket de la casa, alioli de ajo asado, sal ahumada — cero desperdicio del plato estrella</p>
+        </div>
+        <div class="dish-right"><span class="dish-tag">Cero desperdicio</span></div>
+      </div>
+      <div class="dish rv d2">
+        <div class="dish-info">
+          <h4>Batata al Rescoldo</h4>
+          <p>Batata entera cocida bajo las cenizas calientes de la parrilla, abierta al momento, manteca de miel y ají, escamas de sal marina</p>
+        </div>
+        <div class="dish-right"><span class="dish-tag">Rescoldo</span></div>
+      </div>
+      <div class="dish rv d3">
+        <div class="dish-info">
+          <h4>Choclo Quemado a la Brasa</h4>
+          <p>Choclo entero tatemado sobre brasa directa, manteca de chimichurri, queso sardo rallado grueso, ralladura de limón asado</p>
+        </div>
+        <div class="dish-right"><span class="dish-tag">Brasa directa</span></div>
+      </div>
+      <div class="dish rv d4">
+        <div class="dish-info">
+          <h4>Mac & Cheese al Horno de Barro</h4>
+          <p>Coditos en mezcla de tres quesos, toque de cheddar ahumado en quebracho, gratinado en horno de barro, crocante de pan de campo — guiño al BBQ norteamericano</p>
+        </div>
+        <div class="dish-right"><span class="dish-tag">Horno · Ahumado</span></div>
       </div>
     </div>
 
@@ -1192,7 +1233,7 @@
           <div class="mock-inner">
             <div class="mock-section">— Entradas —</div>
             <div class="mock-item">Provoleta al Horno de Leña <span>····</span></div>
-            <div class="mock-item">Mollejas Braseadas <span>····</span></div>
+            <div class="mock-item">Mollejas a la Brasa <span>····</span></div>
             <div class="mock-item">Chorizo Criollo de la Casa <span>····</span></div>
             <div class="mock-item">Tabla de Ahumados <span>····</span></div>
             <div class="mock-section" style="margin-top:.6rem">— Platos Principales —</div>
@@ -1200,6 +1241,9 @@
             <div class="mock-item">Asado de Tira a la Leña <span>····</span></div>
             <div class="mock-item">Ribs Glaseadas al Bourbon <span>····</span></div>
             <div class="mock-item">Entraña al Fuego Vivo <span>····</span></div>
+            <div class="mock-section" style="margin-top:.6rem">— Guarniciones —</div>
+            <div class="mock-item">Papas Rotas en Grasa de Brisket <span>····</span></div>
+            <div class="mock-item">Batata al Rescoldo <span>····</span></div>
           </div>
         </div>
         <p style="font-size:.7rem;color:var(--stone);margin-top:.8rem;text-align:center;">Representación del diseño visual de la carta</p>
@@ -1218,7 +1262,7 @@
           </div>
           <div class="spec-row">
             <span class="spec-label">Organización</span>
-            <div class="spec-value"><strong>Entradas → Platos Principales → Postres → Bebidas.</strong> Una página por sección. Plato estrella destacado con indicador visual (<i class="ph-thin ph-star" style="color:var(--ember);font-size:.9em;"></i>). Máximo 4 ítems por categoría.</div>
+            <div class="spec-value"><strong>Entradas → Platos Principales → Guarniciones → Postres → Bebidas.</strong> Una página por sección. Plato estrella destacado con indicador visual (<i class="ph-thin ph-star" style="color:var(--ember);font-size:.9em;"></i>). Máximo 4 ítems por categoría, más el plato estrella destacado.</div>
           </div>
           <div class="spec-row">
             <span class="spec-label">Tamaño y orientación</span>
@@ -1473,6 +1517,7 @@
     </div>
 
     <div class="plano-wrap rv">
+      <p class="plano-scrollhint"><i class="ph-thin ph-arrows-horizontal"></i> Deslizá para recorrer el plano completo</p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -42 1410 690" style="font-family:'Oswald',sans-serif;display:block;width:100%;min-width:900px;margin:0 auto;">
   <defs>
     <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#b87333"/></marker>
@@ -2018,7 +2063,7 @@
       <ul>
         <li>Cocina a leña 100%</li>
         <li>Brisket ahumado 12 horas</li>
-        <li>À la carte · 4+4+4</li>
+        <li>À la carte · entradas, principales, guarniciones y postres</li>
         <li>Mar del Plata, Argentina</li>
         <li>Apertura: 2026</li>
       </ul>
@@ -2067,6 +2112,8 @@
     tabBtns.forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
     tabPanels.forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));
     window.scrollTo({top:0,behavior:'instant'});
+    const btn=document.querySelector('.tab-btn[data-tab="'+id+'"]');
+    if(btn) btn.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
     setTimeout(()=>observePanel('tab-'+id),60);
     if(push!==false) history.replaceState(null,'','#'+id);
   }
