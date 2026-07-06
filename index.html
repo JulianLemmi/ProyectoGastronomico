@@ -565,8 +565,8 @@
     .dist-sub { font-size:.63rem; letter-spacing:.13em; text-transform:uppercase; color:var(--stone); margin-bottom:.8rem; }
     .dist-card p { font-size:.83rem; color:var(--beige); line-height:1.7; }
     .dist-card ul { list-style:none; margin-top:.6rem; }
-    .dist-card ul li { padding:.28rem 0; font-size:.81rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); display:flex; gap:.5rem; align-items:baseline; }
-    .dist-card ul li::before { content:'›'; color:var(--copper); flex-shrink:0; }
+    .dist-card ul li { padding:.28rem 0 .28rem 1rem; font-size:.81rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); position:relative; }
+    .dist-card ul li::before { content:'›'; color:var(--copper); position:absolute; left:0; }
     .dist-table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.8rem; }
     .dist-table th { font-family:'Oswald',sans-serif; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); padding:.6rem .8rem; text-align:left; border-bottom:1px solid rgba(184,115,51,.2); }
     .dist-table td { padding:.6rem .8rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.04); }
@@ -615,17 +615,15 @@
     @media(max-width:768px){
       .dist-grid,.rot-grid { grid-template-columns:1fr; }
       .cap-strip { grid-template-columns:repeat(2,1fr); }
-      .flujo-row,.flujo-thead { grid-template-columns:90px 1fr; }
-      .flujo-actor { font-size:.62rem; }
-      .plano-wrap { padding:.6rem; }
-    }
-    @media(max-width:560px){
-      .cap-strip { grid-template-columns:1fr 1fr; }
       .flujo-thead { display:none; }
       .flujo-row { grid-template-columns:1fr; }
       .flujo-actor-cell { padding:.7rem 1rem .5rem; }
       .flujo-actor { font-size:.68rem; }
       .flujo-steps-cell { padding:.5rem 1rem .9rem; }
+      .plano-wrap { padding:.6rem; }
+    }
+    @media(max-width:560px){
+      .cap-strip { grid-template-columns:1fr 1fr; }
       .fstep { font-size:.67rem; padding:.18rem .45rem; }
     }
   </style>
