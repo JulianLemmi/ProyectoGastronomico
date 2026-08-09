@@ -624,6 +624,197 @@
       .flujo-row,.flujo-thead { grid-template-columns:75px 1fr; }
       .fstep { font-size:.67rem; padding:.18rem .45rem; }
     }
+
+    /* ─────────────────────────────────────────────
+       CONTENIDO ADICIONAL — presentación de venta
+       ───────────────────────────────────────────── */
+
+    /* hero fotográfico full-bleed */
+    .ca-hero { position:relative; min-height:78vh; display:flex; align-items:flex-end; overflow:hidden; }
+    .ca-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .ca-hero::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(13,13,13,.72) 0%,rgba(13,13,13,.25) 35%,rgba(13,13,13,.92) 100%);
+    }
+    .ca-hero-in { position:relative; z-index:2; padding:0 3rem 4.5rem; max-width:1160px; margin:0 auto; width:100%; }
+    .ca-hero .kicker { font-size:.66rem; letter-spacing:.34em; text-transform:uppercase; color:var(--ember); margin-bottom:1rem; }
+    .ca-hero h1 {
+      font-family:'Playfair Display',serif; font-style:italic; font-weight:700;
+      font-size:clamp(1.8rem,5.2vw,3.6rem); line-height:1.12; color:var(--white);
+      text-shadow:0 4px 40px rgba(0,0,0,.8); max-width:16ch;
+    }
+    .ca-hero p { color:var(--cream); font-size:1rem; max-width:52ch; margin-top:1.2rem; text-shadow:0 2px 16px rgba(0,0,0,.9); }
+
+    /* tira de claims */
+    .claim-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(184,115,51,.14); margin-top:3rem; }
+    .claim { background:var(--dark); padding:1.6rem 1.4rem; text-align:center; }
+    .claim .big { font-family:'Oswald',sans-serif; font-size:1.9rem; font-weight:700; color:var(--fire); line-height:1; }
+    .claim .lb { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); margin-top:.45rem; }
+    .claim .ds { font-size:.78rem; color:var(--beige); margin-top:.5rem; }
+
+    /* grilla de fotos */
+    .photo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; align-items:start; }
+    .pcard { position:relative; overflow:hidden; border:1px solid rgba(184,115,51,.18); background:var(--dark); }
+    .pcard img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s cubic-bezier(.2,.7,.3,1); }
+    .pcard:hover img { transform:scale(1.07); }
+    .pcard .ph { aspect-ratio:4/3; overflow:hidden; }
+    .pcard.tall .ph { aspect-ratio:3/4; }
+    .pcard.wide { grid-column:span 2; }
+    .pcard.wide .ph { aspect-ratio:16/8; }
+    .pcard .cap { padding:1rem 1.15rem 1.1rem; }
+    .pcard .cap h4 { font-family:'Oswald',sans-serif; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--copper); margin-bottom:.35rem; }
+    .pcard .cap p { font-size:.8rem; color:var(--beige); line-height:1.6; }
+    .pcard .cred { display:block; margin-top:.5rem; font-size:.58rem; letter-spacing:.06em; color:#5f5952; }
+    /* overlay variant */
+    .pcard.ov .ph { aspect-ratio:3/4; }
+    .pcard.ov .cap {
+      position:absolute; inset:auto 0 0 0; padding:2.5rem 1.15rem 1.1rem;
+      background:linear-gradient(180deg,transparent,rgba(10,8,4,.94) 55%);
+    }
+
+    /* paleta de materiales */
+    .mat-strip { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-top:2.5rem; }
+    .mat { border:1px solid rgba(184,115,51,.15); background:rgba(255,255,255,.02); overflow:hidden; }
+    .mat .sw { height:74px; }
+    .mat .mt { padding:.7rem .85rem; }
+    .mat .mt b { display:block; font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:var(--copper); }
+    .mat .mt span { font-size:.68rem; color:var(--stone); }
+
+    /* uniformes */
+    .uni-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; margin-top:2.5rem; }
+    .uni { border:1px solid rgba(184,115,51,.18); background:var(--dark); display:flex; flex-direction:column; }
+    .uni .fig {
+      background:radial-gradient(ellipse 65% 60% at 50% 78%,rgba(232,96,28,.16) 0%,transparent 68%),
+                 linear-gradient(170deg,#171009,#0d0d0d);
+      padding:1.4rem 1rem .6rem; display:flex; justify-content:center;
+      border-bottom:1px solid rgba(184,115,51,.16);
+    }
+    .uni .fig svg { width:100%; max-width:132px; height:auto; display:block; }
+    .uni .ub { padding:1.1rem 1.2rem 1.3rem; }
+    .uni .role { font-family:'Oswald',sans-serif; font-size:.78rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper); }
+    .uni .tag { font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--fire); margin-top:.2rem; margin-bottom:.7rem; }
+    .uni ul { list-style:none; }
+    .uni ul li { font-size:.75rem; color:var(--beige); padding:.3rem 0; border-bottom:1px solid rgba(255,255,255,.05); display:flex; gap:.45rem; line-height:1.5; }
+    .uni ul li::before { content:'—'; color:var(--copper); flex-shrink:0; }
+    .uni ul li:last-child { border-bottom:none; }
+    .uni-rule { margin-top:2rem; padding:1.4rem 1.6rem; border:1px solid rgba(232,96,28,.22); background:rgba(232,96,28,.05); }
+    .uni-rule h4 { font-family:'Oswald',sans-serif; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); margin-bottom:.6rem; }
+    .uni-rule p { font-size:.86rem; color:var(--beige); }
+
+    /* recetas estandarizadas */
+    .rec { border:1px solid rgba(184,115,51,.22); background:var(--dark); margin-top:2.5rem; overflow:hidden; }
+    .rec-top { display:grid; grid-template-columns:1fr 1fr; }
+    .rec-photo { position:relative; min-height:260px; overflow:hidden; }
+    .rec-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .rec-photo .badge {
+      position:absolute; top:0; left:0; z-index:2; padding:.45rem 1rem;
+      font-family:'Oswald',sans-serif; font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
+      background:var(--fire); color:#0d0d0d; font-weight:600;
+    }
+    .rec-photo .badge.low { background:var(--copper); }
+    .rec-id { padding:2rem 2.2rem; display:flex; flex-direction:column; justify-content:center; }
+    .rec-id .cat { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); }
+    .rec-id h3 { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--white); margin:.35rem 0 .7rem; line-height:1.2; }
+    .rec-id p { font-size:.84rem; color:var(--beige); }
+    .rec-facts { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(184,115,51,.12); margin-top:1.3rem; }
+    .rec-facts div { background:var(--carbon); padding:.7rem .9rem; }
+    .rec-facts .k { font-size:.57rem; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); }
+    .rec-facts .v { font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--copper); margin-top:.15rem; }
+    .rec-body { padding:2rem 2.2rem 2.2rem; border-top:1px solid rgba(184,115,51,.16); }
+    .rec-h { font-family:'Oswald',sans-serif; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--copper);
+             padding-bottom:.5rem; border-bottom:1px solid rgba(184,115,51,.22); margin:1.8rem 0 1rem; display:flex; align-items:center; gap:.6rem; }
+    .rec-h:first-child { margin-top:0; }
+    .rec-h::before { content:''; width:18px; height:1px; background:var(--fire); flex-shrink:0; }
+    table.rt { width:100%; border-collapse:collapse; font-size:.78rem; }
+    table.rt th { font-family:'Oswald',sans-serif; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--stone);
+                  text-align:left; padding:.5rem .6rem; border-bottom:1px solid rgba(184,115,51,.22); white-space:nowrap; }
+    table.rt td { padding:.5rem .6rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.045); }
+    table.rt td.n, table.rt th.n { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    table.rt tr.tot td { border-top:1px solid rgba(184,115,51,.3); border-bottom:none; color:var(--cream); font-weight:600; padding-top:.7rem; }
+    table.rt tr.tot td.n { color:var(--ember); }
+    .rec-steps { list-style:none; counter-reset:st; }
+    .rec-steps li { counter-increment:st; position:relative; padding:.55rem 0 .55rem 2.4rem;
+                    border-bottom:1px solid rgba(255,255,255,.045); font-size:.83rem; color:var(--beige); line-height:1.65; }
+    .rec-steps li::before {
+      content:counter(st,decimal-leading-zero); position:absolute; left:0; top:.67rem;
+      font-family:'Oswald',sans-serif; color:var(--fire); font-size:.76rem;
+    }
+    .rec-steps li b { color:var(--cream); font-weight:600; }
+    .rec-cost { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(184,115,51,.14); margin-top:1.2rem; }
+    .rec-cost div { background:var(--carbon); padding:1rem 1.1rem; text-align:center; }
+    .rec-cost .k { font-size:.57rem; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); }
+    .rec-cost .v { font-family:'Oswald',sans-serif; font-size:1.25rem; color:var(--copper); margin-top:.25rem; line-height:1; }
+    .rec-cost .hl .v, .rec-cost div.hl .v { color:var(--fire); }
+    .rec-2col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2rem; }
+    .rec-note { padding:1rem 1.2rem; border-left:3px solid var(--copper); background:rgba(255,255,255,.025); font-size:.8rem; color:var(--beige); margin-top:1rem; }
+    .rec-note b { color:var(--ember); }
+    .crit-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.4rem; }
+    .crit-tag { font-size:.65rem; padding:.25rem .7rem; border:1px solid rgba(252,165,165,.25); background:rgba(252,165,165,.05); color:#fca5a5; }
+
+    /* comparativa de recetas */
+    .comp-precio { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:2rem; margin-top:2.5rem;
+                   border:1px solid rgba(184,115,51,.2); background:var(--dark); padding:2rem; }
+    .cp-side { text-align:center; }
+    .cp-side .lbl { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); }
+    .cp-side .nm { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--white); margin:.3rem 0 .5rem; }
+    .cp-side .pr { font-family:'Oswald',sans-serif; font-size:2.1rem; color:var(--fire); line-height:1; }
+    .cp-side .fc { font-size:.68rem; color:var(--stone); margin-top:.35rem; }
+    .cp-mid { text-align:center; padding:0 1rem; border-left:1px solid rgba(184,115,51,.18); border-right:1px solid rgba(184,115,51,.18); }
+    .cp-mid .x { font-family:'Oswald',sans-serif; font-size:2.4rem; color:var(--copper); line-height:1; }
+    .cp-mid .t { font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--stone); margin-top:.4rem; white-space:nowrap; }
+
+    /* cierre de venta */
+    .close-hero { position:relative; overflow:hidden; border:1px solid rgba(232,96,28,.25); margin-top:3rem; }
+    .close-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.32; }
+    .close-hero .ch-in { position:relative; z-index:2; padding:4rem 3rem; text-align:center;
+      background:radial-gradient(ellipse 70% 90% at 50% 100%,rgba(232,96,28,.22) 0%,rgba(13,13,13,.85) 65%); }
+    .close-hero h2 { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.4rem,3.6vw,2.4rem); color:var(--white); margin-bottom:1rem; }
+    .close-hero p { font-size:.95rem; color:var(--beige); max-width:64ch; margin:0 auto; }
+    .close-pills { display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; margin-top:2rem; }
+    .close-pills span { font-family:'Oswald',sans-serif; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+      padding:.45rem 1.1rem; border:1px solid var(--copper); color:var(--copper); }
+
+    /* créditos */
+    .cred-table { width:100%; border-collapse:collapse; font-size:.72rem; margin-top:1.5rem; }
+    .cred-table th { font-family:'Oswald',sans-serif; font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--copper);
+                     text-align:left; padding:.55rem .7rem; border-bottom:1px solid rgba(184,115,51,.25); }
+    .cred-table td { padding:.5rem .7rem; color:var(--beige); border-bottom:1px solid rgba(255,255,255,.045); }
+    .cred-table td.src { color:var(--stone); }
+
+    @media(max-width:1024px){
+      .claim-strip { grid-template-columns:repeat(2,1fr); }
+      .photo-grid { grid-template-columns:repeat(2,1fr); }
+      .mat-strip { grid-template-columns:repeat(3,1fr); }
+      .uni-grid { grid-template-columns:repeat(2,1fr); }
+      .rec-top { grid-template-columns:1fr; }
+      .rec-photo { min-height:220px; }
+      .rec-2col { grid-template-columns:1fr; gap:0; }
+      .ca-hero-in { padding:0 2rem 3.5rem; }
+    }
+    @media(max-width:768px){
+      .photo-grid { grid-template-columns:1fr; }
+      .pcard.wide { grid-column:auto; }
+      .pcard.wide .ph { aspect-ratio:4/3; }
+      .mat-strip { grid-template-columns:repeat(2,1fr); }
+      .rec-cost { grid-template-columns:repeat(2,1fr); }
+      .rec-id, .rec-body { padding:1.4rem 1.3rem; }
+      .comp-precio { grid-template-columns:1fr; gap:1.4rem; padding:1.4rem; }
+      .cp-mid { border:none; border-top:1px solid rgba(184,115,51,.18); border-bottom:1px solid rgba(184,115,51,.18); padding:1rem 0; }
+      .cp-mid .t { max-width:none; }
+      .close-hero .ch-in { padding:2.4rem 1.3rem; }
+      .ca-hero { min-height:62vh; }
+      .ca-hero-in { padding:0 1.3rem 2.6rem; }
+      /* tablas de receta scrolleables */
+      .rt-wrap { overflow-x:auto; }
+      table.rt { min-width:520px; }
+      .cred-wrap { overflow-x:auto; }
+      .cred-table { min-width:560px; }
+    }
+    @media(max-width:480px){
+      .claim-strip { grid-template-columns:1fr 1fr; }
+      .uni-grid { grid-template-columns:1fr; }
+      .uni .fig svg { max-width:118px; }
+    }
   </style>
 </head>
 <body>
@@ -641,6 +832,7 @@
   <button class="tab-btn" data-tab="diseno"><span class="tab-num">04–05</span><span class="tab-label">Diseño</span></button>
   <button class="tab-btn" data-tab="proyecto"><span class="tab-num">06</span><span class="tab-label">Proyecto</span></button>
   <button class="tab-btn" data-tab="plano"><span class="tab-num">TP</span><span class="tab-label">Plano</span></button>
+  <button class="tab-btn" data-tab="extra"><span class="tab-num">+</span><span class="tab-label">Contenido Adicional</span></button>
 </div>
 
 <!-- ══ TAB: INICIO ══ -->
@@ -2038,6 +2230,783 @@
 
 </div>
 
+<!-- ══ TAB: CONTENIDO ADICIONAL ══ -->
+<div class="tab-panel" id="tab-extra">
+
+<!-- HERO FOTOGRÁFICO -->
+<div class="ca-hero">
+  <img src="img/amb-fuego.jpg" alt="Fuego de leña encendido junto a la parrilla de Leñado" loading="lazy">
+  <div class="ca-hero-in">
+    <p class="kicker">Contenido adicional · Presentación final</p>
+    <h1>Primero se ve. Después se huele. Recién ahí se lee la carta.</h1>
+    <p>Investigación visual, fichas técnicas de producción y manual de imagen del equipo. Todo lo que convierte
+    a Leñado de un documento en un lugar al que querés entrar.</p>
+  </div>
+</div>
+
+<!-- APERTURA / CLAIMS -->
+<section class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">Cierre</span>Por qué esta idea se vende sola</p>
+      <h2 class="section-title">La experiencia, <em>antes del primer bocado</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Un restaurante no se elige leyendo una lista de platos. Se elige por lo que promete la puerta,
+      la luz, el humo y la persona que te recibe. Esta sección documenta esa promesa con referencias reales,
+      define cómo se viste quien la sostiene y demuestra, con números, que el negocio cierra.</p>
+    </div>
+    <div class="claim-strip rv">
+      <div class="claim">
+        <div class="big">100%</div>
+        <div class="lb">Cocción a leña</div>
+        <div class="ds">Sin gas ni eléctricos en la línea de fuego. La técnica es la marca.</div>
+      </div>
+      <div class="claim">
+        <div class="big">12 h</div>
+        <div class="lb">Ahumado del plato estrella</div>
+        <div class="ds">Ningún competidor directo en Mar del Plata sostiene esa cocción.</div>
+      </div>
+      <div class="claim">
+        <div class="big">21</div>
+        <div class="lb">Referencias analizadas</div>
+        <div class="ds">Relevamiento visual plato por plato con licencia verificada.</div>
+      </div>
+      <div class="claim">
+        <div class="big">6,7×</div>
+        <div class="lb">Amplitud de carta</div>
+        <div class="ds">Del plato más económico al más caro, con margen sano en ambos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO SE VE EL LUGAR -->
+<section class="bg-glow-top">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">01</span>Ambientación</p>
+      <h2 class="section-title">Así se <em>vería</em> Leñado</h2>
+      <div class="rule"></div>
+      <p class="lead">Seis referencias fotográficas que traducen a imagen las decisiones del proyecto: fuego visible
+      desde el salón, leña como textura, luz ámbar de 2400K, madera maciza, hierro fundido y el oficio del corte
+      a la vista del comensal.</p>
+    </div>
+
+    <div class="photo-grid">
+      <figure class="pcard wide rv d1">
+        <div class="ph"><img src="img/amb-fuego.jpg" alt="Fuego de leña en plena combustión" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>El fuego, apenas se entra</h4>
+          <p>La parrilla abierta al público no está en el fondo: es lo primero que se ve desde la puerta y desde la
+          vereda a través del vidrio. El naranja del fuego sobre el fondo negro <em>es</em> la paleta de la marca,
+          no una decoración que la imita.</p>
+          <span class="cred">Foto: Ruanon · Flickr · CC BY-SA 2.0</span>
+        </figcaption>
+      </figure>
+      <figure class="pcard tall rv d2">
+        <div class="ph"><img src="img/amb-lena.jpg" alt="Leña estacionada apilada" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>Leña como material de obra</h4>
+          <p>Una pared de quebracho estacionado funciona a la vez como aislante acústico, aromatizante natural y
+          declaración de identidad. La materia prima de la técnica, exhibida como objeto de diseño.</p>
+          <span class="cred">Foto: Horia Varlan · Flickr · CC BY 2.0</span>
+        </figcaption>
+      </figure>
+      <figure class="pcard rv d1">
+        <div class="ph"><img src="img/amb-velas.jpg" alt="Mesa con copas y velas en penumbra" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>2400K y nada más</h4>
+          <p>Penumbra general, spot cálido sobre cada mesa y vela de cera como complemento. El entorno desaparece y
+          quedan iluminados solo el plato, la copa y la cara de quien está enfrente.</p>
+          <span class="cred">Foto: miketnorton · Flickr · CC BY 2.0</span>
+        </figcaption>
+      </figure>
+      <figure class="pcard rv d2">
+        <div class="ph"><img src="img/amb-barra.jpg" alt="Barra de madera maciza con botellas retroiluminadas" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>Madera maciza y barra protagonista</h4>
+          <p>Densidad material: madera oscura, botellas retroiluminadas, cero superficies plásticas o cromadas.
+          Sobre esa base se montan el cuero y el hierro del concepto.</p>
+          <span class="cred">Foto: Bernt Rostad · Flickr · CC BY 2.0</span>
+        </figcaption>
+      </figure>
+      <figure class="pcard rv d3">
+        <div class="ph"><img src="img/amb-hierro.jpg" alt="Sartén de hierro fundido cocinando sobre brasas" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>El utensilio llega a la mesa</h4>
+          <p>Lo que se cocina en hierro, se sirve en hierro. La guarnición no se traslada a un plato: viaja en la
+          sartén en la que se gratinó, todavía chirriando.</p>
+          <span class="cred">Foto: Matt Bango · Stocksnap · CC0</span>
+        </figcaption>
+      </figure>
+      <figure class="pcard wide rv d2">
+        <div class="ph"><img src="img/amb-trinchado.jpg" alt="Manos trinchando carne sobre tabla de madera" loading="lazy"></div>
+        <figcaption class="cap">
+          <h4>El oficio como espectáculo</h4>
+          <p>Cada mesa tiene su mesita auxiliar de trinchado —está en el plano funcional— porque el corte se hace
+          adelante del comensal. El brisket no llega rebanado desde la cocina: se rebana ahí, y ese minuto es parte
+          de lo que se paga.</p>
+          <span class="cred">Foto: TitiNicola · Wikimedia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="rv" style="margin-top:3.5rem;">
+      <div class="menu-section-title">Paleta de materiales</div>
+    </div>
+    <div class="mat-strip">
+      <div class="mat rv d1">
+        <div class="sw" style="background:linear-gradient(140deg,#0d0d0d,#1a1a1a);"></div>
+        <div class="mt"><b>Carbón</b><span>Paredes, cielorraso y textiles</span></div>
+      </div>
+      <div class="mat rv d2">
+        <div class="sw" style="background:linear-gradient(140deg,#3b2007,#5a3410);"></div>
+        <div class="mt"><b>Cuero curtido</b><span>Delantales, butacas y carta</span></div>
+      </div>
+      <div class="mat rv d3">
+        <div class="sw" style="background:linear-gradient(140deg,#b87333,#8a5522);"></div>
+        <div class="mt"><b>Cobre</b><span>Herrajes, luminarias y detalles</span></div>
+      </div>
+      <div class="mat rv d4">
+        <div class="sw" style="background:linear-gradient(140deg,#e8601c,#f59e0b);"></div>
+        <div class="mt"><b>Fuego</b><span>Único color saturado del salón</span></div>
+      </div>
+      <div class="mat rv d5">
+        <div class="sw" style="background:linear-gradient(140deg,#d4b896,#8a827a);"></div>
+        <div class="mt"><b>Madera y piedra</b><span>Mesas, tablas y vajilla</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIFORMES -->
+<section class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">02</span>Imagen del equipo</p>
+      <h2 class="section-title">Cómo se <em>viste</em> Leñado</h2>
+      <div class="rule"></div>
+      <p class="lead">El uniforme es el único elemento de marca que se mueve por el salón. Cuatro roles, una misma
+      base — camisa negra y cuero curtido — diferenciados por el corte del delantal. Sin logos grandes, sin colores
+      corporativos, sin nombre bordado: la indumentaria dice lo mismo que el espacio, artesanal y austera.</p>
+    </div>
+
+    <div class="uni-grid">
+
+      <div class="uni rv d1">
+        <div class="fig">
+          <svg viewBox="0 0 140 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uniforme del asador: camisa negra remangada y delantal de cuero marrón con tiras cruzadas">
+            <path d="M44 166 H96 L100 286 H78 L70 196 L62 286 H40 Z" fill="#15120d"/>
+            <path d="M38 283 H62 v10 H34 a5 5 0 0 1 0-10 z" fill="#080808"/>
+            <path d="M78 283 H102 a5 5 0 0 1 0 10 H74 v-10 z" fill="#080808"/>
+            <rect x="62" y="40" width="16" height="16" fill="#c9a071"/>
+            <path d="M70 54 L99 66 Q104 69 104 77 L104 170 H36 V77 Q36 69 41 66 Z" fill="#191919"/>
+            <path d="M41 66 L28 74 L23 116 L37 120 L42 84 Z" fill="#191919"/>
+            <path d="M99 66 L112 74 L117 116 L103 120 L98 84 Z" fill="#191919"/>
+            <rect x="22" y="112" width="16" height="6" rx="2" fill="#2b2b2b"/>
+            <rect x="102" y="112" width="16" height="6" rx="2" fill="#2b2b2b"/>
+            <path d="M25 118 h12 l3 26 h-16 z" fill="#c9a071"/>
+            <path d="M103 118 h12 l1 26 h-16 z" fill="#c9a071"/>
+            <path d="M52 76 H88 L91 110 L93 174 H47 L49 110 Z" fill="#4a2c10"/>
+            <path d="M52 76 H88 L87 84 H53 Z" fill="#5c3714"/>
+            <path d="M53 76 L86 60" stroke="#4a2c10" stroke-width="4" fill="none"/>
+            <path d="M87 76 L54 60" stroke="#4a2c10" stroke-width="4" fill="none"/>
+            <circle cx="70" cy="96" r="2.4" fill="#b87333"/>
+            <circle cx="70" cy="132" r="2.4" fill="#b87333"/>
+            <path d="M59 56 L70 78 L81 56 L75 52 H65 Z" fill="#0d0d0d"/>
+            <path d="M60 57 L70 74 L80 57 L70 62 Z" fill="#8a1c1c"/>
+            <circle cx="70" cy="28" r="18" fill="#d6b48c"/>
+            <path d="M52 28 a18 18 0 0 1 36 0 q-3 -10 -18 -10 t-18 10 z" fill="#241a10"/>
+            <path d="M116 128 l10 -30 2 1 -8 30 z" fill="#7a7a7a"/>
+          </svg>
+        </div>
+        <div class="ub">
+          <div class="role">Asador</div>
+          <div class="tag">Frente al fuego · a la vista</div>
+          <ul>
+            <li>Delantal de cuero curtido marrón, tiras cruzadas a la espalda</li>
+            <li>Camisa negra de algodón grueso, mangas remangadas</li>
+            <li>Pañuelo rojo al cuello — único acento de color del equipo</li>
+            <li>Remaches de cobre a la vista, sin logo bordado</li>
+            <li>Borceguí negro de suela gruesa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="uni rv d2">
+        <div class="fig">
+          <svg viewBox="0 0 140 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uniforme de cocina: camisa negra y delantal de cuero negro con peto">
+            <path d="M44 166 H96 L100 286 H78 L70 196 L62 286 H40 Z" fill="#15120d"/>
+            <path d="M38 283 H62 v10 H34 a5 5 0 0 1 0-10 z" fill="#080808"/>
+            <path d="M78 283 H102 a5 5 0 0 1 0 10 H74 v-10 z" fill="#080808"/>
+            <rect x="62" y="40" width="16" height="16" fill="#c9a071"/>
+            <path d="M70 54 L99 66 Q104 69 104 77 L104 170 H36 V77 Q36 69 41 66 Z" fill="#191919"/>
+            <path d="M41 66 L27 75 L21 140 L35 144 L42 86 Z" fill="#191919"/>
+            <path d="M99 66 L113 75 L119 140 L105 144 L98 86 Z" fill="#191919"/>
+            <circle cx="28" cy="150" r="8" fill="#c9a071"/>
+            <circle cx="112" cy="150" r="8" fill="#c9a071"/>
+            <path d="M55 72 H85 L88 108 L90 174 H50 L52 108 Z" fill="#1c1712"/>
+            <path d="M55 72 H85 L84 80 H56 Z" fill="#2a231b"/>
+            <path d="M56 72 L60 58" stroke="#1c1712" stroke-width="3.5" fill="none"/>
+            <path d="M84 72 L80 58" stroke="#1c1712" stroke-width="3.5" fill="none"/>
+            <rect x="61" y="120" width="18" height="14" rx="1" fill="#241d15"/>
+            <circle cx="70" cy="98" r="2.2" fill="#b87333"/>
+            <path d="M59 56 L70 78 L81 56 L75 52 H65 Z" fill="#0d0d0d"/>
+            <circle cx="70" cy="28" r="18" fill="#d6b48c"/>
+            <path d="M52 28 a18 18 0 0 1 36 0 q-3 -10 -18 -10 t-18 10 z" fill="#241a10"/>
+            <rect x="50" y="10" width="40" height="7" rx="2" fill="#3b2007"/>
+          </svg>
+        </div>
+        <div class="ub">
+          <div class="role">Cocina</div>
+          <div class="tag">Línea caliente</div>
+          <ul>
+            <li>Delantal de cuero negro con peto y bolsillo frontal</li>
+            <li>Camisa negra manga larga, puño abotonado</li>
+            <li>Bandana de cuero fino en lugar de gorro tradicional</li>
+            <li>Sin chaqueta blanca: rompe la paleta del salón abierto</li>
+            <li>Calzado de seguridad negro antideslizante</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="uni rv d3">
+        <div class="fig">
+          <svg viewBox="0 0 140 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uniforme de salón: camisa negra y delantal largo de cuero fino a la cintura">
+            <path d="M44 166 H96 L100 286 H78 L70 196 L62 286 H40 Z" fill="#15120d"/>
+            <path d="M38 283 H62 v10 H34 a5 5 0 0 1 0-10 z" fill="#080808"/>
+            <path d="M78 283 H102 a5 5 0 0 1 0 10 H74 v-10 z" fill="#080808"/>
+            <rect x="62" y="40" width="16" height="16" fill="#c9a071"/>
+            <path d="M70 54 L99 66 Q104 69 104 77 L104 170 H36 V77 Q36 69 41 66 Z" fill="#191919"/>
+            <path d="M41 66 L27 75 L21 138 L35 142 L42 86 Z" fill="#191919"/>
+            <path d="M99 66 L113 75 L119 132 L105 136 L98 86 Z" fill="#191919"/>
+            <circle cx="28" cy="148" r="8" fill="#c9a071"/>
+            <circle cx="112" cy="142" r="8" fill="#c9a071"/>
+            <rect x="16" y="120" width="24" height="16" rx="2" fill="#d4c4a8" transform="rotate(-8 28 128)"/>
+            <path d="M46 112 H94 L98 206 H42 Z" fill="#3b2007"/>
+            <rect x="44" y="106" width="52" height="9" fill="#241505"/>
+            <circle cx="70" cy="110" r="2.4" fill="#b87333"/>
+            <path d="M59 56 L70 78 L81 56 L75 52 H65 Z" fill="#0d0d0d"/>
+            <circle cx="70" cy="28" r="18" fill="#d6b48c"/>
+            <path d="M52 28 a18 18 0 0 1 36 0 q-3 -10 -18 -10 t-18 10 z" fill="#241a10"/>
+          </svg>
+        </div>
+        <div class="ub">
+          <div class="role">Salón</div>
+          <div class="tag">Servicio consultivo</div>
+          <ul>
+            <li>Delantal largo de cuero fino a la cintura, hasta la rodilla</li>
+            <li>Camisa negra entallada, mangas abajo</li>
+            <li>Repasador de lino crudo siempre sobre el antebrazo</li>
+            <li>Hebilla de cobre como único herraje visible</li>
+            <li>Formado para narrar el proceso de cada plato, no solo tomar el pedido</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="uni rv d4">
+        <div class="fig">
+          <svg viewBox="0 0 140 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uniforme de barra: camisa negra con chaleco de cuero">
+            <path d="M44 166 H96 L100 286 H78 L70 196 L62 286 H40 Z" fill="#15120d"/>
+            <path d="M38 283 H62 v10 H34 a5 5 0 0 1 0-10 z" fill="#080808"/>
+            <path d="M78 283 H102 a5 5 0 0 1 0 10 H74 v-10 z" fill="#080808"/>
+            <rect x="62" y="40" width="16" height="16" fill="#c9a071"/>
+            <path d="M70 54 L99 66 Q104 69 104 77 L104 170 H36 V77 Q36 69 41 66 Z" fill="#191919"/>
+            <path d="M41 66 L28 74 L23 112 L37 116 L42 84 Z" fill="#191919"/>
+            <path d="M99 66 L112 74 L117 112 L103 116 L98 84 Z" fill="#191919"/>
+            <rect x="22" y="108" width="16" height="6" rx="2" fill="#2b2b2b"/>
+            <rect x="102" y="108" width="16" height="6" rx="2" fill="#2b2b2b"/>
+            <path d="M25 114 h12 l2 22 h-15 z" fill="#c9a071"/>
+            <path d="M103 114 h12 l1 22 h-15 z" fill="#c9a071"/>
+            <path d="M56 64 L47 71 L45 170 H61 L64 80 Z" fill="#3a2a18"/>
+            <path d="M84 64 L93 71 L95 170 H79 L76 80 Z" fill="#3a2a18"/>
+            <circle cx="59" cy="120" r="2.2" fill="#b87333"/>
+            <circle cx="59" cy="142" r="2.2" fill="#b87333"/>
+            <path d="M59 56 L70 78 L81 56 L75 52 H65 Z" fill="#0d0d0d"/>
+            <circle cx="70" cy="28" r="18" fill="#d6b48c"/>
+            <path d="M52 28 a18 18 0 0 1 36 0 q-3 -10 -18 -10 t-18 10 z" fill="#241a10"/>
+            <path d="M24 92 h14 l-2 22 h-10 z" fill="#8a6a3a"/>
+          </svg>
+        </div>
+        <div class="ub">
+          <div class="role">Barra</div>
+          <div class="tag">Coctelería de humo</div>
+          <ul>
+            <li>Chaleco de cuero curtido sobre camisa negra</li>
+            <li>Mangas remangadas al codo — el trabajo se ve</li>
+            <li>Herramientas de cobre a la vista sobre la barra</li>
+            <li>Ahumado del cóctel al momento, frente al cliente</li>
+            <li>Misma paleta que la cocina: la barra no es otro local</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="uni-rule rv">
+      <h4>La regla que ordena todo</h4>
+      <p>Ninguna prenda lleva el logo en grande y ninguna tiene color corporativo. La identidad se transmite por
+      material y corte, no por marca impresa. Si un miembro del equipo se para contra la pared del salón, tiene que
+      desaparecer en la penumbra: los que iluminan son el fuego y el plato, nunca el uniforme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECETAS ESTANDARIZADAS -->
+<section class="bg-glow-bottom">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">03</span>Fichas técnicas de producción</p>
+      <h2 class="section-title">Recetas <em>estandarizadas</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Los dos extremos de la carta, documentados como se documenta en una cocina profesional:
+      rendimiento, mermas reales, costeo por ingrediente, procedimiento paso a paso, puntos críticos de control y
+      precio de venta derivado del food cost objetivo. Valores de insumos a precios de plaza 2026.</p>
+    </div>
+
+    <!-- RECETA 1 — MÁS ECONÓMICA -->
+    <div class="rec rv">
+      <div class="rec-top">
+        <div class="rec-photo">
+          <span class="badge low">Plato más económico</span>
+          <img src="img/receta-batata.jpg" alt="Batatas cocinándose entre las brasas y cenizas del fuego" loading="lazy">
+        </div>
+        <div class="rec-id">
+          <div class="cat">Guarniciones — del mismo fuego · Ficha GU-02</div>
+          <h3>Batata al Rescoldo</h3>
+          <p>Batata entera cocida bajo las cenizas calientes de la parrilla, abierta al momento, manteca de miel y
+          ají, escamas de sal marina. Aprovecha el calor residual del fuego que ya está encendido para el servicio:
+          costo de combustible marginal, margen máximo.</p>
+          <div class="rec-facts">
+            <div><div class="k">Rendimiento</div><div class="v">10 porciones</div></div>
+            <div><div class="k">Porción</div><div class="v">350 g / 1 unidad</div></div>
+            <div><div class="k">Cocción</div><div class="v">50–60 min</div></div>
+            <div><div class="k">Temp. de servicio</div><div class="v">70–75 °C</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-body">
+        <div class="rec-h">Ingredientes y costeo</div>
+        <div class="rt-wrap">
+          <table class="rt">
+            <tr>
+              <th>Ingrediente</th><th class="n">Cant. bruta</th><th class="n">Merma</th>
+              <th class="n">Cant. neta</th><th class="n">Costo unit.</th><th class="n">Costo total</th>
+            </tr>
+            <tr><td>Batata calibre 300/400 g</td><td class="n">3,500 kg</td><td class="n">8 %</td><td class="n">3,220 kg</td><td class="n">$1.800 /kg</td><td class="n">$6.300</td></tr>
+            <tr><td>Manteca sin sal</td><td class="n">0,300 kg</td><td class="n">—</td><td class="n">0,300 kg</td><td class="n">$12.000 /kg</td><td class="n">$3.600</td></tr>
+            <tr><td>Miel de flores del campo</td><td class="n">0,120 kg</td><td class="n">—</td><td class="n">0,120 kg</td><td class="n">$9.500 /kg</td><td class="n">$1.140</td></tr>
+            <tr><td>Ají molido ahumado</td><td class="n">0,015 kg</td><td class="n">—</td><td class="n">0,015 kg</td><td class="n">$18.000 /kg</td><td class="n">$270</td></tr>
+            <tr><td>Sal marina en escamas</td><td class="n">0,020 kg</td><td class="n">—</td><td class="n">0,020 kg</td><td class="n">$22.000 /kg</td><td class="n">$440</td></tr>
+            <tr><td>Leña de quebracho (imputada)</td><td class="n">2,000 kg</td><td class="n">—</td><td class="n">2,000 kg</td><td class="n">$450 /kg</td><td class="n">$900</td></tr>
+            <tr class="tot"><td>Costo total de la preparación</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">$12.650</td></tr>
+          </table>
+        </div>
+
+        <div class="rec-2col">
+          <div>
+            <div class="rec-h">Procedimiento</div>
+            <ol class="rec-steps">
+              <li><b>Selección.</b> Calibre parejo 300/400 g, piel firme y sin brotes. El calibre disparejo arruina el estándar: unas quedan crudas y otras deshechas.</li>
+              <li><b>Lavado.</b> Cepillar bajo agua fría sin pelar. La piel es la cámara de cocción del plato.</li>
+              <li><b>Secado total.</b> La humedad superficial genera vapor y arruina la textura buscada.</li>
+              <li><b>Armado del rescoldo.</b> Apartar cenizas calientes de la parrilla, lecho a 180–200 °C, sin llama directa.</li>
+              <li><b>Cocción.</b> Enterrar por completo 50–60 min según calibre. Sin remover.</li>
+              <li><b>Punto.</b> Cede a la presión y el pincho entra sin resistencia hasta el centro.</li>
+              <li><b>Manteca compuesta.</b> Batir manteca pomada con miel y ají hasta emulsionar. Reservar en frío y temperar 20 min antes del servicio.</li>
+              <li><b>Al pedido.</b> Retirar del rescoldo, sacudir la ceniza, abrir con corte longitudinal y presionar los extremos para que se abra sola.</li>
+              <li><b>Montaje.</b> Plancha de hierro precalentada, 30 g de manteca de miel y ají encima, escamas de sal. Sale de inmediato: la manteca debe fundirse frente al comensal.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="rec-h">Montaje y vajilla</div>
+            <p style="font-size:.85rem;color:var(--beige);">Plancha ovalada de hierro fundido precalentada, sin plato intermedio.
+            La batata va abierta a lo largo, con la pulpa hacia arriba y la manteca ya colocada. Sin verde decorativo:
+            el único contraste es el amarillo de la pulpa contra el hierro negro y la ceniza que queda en la piel.</p>
+
+            <div class="rec-h">Puntos críticos de control</div>
+            <div class="crit-tags">
+              <span class="crit-tag">No pelar nunca</span>
+              <span class="crit-tag">Sin llama directa</span>
+              <span class="crit-tag">Abrir solo al pedido</span>
+              <span class="crit-tag">Ceniza limpia, sin residuos</span>
+              <span class="crit-tag">Descartar si el centro no cede</span>
+            </div>
+
+            <div class="rec-note">
+              <b>Por qué está en la carta.</b> Es el plato de menor costo y mayor margen porcentual del menú. Usa el
+              calor que el fuego genera igual para los principales, así que su costo energético real es cercano a
+              cero. Sube el ticket promedio sin ocupar un puesto de parrilla.
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-h">Análisis de costos</div>
+        <div class="rec-cost">
+          <div><div class="k">Costo por porción</div><div class="v">$1.265</div></div>
+          <div><div class="k">Food cost objetivo</div><div class="v">22 %</div></div>
+          <div class="hl"><div class="k">Precio de venta</div><div class="v">$5.900</div></div>
+          <div><div class="k">Margen bruto</div><div class="v">$4.635</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECETA 2 — MÁS CARA -->
+    <div class="rec rv">
+      <div class="rec-top">
+        <div class="rec-photo">
+          <span class="badge">Plato más caro · Estrella</span>
+          <img src="img/plato-brisket.jpg" alt="Brisket ahumado rebanado sobre tabla de madera" loading="lazy">
+        </div>
+        <div class="rec-id">
+          <div class="cat">Platos principales · Ficha PP-01</div>
+          <h3>Brisket Ahumado · 12 Horas</h3>
+          <p>Pecho de res con rub de sal gruesa, pimienta negra, comino y ajo ahumado. Ocho horas de quebracho
+          blanco y cuatro de mezquite, rebanado al momento frente al comensal. Es el plato que justifica el
+          proyecto entero: nadie más en Mar del Plata sostiene esta cocción.</p>
+          <div class="rec-facts">
+            <div><div class="k">Rendimiento</div><div class="v">12 porciones</div></div>
+            <div><div class="k">Porción</div><div class="v">280 g rebanado</div></div>
+            <div><div class="k">Cocción</div><div class="v">12 h + 1 h reposo</div></div>
+            <div><div class="k">Rendimiento neto</div><div class="v">51 % del bruto</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rec-body">
+        <div class="rec-h">Ingredientes y costeo</div>
+        <div class="rt-wrap">
+          <table class="rt">
+            <tr>
+              <th>Ingrediente</th><th class="n">Cant. bruta</th><th class="n">Merma</th>
+              <th class="n">Cant. neta</th><th class="n">Costo unit.</th><th class="n">Costo total</th>
+            </tr>
+            <tr><td>Pecho de res entero (packer cut)</td><td class="n">7,000 kg</td><td class="n">15 % desposte</td><td class="n">5,950 kg</td><td class="n">$14.800 /kg</td><td class="n">$103.600</td></tr>
+            <tr><td>Sal gruesa parrillera</td><td class="n">0,090 kg</td><td class="n">—</td><td class="n">0,090 kg</td><td class="n">$1.400 /kg</td><td class="n">$126</td></tr>
+            <tr><td>Pimienta negra en grano</td><td class="n">0,070 kg</td><td class="n">—</td><td class="n">0,070 kg</td><td class="n">$28.000 /kg</td><td class="n">$1.960</td></tr>
+            <tr><td>Comino molido</td><td class="n">0,025 kg</td><td class="n">—</td><td class="n">0,025 kg</td><td class="n">$22.000 /kg</td><td class="n">$550</td></tr>
+            <tr><td>Ajo ahumado en polvo</td><td class="n">0,030 kg</td><td class="n">—</td><td class="n">0,030 kg</td><td class="n">$34.000 /kg</td><td class="n">$1.020</td></tr>
+            <tr><td>Leña de quebracho blanco (fase 1)</td><td class="n">14,000 kg</td><td class="n">—</td><td class="n">14,000 kg</td><td class="n">$450 /kg</td><td class="n">$6.300</td></tr>
+            <tr><td>Leña de mezquite (fase 2)</td><td class="n">6,000 kg</td><td class="n">—</td><td class="n">6,000 kg</td><td class="n">$1.900 /kg</td><td class="n">$11.400</td></tr>
+            <tr><td>Salsa BBQ de la casa</td><td class="n">0,600 L</td><td class="n">—</td><td class="n">0,600 L</td><td class="n">$6.800 /L</td><td class="n">$4.080</td></tr>
+            <tr><td>Papel de estraza e insumos</td><td class="n">1,000 u</td><td class="n">—</td><td class="n">1,000 u</td><td class="n">$1.200 /u</td><td class="n">$1.200</td></tr>
+            <tr class="tot"><td>Costo total de la preparación</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">$130.236</td></tr>
+          </table>
+        </div>
+
+        <div class="rec-2col">
+          <div>
+            <div class="rec-h">Procedimiento</div>
+            <ol class="rec-steps">
+              <li><b>Recepción.</b> Pecho entero con tapa, 6,5–7,5 kg, marmoleado visible. Cadena de frío 0–4 °C sin interrupción.</li>
+              <li><b>Perfilado.</b> Retirar el exceso de grasa dejando capa de 6 a 8 mm sobre la tapa. <b>La grasa recortada se derrite y pasa a las Papas Rotas: cero desperdicio.</b></li>
+              <li><b>Rub.</b> Sal gruesa, pimienta molida gruesa, comino y ajo ahumado. Aplicar en toda la superficie 24 h antes y reposar en cámara a 2–4 °C.</li>
+              <li><b>Encendido.</b> Estabilizar el ahumador a 110–120 °C con quebracho blanco <em>antes</em> de cargar la pieza.</li>
+              <li><b>Fase 1 — 8 horas.</b> Quebracho blanco a 110 °C, grasa hacia arriba, sin abrir la cámara. Objetivo: formación de corteza (bark) y anillo de humo.</li>
+              <li><b>El estancamiento.</b> Entre 68 y 72 °C internos la temperatura se detiene. Envolver en papel de estraza y continuar sin subir el fuego.</li>
+              <li><b>Fase 2 — 4 horas.</b> Mezquite a 120 °C hasta 94–96 °C internos. Punto exacto: el termómetro entra sin resistencia, como en manteca.</li>
+              <li><b>Reposo obligatorio.</b> Mínimo 1 h envuelto, en mantenimiento a 60 °C. Sin este paso el jugo se pierde entero al primer corte.</li>
+              <li><b>Al pedido.</b> Rebanar a contrafibra en cortes de 1 cm sobre la mesita auxiliar, frente al comensal.</li>
+              <li><b>Montaje.</b> Tabla de madera, 280 g rebanados en abanico, salsa BBQ en pocillo aparte y sal en escamas. Sin guarnición encima.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="rec-h">Montaje y vajilla</div>
+            <p style="font-size:.85rem;color:var(--beige);">Tabla de madera maciza sin plato. Las rebanadas se disponen en
+            abanico con la corteza hacia el comensal, porque el contraste entre bark oscuro, anillo rosado y fibra
+            jugosa <em>es</em> el emplatado. La salsa nunca va encima: se sirve aparte para no tapar el humo.</p>
+
+            <div class="rec-h">Puntos críticos de control</div>
+            <div class="crit-tags">
+              <span class="crit-tag">Temperatura de cámara constante</span>
+              <span class="crit-tag">No cortar sin reposo</span>
+              <span class="crit-tag">Cambio de fibra entre punta y plana</span>
+              <span class="crit-tag">Descartar bajo 94 °C internos</span>
+              <span class="crit-tag">Trazabilidad del corte</span>
+            </div>
+
+            <div class="rec-note">
+              <b>Por qué está en la carta.</b> Es el ancla de identidad. Tiene el food cost más alto del menú, pero
+              también el mayor margen bruto por porción en pesos y es el único plato que no se puede copiar sin
+              montar la misma infraestructura de ahumado. Se produce por lote, no a la orden.
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-h">Análisis de costos</div>
+        <div class="rec-cost">
+          <div><div class="k">Costo por porción</div><div class="v">$10.853</div></div>
+          <div><div class="k">Food cost objetivo</div><div class="v">28 %</div></div>
+          <div class="hl"><div class="k">Precio de venta</div><div class="v">$39.500</div></div>
+          <div><div class="k">Margen bruto</div><div class="v">$28.647</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVA -->
+    <div class="comp-precio rv">
+      <div class="cp-side">
+        <div class="lbl">Piso de la carta</div>
+        <div class="nm">Batata al Rescoldo</div>
+        <div class="pr">$5.900</div>
+        <div class="fc">Food cost 21,4 % · margen $4.635</div>
+      </div>
+      <div class="cp-mid">
+        <div class="x">6,7×</div>
+        <div class="t">Amplitud de la carta</div>
+      </div>
+      <div class="cp-side">
+        <div class="lbl">Techo de la carta</div>
+        <div class="nm">Brisket Ahumado 12 Horas</div>
+        <div class="pr">$39.500</div>
+        <div class="fc">Food cost 27,5 % · margen $28.647</div>
+      </div>
+    </div>
+
+    <div class="qblock rv" style="margin-top:2rem;">
+      <p>Una carta sana necesita las dos puntas: el plato barato que casi no cuesta producir y sostiene el margen,
+      y el plato caro que nadie más puede hacer y sostiene la identidad. Leñado tiene los dos, y ambos salen del
+      mismo fuego.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LA CARTA EN IMÁGENES -->
+<section class="bg-carbon">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">04</span>Diseño de platos</p>
+      <h2 class="section-title">La carta, <em>plato por plato</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Referencias de emplatado para cada sección del menú. Todas comparten el mismo criterio:
+      producto protagonista, marca de fuego visible, un solo acento de color y soporte de madera, piedra o hierro.
+      Nunca plato blanco liso.</p>
+    </div>
+
+    <div class="rv" style="margin-top:2.5rem;"><div class="menu-section-title">Entradas</div></div>
+    <div class="photo-grid">
+      <figure class="pcard ov rv d1">
+        <div class="ph"><img src="img/plato-provoleta.jpg" alt="Provoleta dorada con chimichurri" loading="lazy"></div>
+        <figcaption class="cap"><h4>Provoleta al Horno de Leña</h4><p>Queso como único protagonista, verde del orégano como acento, borde tostado a 400 °C.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d2">
+        <div class="ph"><img src="img/plato-chorizo.jpg" alt="Chorizos criollos sobre la parrilla" loading="lazy"></div>
+        <figcaption class="cap"><h4>Chorizo Criollo de la Casa</h4><p>Piel tostada y humo suave de quebracho: la cocción a la vista vende tanto como el plato terminado.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d3">
+        <div class="ph"><img src="img/plato-tabla.jpg" alt="Tabla de madera con embutidos y pan" loading="lazy"></div>
+        <figcaption class="cap"><h4>Tabla de Ahumados</h4><p>Disposición lineal con superposición parcial y la tabla misma como vajilla.</p></figcaption>
+      </figure>
+    </div>
+
+    <div class="rv" style="margin-top:3rem;"><div class="menu-section-title">Platos principales</div></div>
+    <div class="photo-grid">
+      <figure class="pcard wide rv d1">
+        <div class="ph"><img src="img/plato-brisket.jpg" alt="Brisket ahumado rebanado" loading="lazy"></div>
+        <figcaption class="cap"><h4>Brisket Ahumado · 12 Horas</h4><p>El corte transversal <em>es</em> el emplatado: corteza oscura, anillo rosado de humo y fibra jugosa. No necesita guarnición ni salsa encima.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d2">
+        <div class="ph"><img src="img/plato-asado.jpg" alt="Parrillada de tiras de asado y achuras" loading="lazy"></div>
+        <figcaption class="cap"><h4>Asado de Tira a la Leña</h4><p>Tres horas a fuego indirecto sobre parrilla de hierro y ladrillo.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d1">
+        <div class="ph"><img src="img/plato-ribs.jpg" alt="Costillar de cerdo glaseado" loading="lazy"></div>
+        <figcaption class="cap"><h4>Ribs Glaseadas al Bourbon</h4><p>El brillo del glaseado es el recurso visual. En Leñado va sobre tabla, no sobre loza.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d2">
+        <div class="ph"><img src="img/plato-entrana.jpg" alt="Carne sellándose sobre llama directa" loading="lazy"></div>
+        <figcaption class="cap"><h4>Entraña al Fuego Vivo</h4><p>Sellado a alta temperatura con la llama lamiendo la pieza.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d3">
+        <div class="ph"><img src="img/plato-pesca.jpg" alt="Pescado sobre la parrilla con llamas" loading="lazy"></div>
+        <figcaption class="cap"><h4>Pesca del Día a las Brasas</h4><p>Producto del puerto local, brasa suave y aceite de hierbas sobre el fuego.</p></figcaption>
+      </figure>
+    </div>
+
+    <div class="rv" style="margin-top:3rem;"><div class="menu-section-title">Guarniciones y postres</div></div>
+    <div class="photo-grid">
+      <figure class="pcard ov rv d1">
+        <div class="ph"><img src="img/plato-papas.jpg" alt="Papas rotas doradas" loading="lazy"></div>
+        <figcaption class="cap"><h4>Papas Rotas en Grasa de Brisket</h4><p>Superficie rota y caramelizada, imposible sin grasa animal a alta temperatura.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d2">
+        <div class="ph"><img src="img/plato-choclo.jpg" alt="Choclo tatemado con queso" loading="lazy"></div>
+        <figcaption class="cap"><h4>Choclo Quemado a la Brasa</h4><p>Grano quemado disparejo: la evidencia de brasa directa que pide la carta.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d3">
+        <div class="ph"><img src="img/plato-brownie.jpg" alt="Postre de chocolate en capas" loading="lazy"></div>
+        <figcaption class="cap"><h4>Brownie con Dulce de Leche</h4><p>Marrones profundos sobre fondo oscuro y crema como único contraste claro.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d1">
+        <div class="ph"><img src="img/plato-quesos.jpg" alt="Selección de quesos con frutos secos" loading="lazy"></div>
+        <figcaption class="cap"><h4>Tabla de Quesos Artesanales</h4><p>Pocas piezas separadas, cada una con su acompañamiento. En Leñado, sobre madera oscura.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d2">
+        <div class="ph"><img src="img/plato-coctel.jpg" alt="Cóctel ámbar en vaso bajo sobre barra oscura" loading="lazy"></div>
+        <figcaption class="cap"><h4>Smoke &amp; Bourbon Old Fashioned</h4><p>Pocos elementos, ámbar protagonista, penumbra alrededor y humo al momento.</p></figcaption>
+      </figure>
+      <figure class="pcard ov rv d3">
+        <div class="ph"><img src="img/plato-vino.jpg" alt="Botellas de vino malbec en penumbra" loading="lazy"></div>
+        <figcaption class="cap"><h4>Vinos argentinos</h4><p>La botella como objeto de diseño, bajo el spot puntual de la mesa.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- SÍNTESIS -->
+<section class="bg-dark">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">05</span>Síntesis del relevamiento</p>
+      <h2 class="section-title">Cinco reglas <em>que ordenan todo</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Conclusiones transversales del análisis de las 21 referencias. Sirven de brief para la
+      producción fotográfica propia de la carta, las redes y la prensa.</p>
+    </div>
+    <div class="criticos-list">
+      <div class="crit-item rv d1">
+        <div class="crit-num">1</div>
+        <div class="crit-body">
+          <h4>El fuego visible es el activo número uno</h4>
+          <p>En todas las referencias que funcionan, el fuego o su evidencia directa —brasa, humo, corteza, quemado—
+          es lo que sostiene la imagen. Confirma la decisión central del proyecto y explica el potencial de
+          viralización en redes de la parrilla abierta.</p>
+        </div>
+      </div>
+      <div class="crit-item rv d2">
+        <div class="crit-num">2</div>
+        <div class="crit-body">
+          <h4>Tabla, piedra y hierro. Nunca plato blanco liso</h4>
+          <p>Las referencias más débiles del relevamiento comparten un mismo defecto: loza blanca genérica que borra
+          la identidad. Es la validación empírica de la regla de vajilla de la carta.</p>
+        </div>
+      </div>
+      <div class="crit-item rv d3">
+        <div class="crit-num">3</div>
+        <div class="crit-body">
+          <h4>Un solo acento de color por plato</h4>
+          <p>El verde del chimichurri, el morado del slaw, el rojo de las frutas maceradas. Sobre la base marrón y
+          tostada del fuego, un segundo acento ya compite con el producto.</p>
+        </div>
+      </div>
+      <div class="crit-item rv d4">
+        <div class="crit-num">4</div>
+        <div class="crit-body">
+          <h4>El corte es el emplatado</h4>
+          <p>Brisket rebanado, tira de asado, pescado abierto a la espalda. En la cocina de fuego, el interior de la
+          pieza es el argumento de venta, y rebanar frente al comensal convierte el emplatado en servicio.</p>
+        </div>
+      </div>
+      <div class="crit-item rv d5">
+        <div class="crit-num">5</div>
+        <div class="crit-body">
+          <h4>Luz ámbar puntual, penumbra general</h4>
+          <p>Las referencias de ambientación funcionan porque el entorno desaparece y la luz cálida golpea solo
+          mesa, plato y copa. Es la traducción fotográfica de la decisión de 2400K con velas y fuego de horno.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE DE VENTA -->
+<section class="bg-glow-bottom">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow"><span class="act">06</span>Cierre</p>
+      <h2 class="section-title">Vendeme <em>tu restaurante</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="close-hero rv">
+      <img src="img/amb-trinchado.jpg" alt="Trinchado de carne sobre tabla de madera" loading="lazy">
+      <div class="ch-in">
+        <h2>"Mar del Plata tiene cientos de restaurantes. Ninguno tiene este fuego."</h2>
+        <p>La carta está escrita, el plano está dibujado, los costos cierran, el equipo sabe cómo vestirse y cada
+        plato tiene su referencia visual. Leñado no es una idea que falta desarrollar: es un proyecto que solo
+        falta encender.</p>
+        <div class="close-pills">
+          <span>Cocina 100% a leña</span>
+          <span>Brisket 12 horas</span>
+          <span>À la carte · 4 secciones</span>
+          <span>Food cost 21–28 %</span>
+          <span>Identidad no copiable</span>
+          <span>Mar del Plata · 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pitch-diferencial" style="margin-top:3rem;">
+      <div class="pd-col rv d1">
+        <h3>Lo que el cliente se lleva</h3>
+        <ul>
+          <li>El aroma a leña desde la vereda, antes de ver el local</li>
+          <li>Una parrilla abierta que se mira mientras se espera</li>
+          <li>Un mozo que cuenta el proceso, no que recita la carta</li>
+          <li>El brisket rebanado en su mesa, no en la cocina</li>
+          <li>Una foto que va a subir a redes sin que se la pidan</li>
+          <li>La sensación de haber estado en un lugar, no en un local</li>
+        </ul>
+      </div>
+      <div class="pd-col rv d2">
+        <h3>Lo que el negocio se lleva</h3>
+        <ul>
+          <li>Food cost entre 21 % y 28 % en toda la carta</li>
+          <li>Carta corta de 4 platos por sección: compra simple y merma baja</li>
+          <li>Cero desperdicio del plato estrella, reutilizado en guarnición</li>
+          <li>Un plato ancla que ningún competidor puede replicar sin infraestructura</li>
+          <li>Producción por lote del brisket: no depende del pico de servicio</li>
+          <li>Marketing orgánico sostenido por el componente visual del fuego</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRÉDITOS -->
+<section class="bg-carbon" style="padding-top:4rem;">
+  <div class="container">
+    <div class="rv">
+      <p class="section-eyebrow">Anexo</p>
+      <h2 class="section-title">Créditos <em>y licencias</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Todas las fotografías provienen de bancos de imágenes con licencia Creative Commons que
+      admiten reutilización, relevadas mediante el buscador Openverse. Se usan como referencia visual con fines
+      académicos. Las figuras de uniformes son ilustraciones propias del proyecto.</p>
+    </div>
+    <div class="cred-wrap">
+      <table class="cred-table rv">
+        <tr><th>Imagen en esta página</th><th>Autor</th><th>Fuente</th><th>Licencia</th></tr>
+        <tr><td>Fuego de leña · hero y ambientación</td><td>Ruanon</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Leña estacionada</td><td>Horia Varlan</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Mesa con velas</td><td>miketnorton</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Barra de madera</td><td>Bernt Rostad</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Hierro fundido sobre brasas</td><td>Matt Bango</td><td class="src">Stocksnap</td><td class="src">CC0 · dominio público</td></tr>
+        <tr><td>Trinchado sobre tabla</td><td>TitiNicola</td><td class="src">Wikimedia Commons</td><td class="src">CC BY-SA 4.0</td></tr>
+        <tr><td>Provoleta</td><td>Laurel Fan</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Chorizos criollos</td><td>Dani_vr</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Tabla de fiambres</td><td>Didriks</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Brisket ahumado rebanado</td><td>jeffreyw</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Parrillada argentina</td><td>dr_pablogonzalez</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Costillar glaseado</td><td>goosmurf</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Carne sobre llama directa</td><td>WmJR</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Pescado a la parrilla</td><td>woodleywonderworks</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Papas rotas</td><td>Stacy Spensley</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Choclo a la brasa</td><td>Bethany Ann Khan</td><td class="src">Flickr</td><td class="src">CC BY-ND 2.0</td></tr>
+        <tr><td>Postre de chocolate</td><td>kimberlykv</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Tabla de quesos</td><td>Haydn Blackey</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Cóctel en barra</td><td>Ewan-M</td><td class="src">Flickr</td><td class="src">CC BY-SA 2.0</td></tr>
+        <tr><td>Vinos de Mendoza</td><td>longhorndave</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+        <tr><td>Batatas en el fuego · receta</td><td>Ironchefbalara</td><td class="src">Flickr</td><td class="src">CC BY 2.0</td></tr>
+      </table>
+    </div>
+    <p style="font-size:.75rem;color:var(--stone);margin-top:1.5rem;">Para uso comercial real del restaurante se
+    recomienda producción fotográfica propia siguiendo los criterios de la síntesis. Precios de insumos a valores de
+    plaza 2026, sujetos a actualización.</p>
+  </div>
+</section>
+
+</div>
+
 <footer>
   <div class="footer-grid">
     <div class="fb-brand">
@@ -2056,6 +3025,7 @@
         <li>Act. 6 — Pitch del proyecto</li>
         <li>Extra — Análisis comparativo</li>
         <li>TP — Plano del restaurante</li>
+        <li>+ — Contenido adicional</li>
       </ul>
     </div>
     <div class="fc">
@@ -2120,7 +3090,7 @@
 
   tabBtns.forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.tab)));
 
-  const valid=['inicio','identidad','menu','analisis','diseno','proyecto','plano'];
+  const valid=['inicio','identidad','menu','analisis','diseno','proyecto','plano','extra'];
   const hash=location.hash.replace('#','');
   activateTab(valid.includes(hash)?hash:'inicio',false);
 </script>
